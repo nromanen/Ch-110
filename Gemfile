@@ -10,6 +10,7 @@ gem 'sass-rails', '>= 6'
 gem 'slim-rails'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
+gem 'react-rails'
 gem 'devise'
 gem 'pundit'
 
@@ -43,3 +44,6 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
+# for windows
+# gem 'wdm'
