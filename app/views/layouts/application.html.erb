@@ -10,6 +10,11 @@
   </head>
 
   <body>
-    <%= yield %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <% if current_user %>
+    <a>You logged in as:</a> <%= current_user.inspect %>
+  <% end %>
+  <%= yield %>
   </body>
 </html>
