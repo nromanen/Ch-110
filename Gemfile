@@ -13,6 +13,7 @@ gem 'webpacker', '~> 4.0'
 gem 'react-rails'
 gem 'devise'
 gem 'pundit'
+gem 'dotenv-rails'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 
@@ -46,4 +47,4 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # for windows
-# gem 'wdm'
+gem 'wdm'
