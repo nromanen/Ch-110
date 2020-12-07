@@ -4,5 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
-  enum role: %i(admin manager doctor pacient)
+  enum role: %i(admin manager doctor patient)
 end
