@@ -18,10 +18,14 @@ ActiveRecord::Schema.define(version: 2020_12_02_180945) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.string "name"
     t.string "surname"
     t.string "phone_number"
-    t.integer "role", default: 0, null: false
+    t.integer "role", default: 3, null: false
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

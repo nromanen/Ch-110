@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  devise_for :users, controllers: { registrations: 'user/registrations',
+                                    sessions: 'user/sessions',
+                                    passwords: 'user/passwords',
+                                    confirmations: 'user/confirmations'}
+  get 'account' => 'users#show'
   root to: "home#index"
 end
