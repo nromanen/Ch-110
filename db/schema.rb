@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_180945) do
     t.string "surname"
     t.string "phone_number"
     t.integer "role", default: 3, null: false
-    t.boolean "is_active", default: false, null: false
+    t.boolean "is_active", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true

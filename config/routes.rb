@@ -5,6 +5,5 @@ Rails.application.routes.draw do
                                     passwords: 'user/passwords',
                                     confirmations: 'user/confirmations'}
   get 'account' => 'users#show'
-  # get 'info' => 'user#edit'
   root to: "home#index"
 end
