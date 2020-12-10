@@ -11,6 +11,7 @@ class PatientProfileController < ApplicationController
   end
 
   def show
+    render json: @patient_profile
   end
 
   def edit
