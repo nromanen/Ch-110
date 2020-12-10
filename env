@@ -1,6 +1,0 @@
-EMAIL='healthbookch@gmail.com'
-EMAIL_PASSWORD='Ruby#Ch-110'
-SENDGRID_PASSWORD='EmailService#Healthbook'
-Mailgun_api_key='4879ff27-948d5a2b'
-smtp_username='postmaster@sandbox3a77750679dc43d68c24c66efdc70b3d.mailgun.org'
-smtp_password='6f06e79e2748884573b8965511ae1269-4879ff27-baa30cd9'

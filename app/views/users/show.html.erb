@@ -26,3 +26,10 @@
 
 <%= link_to 'Edit account', edit_user_registration_path %>
 
+<% if @user %>
+  <%#= react_component 'ListOfDoctors', doctors: @doctors %>
+<% else %>
+  <%#= react_component 'ListOfDoctors', doctors: @doctors %>
+<% end %>
+
+
