@@ -4,6 +4,7 @@ class PatientProfileController < ApplicationController
 
   def index
     @patient_profiles = PatientProfile.all
+    @users = User.order(:name)
   end
 
   def new
@@ -18,7 +19,7 @@ class PatientProfileController < ApplicationController
   end
 
   def create
-    @patient_profile = PatientProfile.new(doctor_params)
+    @patient_profile = PatientProfile.new(patient_profile_params)
 
     if @patient_profile.save
       render json: @patient_profile, status: :created
@@ -28,7 +29,7 @@ class PatientProfileController < ApplicationController
   end
 
   def update
-    if @patient_profile.update(doctor_params)
+    if @patient_profile.update(patient_profile_params)
       render json: @patient_profile
     else
       render json: @patient_profile.errors, status: :unprocessable_entity
@@ -48,6 +49,6 @@ class PatientProfileController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def patient_profile_params
-    params.require(:patient_profile).permit(:height, :weight, :blood_type, :allergies)
+    params.require(:patient_profile).permit(:height, :weight, :blood_type, :allergies, :user_id)
   end
 end

@@ -2,24 +2,30 @@ import React from 'react'
 import { useState, useEffect } from "react"
 import axios from "axios"
 import PropTypes from "prop-types"
+import NewPatientProfile from "./NewPatientProfile";
+import EditPatientProfile from "./EditPatientProfile";
+import PatientProfile from "./PatientProfile";
 
 const ListOfPatientProfiles = props => {
+
+    const { patientProfiles = [], users = [] } = props
 
     const initialFormState = {
         height: '',
         weight: '',
         blood_type: '',
-        allergies: ''
+        allergies: '',
+        user_id: users[0].id || 1
     }
 
-    const { patientProfiles } = props
     const [profiles, setProfiles] = useState([])
     const [editing, setEditing] = useState(false)
     const [currentProfile, setCurrentProfile] = useState(initialFormState)
     const [errorsFromController, setErrorsFromController] = useState({})
 
-    useEffect(() => {
-        setProfiles(patientProfiles, () => console.log(profiles))
+    useEffect(  () => {
+        setProfiles(patientProfiles)
+        console.log(patientProfiles)
     }, [])
 
     const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
@@ -28,10 +34,10 @@ const ListOfPatientProfiles = props => {
         'X-CSRF-Token': csrf
     }
 
-    const addProfile = profile => {
+    const addProfile = patient_profile => {
         axios.post(
             '/patient_profile',
-            { profile },
+            { patient_profile },
             { headers: headers }
         )
             .then(res => {
@@ -63,9 +69,11 @@ const ListOfPatientProfiles = props => {
         setEditing(true)
         setCurrentProfile({
             id: profile.id,
-            name: profile.name,
-            position: profile.position,
-            img: profile.img
+            height: profile.height,
+            weight: profile.weight,
+            blood_type: profile.blood_type,
+            allergies: profile.allergies,
+            user_id: profile.user_id
         })
     }
 
@@ -73,13 +81,13 @@ const ListOfPatientProfiles = props => {
         setEditing(false)
 
         axios.patch(
-            `profiles/${updatedProfile.id}`,
-            { profile: updatedProfile },
+            `patient_profile/${updatedProfile.id}`,
+            { patient_profile: updatedProfile },
             { headers: headers }
         )
             .then(res => {
                 console.log(res)
-                setProfiles(profiles.map(profile => (profile.id === updatedProfile.id) ? updateProfile : profile))
+                setProfiles(profiles.map(profile => (profile.id === updatedProfile.id) ? updatedProfile : profile))
                 setErrorsFromController({})
             })
             .catch(error => {
@@ -100,14 +108,15 @@ const ListOfPatientProfiles = props => {
             { displayErrors }
             <div>
                 { editing ? (
-                    <EditProfileForm
+                    <EditPatientProfile
                         currentProfile={ currentProfile }
                         setEditing={ setEditing }
                         updateProfile={ updateProfile }
                         setErrorsFromController={ setErrorsFromController }
                     />
                 ) : (
-                    <NewProfileForm
+                    <NewPatientProfile
+                        users={ users }
                         addProfile={ addProfile }
                         initialFormState={ initialFormState }/>
                 )}
@@ -115,16 +124,19 @@ const ListOfPatientProfiles = props => {
             <br/>
             <h3>Profiles :</h3>
             <br/>
-            <Profile
-                profiles={ profiles }
+            {profiles.map(profile => <PatientProfile
+                user={profile}
+                key={profile.id}
+                profile={ profile }
                 deleteProfile={ deleteProfile }
                 editProfile={ editProfile }
-                editing={ editing }
-            />
+                editing={ editing } />
+                )
+            }
         </div>
     )
 }
 ListOfPatientProfiles.propTypes = {
-    patientProfiles: PropTypes.array
+    patientProfiles: PropTypes.string
 };
 export default  ListOfPatientProfiles
