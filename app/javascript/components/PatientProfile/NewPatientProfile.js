@@ -24,13 +24,33 @@ const NewProfileForm = props => {
         }}>
             <h3>Create profile</h3>
             <label>Height</label>
-            <input type="number" name="height" value={profile.height} onChange={handleInputChange} ></input>
+            <input
+                type="number"
+                name="height"
+                value={profile.height}
+                onChange={handleInputChange} >
+            </input>
             <label>Weight</label>
-            <input type="number" name="weight" value={profile.weight} onChange={handleInputChange} ></input>
+            <input
+                type="number"
+                name="weight"
+                value={profile.weight}
+                onChange={handleInputChange} >
+            </input>
             <label>Blood type</label>
-            <input type="number" name="blood_type" value={profile.blood_type} onChange={handleInputChange} ></input>
+            <input
+                type="number"
+                name="blood_type"
+                value={profile.blood_type}
+                onChange={handleInputChange} >
+            </input>
             <label>Allergies</label>
-            <input type="text" name="allergies" value={profile.allergies} onChange={handleInputChange} ></input>
+            <input
+                type="text"
+                name="allergies"
+                value={profile.allergies}
+                onChange={handleInputChange} >
+            </input>
             <div onChange={handleInputChange}>
                 <p>Gender</p>
                 <input type="radio" value='male' name="gender" /> Male
