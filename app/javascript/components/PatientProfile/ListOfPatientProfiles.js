@@ -20,7 +20,7 @@ const ListOfPatientProfiles = props => {
 
     const [profiles, setProfiles] = useState([])
     const [editing, setEditing] = useState(false)
-    const [currentProfile, setCurrentProfile] = useState(initialFormState)
+    const [currentProfile, setCurrentProfile] = useState({})
     const [errorsFromController, setErrorsFromController] = useState({})
 
     useEffect(  () => {
@@ -67,14 +67,8 @@ const ListOfPatientProfiles = props => {
 
     const editProfile = profile => {
         setEditing(true)
-        setCurrentProfile({
-            id: profile.id,
-            height: profile.height,
-            weight: profile.weight,
-            blood_type: profile.blood_type,
-            allergies: profile.allergies,
-            user_id: profile.user_id
-        })
+        setCurrentProfile( profile )
+        console.log(currentProfile)
     }
 
     const updateProfile = updatedProfile => {
@@ -137,6 +131,6 @@ const ListOfPatientProfiles = props => {
     )
 }
 ListOfPatientProfiles.propTypes = {
-    patientProfiles: PropTypes.string
+    patientProfiles: PropTypes.array
 };
 export default  ListOfPatientProfiles

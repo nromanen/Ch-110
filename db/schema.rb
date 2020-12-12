@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_10_052033) do
+ActiveRecord::Schema.define(version: 2020_12_11_222051) do
 
   create_table "patient_profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "weight"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2020_12_10_052033) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "gender"
+    t.boolean "is_insured", default: false
     t.index ["user_id"], name: "index_patient_profiles_on_user_id"
   end
 

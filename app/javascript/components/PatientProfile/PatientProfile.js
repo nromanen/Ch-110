@@ -20,7 +20,11 @@ const PatientProfile = ({ profile, deleteProfile, editProfile, editing }) => {
                 { editing ?
                     null
                     : (
-                        <button onClick={() => editProfile(profile)}>
+                        <button onClick={() => {
+                            console.log(profile)
+                            editProfile(profile)
+                            }
+                        }>
                             Edit
                         </button>
                     )}
