@@ -3,7 +3,6 @@
 class User::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
-
   # GET /resource/sign_up
   def new
     super
@@ -26,7 +25,11 @@ class User::RegistrationsController < Devise::RegistrationsController
 
   # DELETE /resource
   def destroy
-    super
+    current_user.is_active = false
+    current_user.save
+    sign_out current_user
+    flash[:notice] = "Your account was successfully deleted."
+    redirect_to root_path
   end
 
   # GET /resource/cancel
