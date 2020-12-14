@@ -17,6 +17,10 @@ class DoctorProfileController < ApplicationController
     render json: @doctor_profile
   end
 
+  def show_by_query_params
+
+  end
+
   def edit
   end
 
