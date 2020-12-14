@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :doctor_profile
   resources :patient_profile
 
   devise_for :users, controllers: { registrations: 'user/registrations',

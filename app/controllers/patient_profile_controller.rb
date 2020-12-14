@@ -25,6 +25,7 @@ class PatientProfileController < ApplicationController
       render json: @patient_profile, status: :created
     else
       render json: @patient_profile.errors, status: :unprocessable_entity
+      # render json: {message: 'rere'}, status: :unprocessable_entity
     end
   end
 
