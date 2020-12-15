@@ -2,6 +2,7 @@
 <section class="devise">
   <div class="container">
     <h2><b><%= "#{@user.name} #{@user.surname}" %></b></h2>
+    <div class="container">
     <p>
       <strong>Email:</strong>
       <%= @user.email %>
@@ -19,6 +20,7 @@
   <% if @user.role == 'doctor' %>
     <span class="psw"><%= link_to 'Doctor Profile' %></span>
   <% end %>
+  </div>
 
 
 </section>
