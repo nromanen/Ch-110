@@ -7,13 +7,14 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
 
   <body>
-  <%= link_to 'Home', root_url %> <%= (link_to 'My account', account_path) if current_user %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <%= yield %>
+  <%= render "shared/navigation" %>
+  <%= render "shared/flash" %>
+  <div class="container">
+    <%= yield %>
+  </div>
   </body>
 </html>

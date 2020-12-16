@@ -65,10 +65,19 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # SMTP settings for Mailgun:
+  # config.action_mailer.smtp_settings = {
+  #     :address              => 'smtp.mailgun.org',
+  #     :port                 => 587,
+  #     :user_name            => ENV['smtp_username'],
+  #     :password             => ENV['smtp_password'],
+  # }
+
   config.action_mailer.smtp_settings = {
-      :address              => 'smtp.mailgun.org',
+      :address              => 'smtp.gmail.com',
       :port                 => 587,
-      :user_name            => ENV['smtp_username'],
-      :password             => ENV['smtp_password'],
+      :user_name            => ENV['email'],
+      :password             => ENV['email_password'],
+      :authentication       => 'plain',
+      :enable_starttls_auto => true
   }
 end

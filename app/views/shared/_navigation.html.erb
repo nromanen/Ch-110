@@ -1,0 +1,16 @@
+<header class="main" xmlns="http://www.w3.org/1999/html">
+  <div class="topnav">
+    <a class="active" href="/">Home</a>
+    <a href="#news">News</a>
+    <a href="#contact">Contact</a>
+    <div class="topnav-right">
+      <% if current_user %>
+        <%= link_to "#{current_user.name} #{current_user.surname}", account_path %>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to 'Login', new_user_session_path %>
+        <%= link_to 'Sign Up', new_user_registration_path %>
+      <% end %>
+    </div>
+  </div>
+</header>
