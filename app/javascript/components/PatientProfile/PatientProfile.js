@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import axios from "axios";
 
 
-const PatientProfile = ({ profile, deleteProfile, editProfile, editing }) => {
+const PatientProfile = ({ profile, deleteProfile, editProfile, editing, user }) => {
 
     // useEffect(() => {
     //     axios.get(`/user/${profile.user_id}`)
@@ -11,12 +11,14 @@ const PatientProfile = ({ profile, deleteProfile, editProfile, editing }) => {
     // }, [])
 
     return (
-            <div key={profile.id}>
-                <h3>{profile.user_id}</h3>
-                <p>Height: {profile.height}</p>
-                <p>Weight: {profile.weight}</p>
-                <p>Blood type: {profile.blood_type}</p>
-                <p>Allergies: {profile.allergies}</p>
+            <div key={ profile.id }>
+                <h3>{ profile.user_id }</h3>
+                <p>Height: { profile.height }</p>
+                <p>Weight: { profile.weight }</p>
+                <p>Blood type: { profile.blood_type }</p>
+                <p>Allergies: { profile.allergies }</p>
+                <p>Gender: { profile.gender }</p>
+                <p>Is insured: { String(profile.is_insured) }</p>
                 { editing ?
                     null
                     : (

@@ -5,6 +5,7 @@ class PatientProfileController < ApplicationController
   def index
     @patient_profiles = PatientProfile.all
     @users = User.order(:name)
+    @enum_blood_types = PatientProfile.blood_types
   end
 
   def new
@@ -24,7 +25,7 @@ class PatientProfileController < ApplicationController
     if @patient_profile.save
       render json: @patient_profile, status: :created
     else
-      render json: @patient_profile.errors, status: :unprocessable_entity
+      render json: @patient_profile.errors, status: :unprocessable_entity   #errors.full_messages
       # render json: {message: 'rere'}, status: :unprocessable_entity
     end
   end

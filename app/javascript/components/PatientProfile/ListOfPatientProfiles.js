@@ -5,27 +5,37 @@ import PropTypes from "prop-types"
 import NewPatientProfile from "./NewPatientProfile";
 import EditPatientProfile from "./EditPatientProfile";
 import PatientProfile from "./PatientProfile";
+import SimpleAlerts from './Alert'
 
 const ListOfPatientProfiles = props => {
 
-    const { patientProfiles = [], users = [] } = props
+    const { patientProfiles = [], users = [], enum_blood_types = {} } = props
 
-    const initialFormState = {
+    let initialForm = {
         height: '',
         weight: '',
         blood_type: '',
         allergies: '',
+        gender: 'male',
+        is_insured: false,
         user_id: users[0].id || 1
+    }
+
+    const mainDiv = {
+        display: 'flex',
+        justifyContent: 'space-around'
     }
 
     const [profiles, setProfiles] = useState([])
     const [editing, setEditing] = useState(false)
     const [currentProfile, setCurrentProfile] = useState({})
     const [errorsFromController, setErrorsFromController] = useState({})
+    const [initialFormState, setInitialFormState] = useState( initialForm )
 
     useEffect(  () => {
         setProfiles(patientProfiles)
         console.log(patientProfiles)
+        console.log(enum_blood_types)
     }, [])
 
     const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
@@ -43,10 +53,12 @@ const ListOfPatientProfiles = props => {
             .then(res => {
                 console.log(res.data)
                 setProfiles( [...profiles, res.data])
+                setInitialFormState(initialForm)
                 setErrorsFromController({})
             })
             .catch( error => {
-                console.log(error.response.data )
+                console.log((error))
+                setInitialFormState(JSON.parse(error.response.config.data).patient_profile)
                 setErrorsFromController(error.response.data)
             })
     };
@@ -68,6 +80,7 @@ const ListOfPatientProfiles = props => {
     const editProfile = profile => {
         setEditing(true)
         setCurrentProfile( profile )
+        setErrorsFromController({})
         console.log(currentProfile)
     }
 
@@ -93,40 +106,49 @@ const ListOfPatientProfiles = props => {
 
     let errors = []
     for (let key in errorsFromController) {
-        errorsFromController[key].forEach(item => errors.push(`${key}: ${item}`))
+        errorsFromController[key].forEach(item => errors.push(`${ key }: ${ item }`))
     }
-    const displayErrors = errors.map((item, index) => <p key={index}>{item}</p>)
+    console.log(errors)
+    const displayErrors = errors.map((item, index) => {
+        // return (<p key={index}>{item}</p>)
+        return (
+            <SimpleAlerts key={ index } message={ item } />
+            )
+    })
 
     return (
-        <div>
-            { displayErrors }
+        <div style={ mainDiv }>
             <div>
+                { displayErrors }
                 { editing ? (
                     <EditPatientProfile
                         currentProfile={ currentProfile }
+                        user={ users.find(item => item.id === currentProfile.user_id) }
                         setEditing={ setEditing }
                         updateProfile={ updateProfile }
+                        enum_blood_types={ enum_blood_types }
                         setErrorsFromController={ setErrorsFromController }
                     />
                 ) : (
                     <NewPatientProfile
                         users={ users }
                         addProfile={ addProfile }
+                        enum_blood_types={ enum_blood_types }
                         initialFormState={ initialFormState }/>
                 )}
             </div>
-            <br/>
-            <h3>Profiles :</h3>
-            <br/>
-            {profiles.map(profile => <PatientProfile
-                user={profile}
-                key={profile.id}
-                profile={ profile }
-                deleteProfile={ deleteProfile }
-                editProfile={ editProfile }
-                editing={ editing } />
+            <div>
+                <h3>Profiles :</h3>
+                {profiles.map(profile => <PatientProfile
+                    user={ profile }
+                    key={ profile.id }
+                    profile={ profile }
+                    deleteProfile={ deleteProfile }
+                    editProfile={ editProfile }
+                    editing={ editing } />
                 )
-            }
+                }
+            </div>
         </div>
     )
 }
