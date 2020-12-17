@@ -1,0 +1,38 @@
+<%= form_with(model: visit, local: true) do |form| %>
+  <% if visit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(visit.errors.count, "error") %> prohibited this visit from being saved:</h2>
+
+      <ul>
+        <% visit.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :patient_id %>
+    <%= form.select :patient_id, User.where(:role => 'patient').order(:surname).map{ |pat| ["#{pat.surname} #{pat.name}", pat.id]}%>
+  </div>
+
+  <div class="field">
+    <%= form.label :doctor_id %>
+    <%= form.select :doctor_id, User.where(:role => 'doctor').order(:surname).map{ |doc| ["#{doc.surname} #{doc.name}", doc.id]}%>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_time %>
+    <%= form.datetime_select :start_time, default: 1.hours.from_now, minute_step: 5,
+                             start_year:Date.today.year, end_year: Date.today.year + 1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :visit_type_id %>
+    <%= form.select :visit_type_id, VisitType.all.order(:length).map{ |vt| ["#{vt.name} - #{vt.length}", vt.id]}%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Confirm an appointment' %>
+  </div>
+<% end %>

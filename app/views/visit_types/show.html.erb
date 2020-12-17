@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Name:</strong>
+  <%= @visit_type.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @visit_type.description %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @visit_type.length %>
+</p>
+
+<%= link_to 'Edit', edit_visit_type_path(@visit_type) %> |
+<%= link_to 'Back', visit_types_path %>
+
