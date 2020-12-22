@@ -2,6 +2,8 @@ class PatientProfileController < ApplicationController
 
   before_action :set_patient_profile, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
+  before_action :is_admin
+
 
   def index
 
@@ -75,4 +77,11 @@ class PatientProfileController < ApplicationController
   def patient_profile_params
     params.require(:patient_profile).permit(:height, :weight, :blood_type, :allergies, :is_insured, :gender, :user_id)
   end
+
+  def is_admin
+    unless current_user && current_user.role == 'admin'
+      redirect_to root_path, alert: 'You are not admin'
+    end
+  end
+
 end

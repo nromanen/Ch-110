@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_12_120614) do
+ActiveRecord::Schema.define(version: 2020_12_17_134504) do
 
   create_table "doctor_profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "photo_path"
@@ -56,9 +56,6 @@ ActiveRecord::Schema.define(version: 2020_12_12_120614) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "doctor_profiles", "users"
-  add_foreign_key "patient_profiles", "users"
-
   create_table "visit_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -81,6 +78,8 @@ ActiveRecord::Schema.define(version: 2020_12_12_120614) do
     t.index ["visit_type_id"], name: "index_visits_on_visit_type_id"
   end
 
+  add_foreign_key "doctor_profiles", "users"
+  add_foreign_key "patient_profiles", "users"
   add_foreign_key "visits", "users", column: "created_by_id"
   add_foreign_key "visits", "users", column: "doctor_id"
   add_foreign_key "visits", "users", column: "patient_id"
