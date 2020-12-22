@@ -29,7 +29,7 @@ const ListOfPatientProfiles = props => {
     const [profiles, setProfiles] = useState([])
     const [editing, setEditing] = useState(false)
     const [currentProfile, setCurrentProfile] = useState({})
-    const [errorsFromController, setErrorsFromController] = useState({})
+    const [errorsFromController, setErrorsFromController] = useState([])
     const [initialFormState, setInitialFormState] = useState( initialForm )
 
     useEffect(  () => {
@@ -54,7 +54,7 @@ const ListOfPatientProfiles = props => {
                 console.log(res.data)
                 setProfiles( [...profiles, res.data])
                 setInitialFormState(initialForm)
-                setErrorsFromController({})
+                setErrorsFromController([])
             })
             .catch( error => {
                 console.log((error))
@@ -80,7 +80,7 @@ const ListOfPatientProfiles = props => {
     const editProfile = profile => {
         setEditing(true)
         setCurrentProfile( profile )
-        setErrorsFromController({})
+        setErrorsFromController([])
         console.log(currentProfile)
     }
 
@@ -95,7 +95,7 @@ const ListOfPatientProfiles = props => {
             .then(res => {
                 console.log(res)
                 setProfiles(profiles.map(profile => (profile.id === updatedProfile.id) ? updatedProfile : profile))
-                setErrorsFromController({})
+                setErrorsFromController([])
             })
             .catch(error => {
                 console.log(error.response.data )
@@ -104,13 +104,12 @@ const ListOfPatientProfiles = props => {
             })
     }
 
-    let errors = []
-    for (let key in errorsFromController) {
-        errorsFromController[key].forEach(item => errors.push(`${ key }: ${ item }`))
-    }
-    console.log(errors)
-    const displayErrors = errors.map((item, index) => {
-        // return (<p key={index}>{item}</p>)
+    // let errors = []
+    // for (let key in errorsFromController) {
+    //     errorsFromController[key].forEach(item => errors.push(`${ key }: ${ item }`))
+    // }
+    // console.log(errors)
+    const displayErrors = errorsFromController.map((item, index) => {
         return (
             <SimpleAlerts key={ index } message={ item } />
             )

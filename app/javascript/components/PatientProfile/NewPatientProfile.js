@@ -10,21 +10,9 @@ const NewProfileForm = props => {
     },[props.initialFormState])
 
     const handleInputChange = event => {
-        const { name, value } = event.target
-        setProfile({ ...profile, [name]: value })
+        const { type, checked, name, value } = event.target;
+        setProfile({ ...profile, [name]: type === 'checkbox' ? checked : value })
     };
-
-    const handleBooleanRadio = event => {
-        const { name, value } = event.target
-        console.log(event.target)
-        if (value.toLowerCase() === "true") {
-            setProfile({...profile, [name]: true})
-        }
-        if (value.toLowerCase() === "false") {
-            setProfile({...profile, [name]: false})
-        }
-        // setProfile({...profile, [name]: Boolean(value)})
-    }
 
 
     return (
@@ -82,28 +70,27 @@ const NewProfileForm = props => {
                     defaultChecked={ profile.gender === 'female' }
                 /> Female
             </div><br/>
-            <div onChange={ handleBooleanRadio }>
-                <span>Is insured: </span>
+            <div>
+                <label
+                    htmlFor="isInsured">
+                    Is insured:
+                </label>
                 <input
-                    type="radio"
-                    value='true'
+                    type="checkbox"
+                    id="isInsured"
                     name="is_insured"
-                    defaultChecked={ profile.is_insured === true }
-                /> True
-                <input
-                    type="radio"
-                    value='false'
-                    name="is_insured"
-                    defaultChecked={ profile.is_insured === false }
-                /> False
+                    checked={ profile.is_insured }
+                    onChange={ handleInputChange }
+                />
             </div><br/>
-            {/*<div>*/}
-            {/*    <input type="checkbox" id="isInsured" name="is_insured" value="true" />*/}
-            {/*    <label htmlFor="isInsured" >Is insured: </label><br/>*/}
-            {/*</div>*/}
             <label>Blood type: </label><br/>
-            <select name='blood_type' value={ profile.blood_type } onChange={ handleInputChange }>
-                <option value=''>Choose your type of blood ...</option>                { Object.keys(props.enum_blood_types).map((key, index) => <option
+            <select
+                name='blood_type'
+                value={ profile.blood_type }
+                onChange={ handleInputChange }
+            >
+                <option value=''>Choose your type of blood ...</option>
+                { Object.keys(props.enum_blood_types).map((key, index) => <option
                     key={ index }
                     value={ key }>
                     { key }
@@ -114,4 +101,4 @@ const NewProfileForm = props => {
     )
 }
 
-export default NewProfileForm;
+export default NewProfileForm

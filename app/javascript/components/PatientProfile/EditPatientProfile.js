@@ -14,15 +14,9 @@ const EditProfileForm = ( props ) => {
     const [profile, setProfile] = useState(currentProfile);
 
     const handleInputChange = event => {
-        const { name, value } = event.target
-        setProfile({ ...profile, [name]: value })
+        const { type, checked, name, value } = event.target;
+        setProfile({ ...profile, [name]: type === 'checkbox' ? checked : value })
     };
-
-    const handleBooleanRadio = event => {
-        const { name, value } = event.target
-        setProfile({...profile, [name]: Boolean(value)})
-    }
-
 
     return (
         <form onSubmit={ event => {
@@ -66,20 +60,18 @@ const EditProfileForm = ( props ) => {
                     name="gender"
                     defaultChecked={ profile.gender === "female" } /> Female
             </div><br/>
-            <div onChange={ handleBooleanRadio }>
-                <span>Is insured: </span>
+            <div>
+                <label
+                    htmlFor="isInsured">
+                    Is insured:
+                </label>
                 <input
-                    type="radio"
-                    value={ true }
+                    type="checkbox"
+                    id="isInsured"
                     name="is_insured"
-                    defaultChecked={ profile.is_insured === true }
-                /> True
-                <input
-                    type="radio"
-                    value={ false }
-                    name="is_insured"
-                    defaultChecked={ profile.is_insured === false }
-                /> False
+                    checked={ profile.is_insured }
+                    onChange={ handleInputChange }
+                />
             </div><br/>
             <label>Blood type: </label><br/>
             <select
@@ -87,6 +79,7 @@ const EditProfileForm = ( props ) => {
                 value={ profile.blood_type }
                 onChange={ handleInputChange }
             >
+                <option value=''>Choose your type of blood ...</option>
                 {Object.keys(enum_blood_types).map((key, index) => <option
                     key={ index }
                     value={ key }>
@@ -101,8 +94,8 @@ const EditProfileForm = ( props ) => {
             <button>Update profile</button>
             <button onClick={() => {
                 setEditing(false)
-                setErrorsFromController({})
-            }
+                setErrorsFromController([])
+                }
             }>
                 Cancel
             </button>
@@ -111,4 +104,4 @@ const EditProfileForm = ( props ) => {
     )
 }
 
-export default EditProfileForm;
+export default EditProfileForm

@@ -1,8 +1,23 @@
 class PatientProfileController < ApplicationController
 
   before_action :set_patient_profile, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
 
   def index
+
+    if params[:user_id]
+      @patient_profile = PatientProfile.find_by(user_id: params[:user_id])
+      puts 'hello from users table ============'
+      puts params[:user_id]
+      puts @patient_profile
+
+      if @patient_profile.nil?
+        render json: { message: 'no profile' }
+      else
+        render json: @patient_profile
+      end
+    end
+
     @patient_profiles = PatientProfile.all
     @users = User.order(:name)
     @enum_blood_types = PatientProfile.blood_types
@@ -17,6 +32,8 @@ class PatientProfileController < ApplicationController
   end
 
   def edit
+    @enum_blood_types = PatientProfile.blood_types
+    render json: @patient_profile
   end
 
   def create
@@ -25,7 +42,7 @@ class PatientProfileController < ApplicationController
     if @patient_profile.save
       render json: @patient_profile, status: :created
     else
-      render json: @patient_profile.errors, status: :unprocessable_entity   #errors.full_messages
+      render json: @patient_profile.errors.full_messages, status: :unprocessable_entity   #errors.full_messages
       # render json: {message: 'rere'}, status: :unprocessable_entity
     end
   end
@@ -34,13 +51,18 @@ class PatientProfileController < ApplicationController
     if @patient_profile.update(patient_profile_params)
       render json: @patient_profile
     else
-      render json: @patient_profile.errors, status: :unprocessable_entity
+      render json: @patient_profile.errors.full_messages, status: :unprocessable_entity
     end
   end
 
   def destroy
     @patient_profile.destroy
     render json: @patient_profile
+  end
+
+  def get_items
+    @patient_profiles = PatientProfile.all
+    render json: @patient_profiles
   end
 
   private
