@@ -9,6 +9,8 @@ Rails.application.routes.draw do
                                     passwords: 'user/passwords',
                                     confirmations: 'user/confirmations'}
   get 'account' => 'users#show'
+  resources :visits, except: [:edit, :update]
+  resources :visit_types
   root to: "home#index"
 
   match '/admin/*path', to: 'admin#index', via: :all

@@ -1,0 +1,40 @@
+<aside id="notice"><%= notice %></aside>
+<aside style="color:red;"><%= alert %></aside>
+
+<h1>Visit types</h1>
+<table class="table">
+    <tfoot>
+    <tr>
+        <td colspan="3">
+            <%= link_to 'New Visit type', new_visit_type_path %>
+        </td>
+    </tr>
+    </tfoot>
+    <tbody>
+    <% @visit_types.each do |vt| %>
+    <tr>
+        <td class="description">
+            <h2><%= vt.name %></h2>
+            <h4>
+              <%= vt.description %>
+            </h4>
+            <h4>
+              <%= "duration: " %><%= vt.length %><%= " minutes" %>
+            </h4>
+        </td>
+        <td class="actions">
+            <ul>
+                <li><%= link_to 'Show', vt %></li>
+                <li><%= link_to 'Edit', visit_type_path(vt) %></li>
+                <li>
+                    <%= link_to 'Delete',
+                                vt,
+                                method: :delete,
+                                data: { confirm: 'Are you sure?' } %>
+                </li>
+            </ul>
+        </td>
+    </tr>
+    <% end %>
+    </tbody>
+</table>

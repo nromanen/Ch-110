@@ -58,4 +58,31 @@ ActiveRecord::Schema.define(version: 2020_12_12_120614) do
 
   add_foreign_key "doctor_profiles", "users"
   add_foreign_key "patient_profiles", "users"
+
+  create_table "visit_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.integer "length"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "visits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "patient_id", null: false
+    t.bigint "doctor_id", null: false
+    t.datetime "start_time"
+    t.bigint "visit_type_id", null: false
+    t.bigint "created_by_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["created_by_id"], name: "index_visits_on_created_by_id"
+    t.index ["doctor_id"], name: "index_visits_on_doctor_id"
+    t.index ["patient_id"], name: "index_visits_on_patient_id"
+    t.index ["visit_type_id"], name: "index_visits_on_visit_type_id"
+  end
+
+  add_foreign_key "visits", "users", column: "created_by_id"
+  add_foreign_key "visits", "users", column: "doctor_id"
+  add_foreign_key "visits", "users", column: "patient_id"
+  add_foreign_key "visits", "visit_types"
 end

@@ -1,10 +1,9 @@
-<h2>Edit Account</h2>
-
 <section class="devise">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="container">
+    <h2>Edit Account</h2>
     <div class="field">
       <%= f.label :name %><br />
       <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
@@ -46,13 +45,14 @@
     <div class="actions">
       <%= f.submit "Update", class: 'button' %>
     </div>
-    <div>
-      <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" },
-                    method: :delete, class: 'cancelbtn' %>
-    </div>
+
+    <span class="psw"><%= link_to "I want to delete my account", registration_path(resource_name),
+                                  data: { confirm: "Are you sure?" },
+                                  method: :delete %>
+    </span>
   </div>
 <% end %>
 
-  <span class="psw"><%= link_to "Back", :back, class: 'backbtn' %></span>
+  <%#= react_component("Devise/Registration/EditRegistration", {authenticity_token:form_authenticity_token}) %>
 
 </section>
