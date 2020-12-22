@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Patient:</strong>
+  <%= @visit.patient.name %> <%= @visit.patient.surname %>
+</p>
+
+<p>
+  <strong>Doctor:</strong>
+  <%= @visit.doctor.name %> <%= @visit.doctor.surname %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @visit.start_time.strftime("%d.%m.%Y %H:%M") %>
+</p>
+
+<p>
+  <strong>Visit type:</strong>
+  <%= @visit.visit_type.name %> <%= @visit.visit_type.length %>
+</p>
+
+<p>
+  <strong>Created by:</strong>
+  <%= @visit.created_by.name %> <%= @visit.created_by.surname %>
+</p>
+
+<%= link_to 'Back', visits_path %> |
+<%= link_to 'Destroy', @visit, method: :delete, data: { confirm: 'Are you sure?' } %>

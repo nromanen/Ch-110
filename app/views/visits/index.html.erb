@@ -1,0 +1,39 @@
+<aside id="notice"><%= notice %></aside>
+<aside style="color:red;"><%= alert %></aside>
+
+<h1>Visits:</h1>
+<% if @visits.empty? %>
+  <h4>You don't have visits right now:</h4>
+<% end %>
+<% unless @visits.empty? %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Patient</th>
+      <th>Doctor</th>
+      <th>Start time</th>
+      <th>Visit type</th>
+      <th>Created by</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @visits.each do |visit| %>
+      <tr>
+        <% dt_format = "%d-%m-%Y %H:%M" %>
+        <td><%= "#{visit.patient.name} #{visit.patient.surname}" %></td>
+        <td><%= "#{visit.doctor.name} #{visit.doctor.surname}" %></td>
+        <td><%= visit.start_time.strftime(dt_format) %></td>
+        <td><%= "#{visit.visit_type.name} (#{visit.visit_type.length})" %></td>
+        <td><%= "#{visit.created_by.name} #{visit.created_by.surname}" %></td>
+
+        <td><%= link_to 'Show', visit %></td>
+        <td><%= link_to 'Cancel', visit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
+
+<%= link_to 'New Visit', new_visit_path %>
