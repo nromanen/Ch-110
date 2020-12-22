@@ -12,6 +12,29 @@
 
 ActiveRecord::Schema.define(version: 2020_12_17_134504) do
 
+  create_table "doctor_profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "photo_path"
+    t.integer "specialization"
+    t.text "description"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_doctor_profiles_on_user_id"
+  end
+
+  create_table "patient_profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "weight"
+    t.integer "height"
+    t.integer "blood_type"
+    t.string "allergies"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "gender"
+    t.boolean "is_insured", default: false
+    t.index ["user_id"], name: "index_patient_profiles_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -55,6 +78,8 @@ ActiveRecord::Schema.define(version: 2020_12_17_134504) do
     t.index ["visit_type_id"], name: "index_visits_on_visit_type_id"
   end
 
+  add_foreign_key "doctor_profiles", "users"
+  add_foreign_key "patient_profiles", "users"
   add_foreign_key "visits", "users", column: "created_by_id"
   add_foreign_key "visits", "users", column: "doctor_id"
   add_foreign_key "visits", "users", column: "patient_id"

@@ -3,24 +3,24 @@
   <div class="container">
     <h2><b><%= "#{@user.name} #{@user.surname}" %></b></h2>
     <div class="container">
-    <p>
-      <strong>Email:</strong>
-      <%= @user.email %>
-    </p>
+      <p>
+        <strong>Email:</strong>
+        <%= @user.email %>
+      </p>
 
-    <p>
-      <strong>Phone:</strong>
-      <%= @user.phone_number %>
-    </p>
+      <p>
+        <strong>Phone:</strong>
+        <%= @user.phone_number %>
+      </p>
+      <span class="psw"><%= link_to 'Edit account', edit_user_registration_path %></span>
+      <% if @user.role == 'patient' %>
+        <span class="psw"><%= link_to 'Patient Card' %></span>
+      <% end %>
+      <% if @user.role == 'doctor' %>
+        <span class="psw"><%= link_to 'Doctor Profile' %></span>
+      <% end %>
+    </div>
   </div>
-  <span class="psw"><%= link_to 'Edit account', edit_user_registration_path %></span>
-  <% if @user.role == 'patient' %>
-  <span class="psw"><%= link_to 'Patient Card' %></span>
-  <% end %>
-  <% if @user.role == 'doctor' %>
-    <span class="psw"><%= link_to 'Doctor Profile' %></span>
-  <% end %>
-  </div>
-
-
 </section>
+
+
