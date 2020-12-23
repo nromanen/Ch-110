@@ -1,0 +1,17 @@
+Index: Gemfile
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>source 'https://rubygems.org'\r\ngit_source(:github) { |repo| \"https://github.com/#{repo}.git\" }\r\n\r\nruby '2.6.6'\r\n\r\ngem 'mysql2', '>= 0.4.4'\r\ngem 'puma', '~> 4.1'\r\ngem 'rails', '~> 6.0.3', '>= 6.0.3.4'\r\ngem 'sass-rails', '>= 6'\r\ngem 'slim-rails'\r\ngem 'turbolinks', '~> 5'\r\ngem 'webpacker', '~> 4.0'\r\ngem 'react-rails'\r\ngem 'devise'\r\ngem 'pundit'\r\ngem 'dotenv-rails'\r\ngem 'mailgun-ruby', '~>1.1.6'\r\n\r\ngem 'bootsnap', '>= 1.4.2', require: false\r\n\r\ngroup :development, :test do\r\n  gem 'byebug', platforms: %i[mri mingw x64_mingw]\r\n  gem 'ffaker'\r\n  gem 'rubocop', '~> 0.89', require: false\r\n  gem 'rubocop-performance', '~> 1.7', require: false\r\n  gem 'rubocop-rails', '~> 2.7', require: false\r\n  gem 'rubocop-rspec', '~> 1.43', require: false\r\nend\r\n\r\ngroup :development do\r\n  gem 'listen', '~> 3.2'\r\n  gem 'spring'\r\n  gem 'spring-watcher-listen', '~> 2.0.0'\r\n  gem 'web-console', '>= 3.3.0'\r\nend\r\n\r\ngroup :test do\r\n  gem 'capybara', '>= 2.15'\r\n  gem 'factory_bot_rails'\r\n  gem 'pry'\r\n  gem 'rspec-rails', '~> 4.0'\r\n  gem 'selenium-webdriver'\r\n  gem 'shoulda-matchers', '~> 4.0'\r\n  gem 'simplecov'\r\n  gem 'webdrivers'\r\nend\r\n\r\ngem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]\r\n\r\n# for windows\r\n# gem 'wdm'
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Gemfile	(revision 268b7680fbce6dfe448bceb78a22f976b31bfc5c)
++++ Gemfile	(date 1607610037523)
+@@ -48,4 +48,4 @@
+ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+ 
+ # for windows
+-# gem 'wdm'
+\ No newline at end of file
++gem 'wdm'
+\ No newline at end of file
