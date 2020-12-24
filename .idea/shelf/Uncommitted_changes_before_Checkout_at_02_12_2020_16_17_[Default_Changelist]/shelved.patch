@@ -1,0 +1,96 @@
+Index: Gemfile.lock
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>GEM\r\n  remote: https://rubygems.org/\r\n  specs:\r\n    actioncable (6.0.3.4)\r\n      actionpack (= 6.0.3.4)\r\n      nio4r (~> 2.0)\r\n      websocket-driver (>= 0.6.1)\r\n    actionmailbox (6.0.3.4)\r\n      actionpack (= 6.0.3.4)\r\n      activejob (= 6.0.3.4)\r\n      activerecord (= 6.0.3.4)\r\n      activestorage (= 6.0.3.4)\r\n      activesupport (= 6.0.3.4)\r\n      mail (>= 2.7.1)\r\n    actionmailer (6.0.3.4)\r\n      actionpack (= 6.0.3.4)\r\n      actionview (= 6.0.3.4)\r\n      activejob (= 6.0.3.4)\r\n      mail (~> 2.5, >= 2.5.4)\r\n      rails-dom-testing (~> 2.0)\r\n    actionpack (6.0.3.4)\r\n      actionview (= 6.0.3.4)\r\n      activesupport (= 6.0.3.4)\r\n      rack (~> 2.0, >= 2.0.8)\r\n      rack-test (>= 0.6.3)\r\n      rails-dom-testing (~> 2.0)\r\n      rails-html-sanitizer (~> 1.0, >= 1.2.0)\r\n    actiontext (6.0.3.4)\r\n      actionpack (= 6.0.3.4)\r\n      activerecord (= 6.0.3.4)\r\n      activestorage (= 6.0.3.4)\r\n      activesupport (= 6.0.3.4)\r\n      nokogiri (>= 1.8.5)\r\n    actionview (6.0.3.4)\r\n      activesupport (= 6.0.3.4)\r\n      builder (~> 3.1)\r\n      erubi (~> 1.4)\r\n      rails-dom-testing (~> 2.0)\r\n      rails-html-sanitizer (~> 1.1, >= 1.2.0)\r\n    activejob (6.0.3.4)\r\n      activesupport (= 6.0.3.4)\r\n      globalid (>= 0.3.6)\r\n    activemodel (6.0.3.4)\r\n      activesupport (= 6.0.3.4)\r\n    activerecord (6.0.3.4)\r\n      activemodel (= 6.0.3.4)\r\n      activesupport (= 6.0.3.4)\r\n    activestorage (6.0.3.4)\r\n      actionpack (= 6.0.3.4)\r\n      activejob (= 6.0.3.4)\r\n      activerecord (= 6.0.3.4)\r\n      marcel (~> 0.3.1)\r\n    activesupport (6.0.3.4)\r\n      concurrent-ruby (~> 1.0, >= 1.0.2)\r\n      i18n (>= 0.7, < 2)\r\n      minitest (~> 5.1)\r\n      tzinfo (~> 1.1)\r\n      zeitwerk (~> 2.2, >= 2.2.2)\r\n    addressable (2.7.0)\r\n      public_suffix (>= 2.0.2, < 5.0)\r\n    bindex (0.8.1)\r\n    bootsnap (1.5.1)\r\n      msgpack (~> 1.0)\r\n    builder (3.2.4)\r\n    byebug (11.1.3)\r\n    capybara (3.34.0)\r\n      addressable\r\n      mini_mime (>= 0.1.3)\r\n      nokogiri (~> 1.8)\r\n      rack (>= 1.6.0)\r\n      rack-test (>= 0.6.3)\r\n      regexp_parser (~> 1.5)\r\n      xpath (~> 3.2)\r\n    childprocess (3.0.0)\r\n    concurrent-ruby (1.1.7)\r\n    crass (1.0.6)\r\n    erubi (1.10.0)\r\n    ffi (1.13.1)\r\n    globalid (0.4.2)\r\n      activesupport (>= 4.2.0)\r\n    i18n (1.8.5)\r\n      concurrent-ruby (~> 1.0)\r\n    jbuilder (2.10.1)\r\n      activesupport (>= 5.0.0)\r\n    listen (3.3.3)\r\n      rb-fsevent (~> 0.10, >= 0.10.3)\r\n      rb-inotify (~> 0.9, >= 0.9.10)\r\n    loofah (2.8.0)\r\n      crass (~> 1.0.2)\r\n      nokogiri (>= 1.5.9)\r\n    mail (2.7.1)\r\n      mini_mime (>= 0.1.1)\r\n    marcel (0.3.3)\r\n      mimemagic (~> 0.3.2)\r\n    method_source (1.0.0)\r\n    mimemagic (0.3.5)\r\n    mini_mime (1.0.2)\r\n    mini_portile2 (2.4.0)\r\n    minitest (5.14.2)\r\n    msgpack (1.3.3)\r\n    mysql2 (0.5.3)\r\n    nio4r (2.5.4)\r\n    nokogiri (1.10.10)\r\n      mini_portile2 (~> 2.4.0)\r\n    public_suffix (4.0.6)\r\n    puma (4.3.7)\r\n      nio4r (~> 2.0)\r\n    rack (2.2.3)\r\n    rack-proxy (0.6.5)\r\n      rack\r\n    rack-test (1.1.0)\r\n      rack (>= 1.0, < 3)\r\n    rails (6.0.3.4)\r\n      actioncable (= 6.0.3.4)\r\n      actionmailbox (= 6.0.3.4)\r\n      actionmailer (= 6.0.3.4)\r\n      actionpack (= 6.0.3.4)\r\n      actiontext (= 6.0.3.4)\r\n      actionview (= 6.0.3.4)\r\n      activejob (= 6.0.3.4)\r\n      activemodel (= 6.0.3.4)\r\n      activerecord (= 6.0.3.4)\r\n      activestorage (= 6.0.3.4)\r\n      activesupport (= 6.0.3.4)\r\n      bundler (>= 1.3.0)\r\n      railties (= 6.0.3.4)\r\n      sprockets-rails (>= 2.0.0)\r\n    rails-dom-testing (2.0.3)\r\n      activesupport (>= 4.2.0)\r\n      nokogiri (>= 1.6)\r\n    rails-html-sanitizer (1.3.0)\r\n      loofah (~> 2.3)\r\n    railties (6.0.3.4)\r\n      actionpack (= 6.0.3.4)\r\n      activesupport (= 6.0.3.4)\r\n      method_source\r\n      rake (>= 0.8.7)\r\n      thor (>= 0.20.3, < 2.0)\r\n    rake (13.0.1)\r\n    rb-fsevent (0.10.4)\r\n    rb-inotify (0.10.1)\r\n      ffi (~> 1.0)\r\n    regexp_parser (1.8.2)\r\n    rubyzip (2.3.0)\r\n    sass-rails (6.0.0)\r\n      sassc-rails (~> 2.1, >= 2.1.1)\r\n    sassc (2.4.0)\r\n      ffi (~> 1.9)\r\n    sassc-rails (2.1.2)\r\n      railties (>= 4.0.0)\r\n      sassc (>= 2.0)\r\n      sprockets (> 3.0)\r\n      sprockets-rails\r\n      tilt\r\n    selenium-webdriver (3.142.7)\r\n      childprocess (>= 0.5, < 4.0)\r\n      rubyzip (>= 1.2.2)\r\n    spring (2.1.1)\r\n    spring-watcher-listen (2.0.1)\r\n      listen (>= 2.7, < 4.0)\r\n      spring (>= 1.2, < 3.0)\r\n    sprockets (4.0.2)\r\n      concurrent-ruby (~> 1.0)\r\n      rack (> 1, < 3)\r\n    sprockets-rails (3.2.2)\r\n      actionpack (>= 4.0)\r\n      activesupport (>= 4.0)\r\n      sprockets (>= 3.0.0)\r\n    thor (1.0.1)\r\n    thread_safe (0.3.6)\r\n    tilt (2.0.10)\r\n    turbolinks (5.2.1)\r\n      turbolinks-source (~> 5.2)\r\n    turbolinks-source (5.2.0)\r\n    tzinfo (1.2.8)\r\n      thread_safe (~> 0.1)\r\n    web-console (4.1.0)\r\n      actionview (>= 6.0.0)\r\n      activemodel (>= 6.0.0)\r\n      bindex (>= 0.4.0)\r\n      railties (>= 6.0.0)\r\n    webdrivers (4.4.1)\r\n      nokogiri (~> 1.6)\r\n      rubyzip (>= 1.3.0)\r\n      selenium-webdriver (>= 3.0, < 4.0)\r\n    webpacker (4.3.0)\r\n      activesupport (>= 4.2)\r\n      rack-proxy (>= 0.6.1)\r\n      railties (>= 4.2)\r\n    websocket-driver (0.7.3)\r\n      websocket-extensions (>= 0.1.0)\r\n    websocket-extensions (0.1.5)\r\n    xpath (3.2.0)\r\n      nokogiri (~> 1.8)\r\n    zeitwerk (2.4.2)\r\n\r\nPLATFORMS\r\n  ruby\r\n\r\nDEPENDENCIES\r\n  bootsnap (>= 1.4.2)\r\n  byebug\r\n  capybara (>= 2.15)\r\n  jbuilder (~> 2.7)\r\n  listen (~> 3.2)\r\n  mysql2 (>= 0.4.4)\r\n  puma (~> 4.1)\r\n  rails (~> 6.0.3, >= 6.0.3.4)\r\n  sass-rails (>= 6)\r\n  selenium-webdriver\r\n  spring\r\n  spring-watcher-listen (~> 2.0.0)\r\n  turbolinks (~> 5)\r\n  tzinfo-data\r\n  web-console (>= 3.3.0)\r\n  webdrivers\r\n  webpacker (~> 4.0)\r\n\r\nRUBY VERSION\r\n   ruby 2.6.6p146\r\n\r\nBUNDLED WITH\r\n   2.1.4\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Gemfile.lock	(revision dcf2998ba123e54d529ec400bcb74a761d622376)
++++ Gemfile.lock	(date 1606855803480)
+@@ -76,6 +76,7 @@
+     crass (1.0.6)
+     erubi (1.10.0)
+     ffi (1.13.1)
++    ffi (1.13.1-x64-mingw32)
+     globalid (0.4.2)
+       activesupport (>= 4.2.0)
+     i18n (1.8.5)
+@@ -98,9 +99,13 @@
+     mini_portile2 (2.4.0)
+     minitest (5.14.2)
+     msgpack (1.3.3)
++    msgpack (1.3.3-x64-mingw32)
+     mysql2 (0.5.3)
++    mysql2 (0.5.3-x64-mingw32)
+     nio4r (2.5.4)
+     nokogiri (1.10.10)
++      mini_portile2 (~> 2.4.0)
++    nokogiri (1.10.10-x64-mingw32)
+       mini_portile2 (~> 2.4.0)
+     public_suffix (4.0.6)
+     puma (4.3.7)
+@@ -146,6 +151,8 @@
+       sassc-rails (~> 2.1, >= 2.1.1)
+     sassc (2.4.0)
+       ffi (~> 1.9)
++    sassc (2.4.0-x64-mingw32)
++      ffi (~> 1.9)
+     sassc-rails (2.1.2)
+       railties (>= 4.0.0)
+       sassc (>= 2.0)
+@@ -174,6 +181,8 @@
+     turbolinks-source (5.2.0)
+     tzinfo (1.2.8)
+       thread_safe (~> 0.1)
++    tzinfo-data (1.2020.4)
++      tzinfo (>= 1.0.0)
+     web-console (4.1.0)
+       actionview (>= 6.0.0)
+       activemodel (>= 6.0.0)
+@@ -196,6 +205,7 @@
+ 
+ PLATFORMS
+   ruby
++  x64-mingw32
+ 
+ DEPENDENCIES
+   bootsnap (>= 1.4.2)
+Index: Gemfile
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>source 'https://rubygems.org'\r\ngit_source(:github) { |repo| \"https://github.com/#{repo}.git\" }\r\n\r\nruby '2.6.6'\r\n\r\n# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'\r\ngem 'rails', '~> 6.0.3', '>= 6.0.3.4'\r\n# Use mysql as the database for Active Record\r\ngem 'mysql2', '>= 0.4.4'\r\n# Use Puma as the app server\r\ngem 'puma', '~> 4.1'\r\n# Use SCSS for stylesheets\r\ngem 'sass-rails', '>= 6'\r\n# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker\r\ngem 'webpacker', '~> 4.0'\r\n# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks\r\ngem 'turbolinks', '~> 5'\r\n# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder\r\ngem 'jbuilder', '~> 2.7'\r\n# Use Redis adapter to run Action Cable in production\r\n# gem 'redis', '~> 4.0'\r\n# Use Active Model has_secure_password\r\n# gem 'bcrypt', '~> 3.1.7'\r\n\r\n# Use Active Storage variant\r\n# gem 'image_processing', '~> 1.2'\r\n\r\n# Reduces boot times through caching; required in config/boot.rb\r\ngem 'bootsnap', '>= 1.4.2', require: false\r\n\r\ngroup :development, :test do\r\n  # Call 'byebug' anywhere in the code to stop execution and get a debugger console\r\n  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]\r\nend\r\n\r\ngroup :development do\r\n  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.\r\n  gem 'web-console', '>= 3.3.0'\r\n  gem 'listen', '~> 3.2'\r\n  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring\r\n  gem 'spring'\r\n  gem 'spring-watcher-listen', '~> 2.0.0'\r\nend\r\n\r\ngroup :test do\r\n  # Adds support for Capybara system testing and selenium driver\r\n  gem 'capybara', '>= 2.15'\r\n  gem 'selenium-webdriver'\r\n  # Easy installation and use of web drivers to run system tests with browsers\r\n  gem 'webdrivers'\r\nend\r\n\r\n# Windows does not include zoneinfo files, so bundle the tzinfo-data gem\r\ngem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Gemfile	(revision dcf2998ba123e54d529ec400bcb74a761d622376)
++++ Gemfile	(date 1606856245974)
+@@ -3,6 +3,9 @@
+ 
+ ruby '2.6.6'
+ 
++# Authorization
++gem 'pundit'
++gem 'devise'
+ # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+ gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
+ # Use mysql as the database for Active Record
+Index: config/database.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># MySQL. Versions 5.5.8 and up are supported.\r\n#\r\n# Install the MySQL driver\r\n#   gem install mysql2\r\n#\r\n# Ensure the MySQL gem is defined in your Gemfile\r\n#   gem 'mysql2'\r\n#\r\n# And be sure to use new-style password hashing:\r\n#   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html\r\n#\r\ndefault: &default\r\n  adapter: mysql2\r\n  encoding: utf8mb4\r\n  pool: <%= ENV.fetch(\"RAILS_MAX_THREADS\") { 5 } %>\r\n  username: time_manager\r\n  password: Password11\r\n  socket: /tmp/mysql.sock\r\n\r\ndevelopment:\r\n  <<: *default\r\n  database: med_manager_development\r\n\r\n# Warning: The database defined as \"test\" will be erased and\r\n# re-generated from your development database when you run \"rake\".\r\n# Do not set this db to the same as development or production.\r\ntest:\r\n  <<: *default\r\n  database: med_manager_test\r\n\r\n# As with config/credentials.yml, you never want to store sensitive information,\r\n# like your database password, in your source code. If your source code is\r\n# ever seen by anyone, they now have access to your database.\r\n#\r\n# Instead, provide the password as a unix environment variable when you boot\r\n# the app. Read https://guides.rubyonrails.org/configuring.html#configuring-a-database\r\n# for a full rundown on how to provide these environment variables in a\r\n# production deployment.\r\n#\r\n# On Heroku and other platform providers, you may have a full connection URL\r\n# available as an environment variable. For example:\r\n#\r\n#   DATABASE_URL=\"mysql2://myuser:mypass@localhost/somedatabase\"\r\n#\r\n# You can use this database configuration with:\r\n#\r\n#   production:\r\n#     url: <%= ENV['DATABASE_URL'] %>\r\n#\r\nproduction:\r\n  <<: *default\r\n  database: med_manager_production\r\n  username: med_manager\r\n  password: <%= ENV['MED_MANAGER_DATABASE_PASSWORD'] %>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- config/database.yml	(revision dcf2998ba123e54d529ec400bcb74a761d622376)
++++ config/database.yml	(date 1606855503396)
+@@ -13,8 +13,8 @@
+   adapter: mysql2
+   encoding: utf8mb4
+   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+-  username: time_manager
+-  password: Password11
++  username: dandy
++  password: madara88
+   socket: /tmp/mysql.sock
+ 
+ development:

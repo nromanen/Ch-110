@@ -14,7 +14,7 @@ gem 'react-rails'
 gem 'devise'
 gem 'pundit'
 gem 'dotenv-rails'
-gem 'mailgun-ruby', '~>1.1.6'
+gem 'rails-i18n'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 

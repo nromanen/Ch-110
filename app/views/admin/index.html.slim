@@ -1,0 +1,13 @@
+
+/ = react_component 'Admin/UsersTable',
+/         patientProfiles: @patient_profiles,
+/         doctorsProfiles: @doctors_profiles,
+/         users: @users,
+/         user: current_user
+
+= react_component 'Admin/Dashboard',
+                 patientProfiles: @patient_profiles,
+                 doctorsProfiles: @doctors_profiles,
+                 users: @users,
+                  enum_blood_types: @enum_blood_types,
+                 user: current_user

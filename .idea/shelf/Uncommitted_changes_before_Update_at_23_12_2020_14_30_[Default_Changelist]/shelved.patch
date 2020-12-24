@@ -1,0 +1,206 @@
+Index: Gemfile.lock
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>GEM\r\n  remote: https://rubygems.org/\r\n  specs:\r\n    actioncable (6.0.3.4)\r\n      actionpack (= 6.0.3.4)\r\n      nio4r (~> 2.0)\r\n      websocket-driver (>= 0.6.1)\r\n    actionmailbox (6.0.3.4)\r\n      actionpack (= 6.0.3.4)\r\n      activejob (= 6.0.3.4)\r\n      activerecord (= 6.0.3.4)\r\n      activestorage (= 6.0.3.4)\r\n      activesupport (= 6.0.3.4)\r\n      mail (>= 2.7.1)\r\n    actionmailer (6.0.3.4)\r\n      actionpack (= 6.0.3.4)\r\n      actionview (= 6.0.3.4)\r\n      activejob (= 6.0.3.4)\r\n      mail (~> 2.5, >= 2.5.4)\r\n      rails-dom-testing (~> 2.0)\r\n    actionpack (6.0.3.4)\r\n      actionview (= 6.0.3.4)\r\n      activesupport (= 6.0.3.4)\r\n      rack (~> 2.0, >= 2.0.8)\r\n      rack-test (>= 0.6.3)\r\n      rails-dom-testing (~> 2.0)\r\n      rails-html-sanitizer (~> 1.0, >= 1.2.0)\r\n    actiontext (6.0.3.4)\r\n      actionpack (= 6.0.3.4)\r\n      activerecord (= 6.0.3.4)\r\n      activestorage (= 6.0.3.4)\r\n      activesupport (= 6.0.3.4)\r\n      nokogiri (>= 1.8.5)\r\n    actionview (6.0.3.4)\r\n      activesupport (= 6.0.3.4)\r\n      builder (~> 3.1)\r\n      erubi (~> 1.4)\r\n      rails-dom-testing (~> 2.0)\r\n      rails-html-sanitizer (~> 1.1, >= 1.2.0)\r\n    activejob (6.0.3.4)\r\n      activesupport (= 6.0.3.4)\r\n      globalid (>= 0.3.6)\r\n    activemodel (6.0.3.4)\r\n      activesupport (= 6.0.3.4)\r\n    activerecord (6.0.3.4)\r\n      activemodel (= 6.0.3.4)\r\n      activesupport (= 6.0.3.4)\r\n    activestorage (6.0.3.4)\r\n      actionpack (= 6.0.3.4)\r\n      activejob (= 6.0.3.4)\r\n      activerecord (= 6.0.3.4)\r\n      marcel (~> 0.3.1)\r\n    activesupport (6.0.3.4)\r\n      concurrent-ruby (~> 1.0, >= 1.0.2)\r\n      i18n (>= 0.7, < 2)\r\n      minitest (~> 5.1)\r\n      tzinfo (~> 1.1)\r\n      zeitwerk (~> 2.2, >= 2.2.2)\r\n    addressable (2.7.0)\r\n      public_suffix (>= 2.0.2, < 5.0)\r\n    ast (2.4.1)\r\n    bindex (0.8.1)\r\n    bootsnap (1.5.1)\r\n      msgpack (~> 1.0)\r\n    builder (3.2.4)\r\n    byebug (11.1.3)\r\n    capybara (3.34.0)\r\n      addressable\r\n      mini_mime (>= 0.1.3)\r\n      nokogiri (~> 1.8)\r\n      rack (>= 1.6.0)\r\n      rack-test (>= 0.6.3)\r\n      regexp_parser (~> 1.5)\r\n      xpath (~> 3.2)\r\n    childprocess (3.0.0)\r\n    coderay (1.1.3)\r\n    concurrent-ruby (1.1.7)\r\n    crass (1.0.6)\r\n    diff-lcs (1.4.4)\r\n    docile (1.3.2)\r\n    erubi (1.10.0)\r\n    factory_bot (6.1.0)\r\n      activesupport (>= 5.0.0)\r\n    factory_bot_rails (6.1.0)\r\n      factory_bot (~> 6.1.0)\r\n      railties (>= 5.0.0)\r\n    ffaker (2.17.0)\r\n    ffi (1.13.1)\r\n    globalid (0.4.2)\r\n      activesupport (>= 4.2.0)\r\n    i18n (1.8.5)\r\n      concurrent-ruby (~> 1.0)\r\n    listen (3.3.3)\r\n      rb-fsevent (~> 0.10, >= 0.10.3)\r\n      rb-inotify (~> 0.9, >= 0.9.10)\r\n    loofah (2.8.0)\r\n      crass (~> 1.0.2)\r\n      nokogiri (>= 1.5.9)\r\n    mail (2.7.1)\r\n      mini_mime (>= 0.1.1)\r\n    marcel (0.3.3)\r\n      mimemagic (~> 0.3.2)\r\n    method_source (1.0.0)\r\n    mimemagic (0.3.5)\r\n    mini_mime (1.0.2)\r\n    mini_portile2 (2.4.0)\r\n    minitest (5.14.2)\r\n    msgpack (1.3.3)\r\n    mysql2 (0.5.3)\r\n    nio4r (2.5.4)\r\n    nokogiri (1.10.10)\r\n      mini_portile2 (~> 2.4.0)\r\n    parallel (1.20.1)\r\n    parser (2.7.2.0)\r\n      ast (~> 2.4.1)\r\n    pry (0.13.1)\r\n      coderay (~> 1.1)\r\n      method_source (~> 1.0)\r\n    public_suffix (4.0.6)\r\n    puma (4.3.7)\r\n      nio4r (~> 2.0)\r\n    rack (2.2.3)\r\n    rack-proxy (0.6.5)\r\n      rack\r\n    rack-test (1.1.0)\r\n      rack (>= 1.0, < 3)\r\n    rails (6.0.3.4)\r\n      actioncable (= 6.0.3.4)\r\n      actionmailbox (= 6.0.3.4)\r\n      actionmailer (= 6.0.3.4)\r\n      actionpack (= 6.0.3.4)\r\n      actiontext (= 6.0.3.4)\r\n      actionview (= 6.0.3.4)\r\n      activejob (= 6.0.3.4)\r\n      activemodel (= 6.0.3.4)\r\n      activerecord (= 6.0.3.4)\r\n      activestorage (= 6.0.3.4)\r\n      activesupport (= 6.0.3.4)\r\n      bundler (>= 1.3.0)\r\n      railties (= 6.0.3.4)\r\n      sprockets-rails (>= 2.0.0)\r\n    rails-dom-testing (2.0.3)\r\n      activesupport (>= 4.2.0)\r\n      nokogiri (>= 1.6)\r\n    rails-html-sanitizer (1.3.0)\r\n      loofah (~> 2.3)\r\n    railties (6.0.3.4)\r\n      actionpack (= 6.0.3.4)\r\n      activesupport (= 6.0.3.4)\r\n      method_source\r\n      rake (>= 0.8.7)\r\n      thor (>= 0.20.3, < 2.0)\r\n    rainbow (3.0.0)\r\n    rake (13.0.1)\r\n    rb-fsevent (0.10.4)\r\n    rb-inotify (0.10.1)\r\n      ffi (~> 1.0)\r\n    regexp_parser (1.8.2)\r\n    rexml (3.2.4)\r\n    rspec-core (3.10.0)\r\n      rspec-support (~> 3.10.0)\r\n    rspec-expectations (3.10.0)\r\n      diff-lcs (>= 1.2.0, < 2.0)\r\n      rspec-support (~> 3.10.0)\r\n    rspec-mocks (3.10.0)\r\n      diff-lcs (>= 1.2.0, < 2.0)\r\n      rspec-support (~> 3.10.0)\r\n    rspec-rails (4.0.1)\r\n      actionpack (>= 4.2)\r\n      activesupport (>= 4.2)\r\n      railties (>= 4.2)\r\n      rspec-core (~> 3.9)\r\n      rspec-expectations (~> 3.9)\r\n      rspec-mocks (~> 3.9)\r\n      rspec-support (~> 3.9)\r\n    rspec-support (3.10.0)\r\n    rubocop (0.93.1)\r\n      parallel (~> 1.10)\r\n      parser (>= 2.7.1.5)\r\n      rainbow (>= 2.2.2, < 4.0)\r\n      regexp_parser (>= 1.8)\r\n      rexml\r\n      rubocop-ast (>= 0.6.0)\r\n      ruby-progressbar (~> 1.7)\r\n      unicode-display_width (>= 1.4.0, < 2.0)\r\n    rubocop-ast (1.3.0)\r\n      parser (>= 2.7.1.5)\r\n    rubocop-performance (1.9.1)\r\n      rubocop (>= 0.90.0, < 2.0)\r\n      rubocop-ast (>= 0.4.0)\r\n    rubocop-rails (2.8.1)\r\n      activesupport (>= 4.2.0)\r\n      rack (>= 1.1)\r\n      rubocop (>= 0.87.0)\r\n    rubocop-rspec (1.44.1)\r\n      rubocop (~> 0.87)\r\n      rubocop-ast (>= 0.7.1)\r\n    ruby-progressbar (1.10.1)\r\n    rubyzip (2.3.0)\r\n    sass-rails (6.0.0)\r\n      sassc-rails (~> 2.1, >= 2.1.1)\r\n    sassc (2.4.0)\r\n      ffi (~> 1.9)\r\n    sassc-rails (2.1.2)\r\n      railties (>= 4.0.0)\r\n      sassc (>= 2.0)\r\n      sprockets (> 3.0)\r\n      sprockets-rails\r\n      tilt\r\n    selenium-webdriver (3.142.7)\r\n      childprocess (>= 0.5, < 4.0)\r\n      rubyzip (>= 1.2.2)\r\n    shoulda-matchers (4.4.1)\r\n      activesupport (>= 4.2.0)\r\n    simplecov (0.20.0)\r\n      docile (~> 1.1)\r\n      simplecov-html (~> 0.11)\r\n      simplecov_json_formatter (~> 0.1)\r\n    simplecov-html (0.12.3)\r\n    simplecov_json_formatter (0.1.2)\r\n    slim (4.1.0)\r\n      temple (>= 0.7.6, < 0.9)\r\n      tilt (>= 2.0.6, < 2.1)\r\n    slim-rails (3.2.0)\r\n      actionpack (>= 3.1)\r\n      railties (>= 3.1)\r\n      slim (>= 3.0, < 5.0)\r\n    spring (2.1.1)\r\n    spring-watcher-listen (2.0.1)\r\n      listen (>= 2.7, < 4.0)\r\n      spring (>= 1.2, < 3.0)\r\n    sprockets (4.0.2)\r\n      concurrent-ruby (~> 1.0)\r\n      rack (> 1, < 3)\r\n    sprockets-rails (3.2.2)\r\n      actionpack (>= 4.0)\r\n      activesupport (>= 4.0)\r\n      sprockets (>= 3.0.0)\r\n    temple (0.8.2)\r\n    thor (1.0.1)\r\n    thread_safe (0.3.6)\r\n    tilt (2.0.10)\r\n    turbolinks (5.2.1)\r\n      turbolinks-source (~> 5.2)\r\n    turbolinks-source (5.2.0)\r\n    tzinfo (1.2.8)\r\n      thread_safe (~> 0.1)\r\n    unicode-display_width (1.7.0)\r\n    web-console (4.1.0)\r\n      actionview (>= 6.0.0)\r\n      activemodel (>= 6.0.0)\r\n      bindex (>= 0.4.0)\r\n      railties (>= 6.0.0)\r\n    webdrivers (4.4.1)\r\n      nokogiri (~> 1.6)\r\n      rubyzip (>= 1.3.0)\r\n      selenium-webdriver (>= 3.0, < 4.0)\r\n    webpacker (4.3.0)\r\n      activesupport (>= 4.2)\r\n      rack-proxy (>= 0.6.1)\r\n      railties (>= 4.2)\r\n    websocket-driver (0.7.3)\r\n      websocket-extensions (>= 0.1.0)\r\n    websocket-extensions (0.1.5)\r\n    xpath (3.2.0)\r\n      nokogiri (~> 1.8)\r\n    zeitwerk (2.4.2)\r\n\r\nPLATFORMS\r\n  ruby\r\n\r\nDEPENDENCIES\r\n  bootsnap (>= 1.4.2)\r\n  byebug\r\n  capybara (>= 2.15)\r\n  factory_bot_rails\r\n  ffaker\r\n  listen (~> 3.2)\r\n  mysql2 (>= 0.4.4)\r\n  pry\r\n  puma (~> 4.1)\r\n  rails (~> 6.0.3, >= 6.0.3.4)\r\n  rspec-rails (~> 4.0)\r\n  rubocop (~> 0.89)\r\n  rubocop-performance (~> 1.7)\r\n  rubocop-rails (~> 2.7)\r\n  rubocop-rspec (~> 1.43)\r\n  sass-rails (>= 6)\r\n  selenium-webdriver\r\n  shoulda-matchers (~> 4.0)\r\n  simplecov\r\n  slim-rails\r\n  spring\r\n  spring-watcher-listen (~> 2.0.0)\r\n  turbolinks (~> 5)\r\n  tzinfo-data\r\n  web-console (>= 3.3.0)\r\n  webdrivers\r\n  webpacker (~> 4.0)\r\n\r\nRUBY VERSION\r\n   ruby 2.6.6p146\r\n\r\nBUNDLED WITH\r\n   2.1.4\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Gemfile.lock	(revision c881f2f3d36c4573ce68f5b7cd0966bc196f7a42)
++++ Gemfile.lock	(date 1608726498882)
+@@ -59,6 +59,11 @@
+     addressable (2.7.0)
+       public_suffix (>= 2.0.2, < 5.0)
+     ast (2.4.1)
++    babel-source (5.8.35)
++    babel-transpiler (0.7.0)
++      babel-source (>= 4.0, < 6)
++      execjs (~> 2.0)
++    bcrypt (3.1.16)
+     bindex (0.8.1)
+     bootsnap (1.5.1)
+       msgpack (~> 1.0)
+@@ -75,10 +80,24 @@
+     childprocess (3.0.0)
+     coderay (1.1.3)
+     concurrent-ruby (1.1.7)
++    connection_pool (2.2.3)
+     crass (1.0.6)
++    devise (4.7.3)
++      bcrypt (~> 3.0)
++      orm_adapter (~> 0.1)
++      railties (>= 4.1.0)
++      responders
++      warden (~> 1.2.3)
+     diff-lcs (1.4.4)
+     docile (1.3.2)
++    domain_name (0.5.20190701)
++      unf (>= 0.0.5, < 1.0.0)
++    dotenv (2.7.6)
++    dotenv-rails (2.7.6)
++      dotenv (= 2.7.6)
++      railties (>= 3.2)
+     erubi (1.10.0)
++    execjs (2.7.0)
+     factory_bot (6.1.0)
+       activesupport (>= 5.0.0)
+     factory_bot_rails (6.1.0)
+@@ -86,8 +105,11 @@
+       railties (>= 5.0.0)
+     ffaker (2.17.0)
+     ffi (1.13.1)
++    ffi (1.13.1-x64-mingw32)
+     globalid (0.4.2)
+       activesupport (>= 4.2.0)
++    http-cookie (1.0.3)
++      domain_name (~> 0.5)
+     i18n (1.8.5)
+       concurrent-ruby (~> 1.0)
+     listen (3.3.3)
+@@ -98,18 +120,29 @@
+       nokogiri (>= 1.5.9)
+     mail (2.7.1)
+       mini_mime (>= 0.1.1)
++    mailgun-ruby (1.1.11)
++      rest-client (~> 2.0.2)
+     marcel (0.3.3)
+       mimemagic (~> 0.3.2)
+     method_source (1.0.0)
++    mime-types (3.3.1)
++      mime-types-data (~> 3.2015)
++    mime-types-data (3.2020.1104)
+     mimemagic (0.3.5)
+     mini_mime (1.0.2)
+     mini_portile2 (2.4.0)
+     minitest (5.14.2)
+     msgpack (1.3.3)
++    msgpack (1.3.3-x64-mingw32)
+     mysql2 (0.5.3)
++    mysql2 (0.5.3-x64-mingw32)
++    netrc (0.11.0)
+     nio4r (2.5.4)
+     nokogiri (1.10.10)
+       mini_portile2 (~> 2.4.0)
++    nokogiri (1.10.10-x64-mingw32)
++      mini_portile2 (~> 2.4.0)
++    orm_adapter (0.5.0)
+     parallel (1.20.1)
+     parser (2.7.2.0)
+       ast (~> 2.4.1)
+@@ -119,6 +152,8 @@
+     public_suffix (4.0.6)
+     puma (4.3.7)
+       nio4r (~> 2.0)
++    pundit (2.1.0)
++      activesupport (>= 3.0.0)
+     rack (2.2.3)
+     rack-proxy (0.6.5)
+       rack
+@@ -155,7 +190,21 @@
+     rb-fsevent (0.10.4)
+     rb-inotify (0.10.1)
+       ffi (~> 1.0)
++    react-rails (2.6.1)
++      babel-transpiler (>= 0.7.0)
++      connection_pool
++      execjs
++      railties (>= 3.2)
++      tilt
+     regexp_parser (1.8.2)
++    responders (3.0.1)
++      actionpack (>= 5.0)
++      railties (>= 5.0)
++    rest-client (2.0.2-x64-mingw32)
++      ffi (~> 1.9)
++      http-cookie (>= 1.0.2, < 2.0)
++      mime-types (>= 1.16, < 4.0)
++      netrc (~> 0.8)
+     rexml (3.2.4)
+     rspec-core (3.10.0)
+       rspec-support (~> 3.10.0)
+@@ -201,6 +250,8 @@
+       sassc-rails (~> 2.1, >= 2.1.1)
+     sassc (2.4.0)
+       ffi (~> 1.9)
++    sassc (2.4.0-x64-mingw32)
++      ffi (~> 1.9)
+     sassc-rails (2.1.2)
+       railties (>= 4.0.0)
+       sassc (>= 2.0)
+@@ -245,7 +296,15 @@
+     turbolinks-source (5.2.0)
+     tzinfo (1.2.8)
+       thread_safe (~> 0.1)
++    tzinfo-data (1.2020.4)
++      tzinfo (>= 1.0.0)
++    unf (0.1.4)
++      unf_ext
++    unf_ext (0.0.7.7-x64-mingw32)
+     unicode-display_width (1.7.0)
++    warden (1.2.9)
++      rack (>= 2.0.9)
++    wdm (0.1.1)
+     web-console (4.1.0)
+       actionview (>= 6.0.0)
+       activemodel (>= 6.0.0)
+@@ -268,18 +327,24 @@
+ 
+ PLATFORMS
+   ruby
++  x64-mingw32
+ 
+ DEPENDENCIES
+   bootsnap (>= 1.4.2)
+   byebug
+   capybara (>= 2.15)
++  devise
++  dotenv-rails
+   factory_bot_rails
+   ffaker
+   listen (~> 3.2)
++  mailgun-ruby (~> 1.1.6)
+   mysql2 (>= 0.4.4)
+   pry
+   puma (~> 4.1)
++  pundit
+   rails (~> 6.0.3, >= 6.0.3.4)
++  react-rails
+   rspec-rails (~> 4.0)
+   rubocop (~> 0.89)
+   rubocop-performance (~> 1.7)
+@@ -294,6 +359,7 @@
+   spring-watcher-listen (~> 2.0.0)
+   turbolinks (~> 5)
+   tzinfo-data
++  wdm
+   web-console (>= 3.3.0)
+   webdrivers
+   webpacker (~> 4.0)
+Index: Gemfile
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>source 'https://rubygems.org'\r\ngit_source(:github) { |repo| \"https://github.com/#{repo}.git\" }\r\n\r\nruby '2.6.6'\r\n\r\ngem 'mysql2', '>= 0.4.4'\r\ngem 'puma', '~> 4.1'\r\ngem 'rails', '~> 6.0.3', '>= 6.0.3.4'\r\ngem 'sass-rails', '>= 6'\r\ngem 'slim-rails'\r\ngem 'turbolinks', '~> 5'\r\ngem 'webpacker', '~> 4.0'\r\n\r\ngem 'bootsnap', '>= 1.4.2', require: false\r\n\r\ngroup :development, :test do\r\n  gem 'byebug', platforms: %i[mri mingw x64_mingw]\r\n  gem 'ffaker'\r\n  gem 'rubocop', '~> 0.89', require: false\r\n  gem 'rubocop-performance', '~> 1.7', require: false\r\n  gem 'rubocop-rails', '~> 2.7', require: false\r\n  gem 'rubocop-rspec', '~> 1.43', require: false\r\nend\r\n\r\ngroup :development do\r\n  gem 'listen', '~> 3.2'\r\n  gem 'spring'\r\n  gem 'spring-watcher-listen', '~> 2.0.0'\r\n  gem 'web-console', '>= 3.3.0'\r\nend\r\n\r\ngroup :test do\r\n  gem 'capybara', '>= 2.15'\r\n  gem 'factory_bot_rails'\r\n  gem 'pry'\r\n  gem 'rspec-rails', '~> 4.0'\r\n  gem 'selenium-webdriver'\r\n  gem 'shoulda-matchers', '~> 4.0'\r\n  gem 'simplecov'\r\n  gem 'webdrivers'\r\nend\r\n\r\ngem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Gemfile	(revision c881f2f3d36c4573ce68f5b7cd0966bc196f7a42)
++++ Gemfile	(date 1608726496836)
+@@ -10,6 +10,11 @@
+ gem 'slim-rails'
+ gem 'turbolinks', '~> 5'
+ gem 'webpacker', '~> 4.0'
++gem 'react-rails'
++gem 'devise'
++gem 'pundit'
++gem 'dotenv-rails'
++gem 'mailgun-ruby', '~>1.1.6'
+ 
+ gem 'bootsnap', '>= 1.4.2', require: false
+ 
+@@ -41,3 +46,6 @@
+ end
+ 
+ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
++
++# for windows
++gem 'wdm'
+\ No newline at end of file
