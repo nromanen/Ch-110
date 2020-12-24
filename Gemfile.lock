@@ -200,10 +200,6 @@ GEM
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
-    rest-client (2.0.2)
-      http-cookie (>= 1.0.2, < 2.0)
-      mime-types (>= 1.16, < 4.0)
-      netrc (~> 0.8)
     rest-client (2.0.2-x64-mingw32)
       ffi (~> 1.9)
       http-cookie (>= 1.0.2, < 2.0)
@@ -304,12 +300,10 @@ GEM
       tzinfo (>= 1.0.0)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.7.7)
     unf_ext (0.0.7.7-x64-mingw32)
     unicode-display_width (1.7.0)
     warden (1.2.9)
       rack (>= 2.0.9)
-    wdm (0.1.1)
     web-console (4.1.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -364,7 +358,6 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
   tzinfo-data
-  wdm
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)
