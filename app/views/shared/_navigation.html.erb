@@ -3,6 +3,12 @@
     <a class="active" href="/">Home</a>
     <a href="#news">News</a>
     <a href="#contact">Contact</a>
+
+    <% if current_user && current_user.role == 'admin' %>
+      <a href="/admin/index">Admin</a>
+      <a href="/patient_profile">Patient profile</a>
+    <% end %>
+
     <div class="topnav-right">
       <% if current_user %>
         <%= link_to "#{current_user.name} #{current_user.surname}", account_path %>

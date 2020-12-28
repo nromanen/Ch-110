@@ -23,7 +23,7 @@ class Home extends React.Component {
             </div>
 
             
-                <hr class="line" align="left" />
+                <hr className="line" align="left" />
             
 
             <div className="rigth_up">
@@ -52,17 +52,17 @@ class Home extends React.Component {
         
                 <div className="rigth_up_third">
                     <p>
-                        We are waiting for your messages at <a href="mailto:info@gmail.com">info@gmail.com</a>
+                        We are waiting for your messages at <a href="HealthBook@gmail.com">info@gmail.com</a>
                          or write your number here and we will call you.
                     </p>
 
-                    <form>
-                        <li>
-                            <input className="input_tel" type="tel" id="phone" size="30" autocomplete="off" />
+                    {/*<form>*/}
+                    {/*    <li>*/}
+                    {/*        <input className="input_tel" type="tel" id="phone" size="30" autocomplete="off" />*/}
 
-                            <input className="input_submit" type="submit" />
-                        </li>
-                    </form>
+                    {/*        <input className="input_submit" type="submit" />*/}
+                    {/*    </li>*/}
+                    {/*</form>*/}
                 </div>
             </div>
 

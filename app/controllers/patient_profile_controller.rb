@@ -5,7 +5,6 @@ class PatientProfileController < ApplicationController
   before_action :is_admin
 
   def index
-
     if params[:user_id]
       @patient_profile = PatientProfile.find_by(user_id: params[:user_id])
 
@@ -15,7 +14,6 @@ class PatientProfileController < ApplicationController
         render json: @patient_profile
       end
     end
-
     @patient_profiles = PatientProfile.all
     @users = User.order(:name)
     @enum_blood_types = PatientProfile.blood_types

@@ -30,7 +30,6 @@ function Dashboard( props ) {
                         />
                         <Route path='/admin/doctor_profiles' component={ DoctorProfileTable } />
                         <Route path='/admin/patient_profiles' component={ PatientProfileTable } />
-                        {/*<Route exact path='/admin/patient_profile/add'  component={ Add } />*/}
                         <Route exact path='/admin/patient_profile/add' render={(props) => <Add
                             {...props}
                             enum_blood_types={ enum_blood_types }

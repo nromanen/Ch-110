@@ -9,6 +9,10 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import VisibilityIcon from '@material-ui/icons/Visibility'
+import EditIcon from '@material-ui/icons/Edit'
+import DeleteIcon from '@material-ui/icons/Delete'
+import AddBoxIcon from '@material-ui/icons/AddBox'
 
 const useStyles = makeStyles({
     table: {
@@ -21,15 +25,18 @@ function PatientProfileTable() {
 
     const [patientProfiles, setPatientProfiles] = useState([])
 
-    useEffect(() => {
-        getItems()
+    useEffect(async () => {
+        let isSubscribed = true
+        const response = await getItems()
+        if (isSubscribed) {
+            setPatientProfiles(response.data)
+            console.log(response.data)
+        }
+        return () => isSubscribed = false
     }, [])
 
-    const getItems = async () => {
-        const response = await axios.get('/patients_profile_get_items')
-        setPatientProfiles(response.data)
-        console.log(response.data)
-    }
+    const getItems = async () => await axios.get('/patients_profile_get_items')
+
 
     return (
         <div className='patient-profile'>
@@ -60,15 +67,15 @@ function PatientProfileTable() {
                                 <TableCell align="right">{ item.blood_type }</TableCell>
                                 <TableCell align="right">{ item.height }</TableCell>
                                 <TableCell align="right">{ item.weight }</TableCell>
-                                <TableCell align="right"><Link to={ `/admin/patient_profile/${item.id}` }>Show</Link></TableCell>
-                                <TableCell align="right"><Link to={ `/admin/patient_profile/edit/${item.id}` }>Edit</Link></TableCell>
-                                <TableCell align="right"><Link to={ `/admin/patient_profile/delete/${item.id}` }>Delete</Link></TableCell>
+                                <TableCell align="right"><Link to={ `/admin/patient_profile/${item.id}` }>{ <VisibilityIcon /> }</Link></TableCell>
+                                <TableCell align="right"><Link to={ `/admin/patient_profile/edit/${item.id}` }>{ <EditIcon /> }</Link></TableCell>
+                                <TableCell align="right"><Link to={ `/admin/patient_profile/delete/${item.id}` }>{ <DeleteIcon /> }</Link></TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
                 </Table>
             </TableContainer>
-            <Link to={ `/admin/patient_profile/add` }>Add profile</Link>
+            <Link to={ `/admin/patient_profile/add` }>{ <AddBoxIcon /> }</Link>
         </div>
     )
 }

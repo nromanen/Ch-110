@@ -9,6 +9,8 @@ const Delete = (props) => {
 
     const { id } = props.match.params
     const [item, setItem] = useState({})
+    const  { email } = props.location
+
     useEffect(() => {
         axios.get(`/patient_profile/${id}`)
             .then(res => {
@@ -25,19 +27,20 @@ const Delete = (props) => {
         axios.delete(`/patient_profile/${id}`)
             .then(res => {
                 console.log('delete data', res.data)
-                history.push('/admin/patient_profiles')
+                goBack()
             })
     }
 
     return (
         <div>
             <h1>Are you sure?</h1>
+            <h3>User email: { email }</h3>
             <Card profile={ item } />
             <button onClick={ onDelete }>
                 Delete
             </button>
             <button onClick={ goBack }>
-                Back
+                Cancel
             </button>
         </div>
     )
