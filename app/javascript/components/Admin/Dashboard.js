@@ -9,7 +9,7 @@ import Show from './PatientProfile/Show'
 import Edit from './PatientProfile/Edit'
 import Delete from './PatientProfile/Delete'
 import Add from "./PatientProfile/Add";
-
+import Appointment from '../Appointments/Appointment'
 
 function Dashboard( props ) {
     const { users, patientProfiles, doctorProfiles, user, enum_blood_types } = props
@@ -29,6 +29,7 @@ function Dashboard( props ) {
                             />}
                         />
                         <Route path='/admin/doctor_profiles' component={ DoctorProfileTable } />
+                        <Route path='/admin/appointments' component={ Appointment } />
                         <Route path='/admin/patient_profiles' component={ PatientProfileTable } />
                         <Route exact path='/admin/patient_profile/add' render={(props) => <Add
                             {...props}
