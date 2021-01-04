@@ -23,9 +23,15 @@ body {
     padding: 30px 0;
 }
 
+.schedule {
+    background-color: #ffffff;
+    padding: 10px 10px;
+}
+
 .header__row {
     display: flex;
     justify-content: space-around;
+    color: white;
 }
 
 .header_doctor-info {
