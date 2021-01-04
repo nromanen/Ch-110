@@ -70,12 +70,12 @@ class Home extends React.Component {
             <div className="left_down">
                 <p>
                     <img src="/assets/discount-card.png" alt="discount-card.png" width="250" height="200" className="img_discount" />
-                    <h2 align="center">New!</h2>
-                    <h4>We have created a loyalty program that provides -10% on all medical
-                        services in our clinic.<br/>
-                        Come in and get your card FOR FREE!<br/>
-                        We are waiting for you!
-                    </h4>
+                    {/*<h2 align="center">New!</h2>*/}
+                    {/*<h4>We have created a loyalty program that provides -10% on all medical*/}
+                    {/*    services in our clinic.<br/>*/}
+                    {/*    Come in and get your card FOR FREE!<br/>*/}
+                    {/*    We are waiting for you!*/}
+                    {/*</h4>*/}
                 </p>     
             </div>
         </>    
