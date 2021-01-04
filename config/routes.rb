@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'account' => 'users#show'
   resources :visits, except: [:edit, :update]
   resources :visit_types
+  resources :schedules
   root to: "home#index"
 
   match '/admin/*path', to: 'admin#index', via: :all

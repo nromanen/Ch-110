@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_17_134504) do
+ActiveRecord::Schema.define(version: 2020_12_30_140331) do
 
   create_table "doctor_profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "photo_path"
@@ -33,6 +33,18 @@ ActiveRecord::Schema.define(version: 2020_12_17_134504) do
     t.integer "gender"
     t.boolean "is_insured", default: false
     t.index ["user_id"], name: "index_patient_profiles_on_user_id"
+  end
+
+  create_table "schedules", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "day"
+    t.time "start_time"
+    t.time "end_time"
+    t.bigint "visit_type_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_schedules_on_user_id"
+    t.index ["visit_type_id"], name: "index_schedules_on_visit_type_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -80,6 +92,8 @@ ActiveRecord::Schema.define(version: 2020_12_17_134504) do
 
   add_foreign_key "doctor_profiles", "users"
   add_foreign_key "patient_profiles", "users"
+  add_foreign_key "schedules", "users"
+  add_foreign_key "schedules", "visit_types"
   add_foreign_key "visits", "users", column: "created_by_id"
   add_foreign_key "visits", "users", column: "doctor_id"
   add_foreign_key "visits", "users", column: "patient_id"

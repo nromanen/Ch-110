@@ -80,6 +80,11 @@ class VisitsController < ApplicationController
     end
   end
 
+  # def slots
+  #   schedule = Schedule.where(doctor = params[:doctor], day = params[:date.day])
+  #
+  # end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_visit
