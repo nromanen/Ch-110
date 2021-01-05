@@ -80,10 +80,23 @@ class VisitsController < ApplicationController
     end
   end
 
-  # def slots
-  #   schedule = Schedule.where(doctor = params[:doctor], day = params[:date.day])
-  #
-  # end
+  def slots
+    date =  DateTime.iso8601(params[:date])
+    schedule = Schedule.find_by(user: params[:doctor_id], day: date.strftime("%u"))
+    @slots = []
+    slots_amount = (schedule.end_time - schedule.start_time).to_i / schedule.visit_type.length.minutes.to_i
+    slots_amount.times do | n |
+      start_time = schedule.start_time + (schedule.visit_type.length.to_i * n).minutes
+      end_time = schedule.start_time + (schedule.visit_type.length.to_i * (n + 1)).minutes
+      @slots << {start: start_time.strftime("%H:%M"),
+                  end: end_time.strftime("%H:%M"),
+                  available: SlotChecker.new(params[:doctor_id], date + start_time.hour.hours + start_time.min.minutes).slot_check}
+    end
+    respond_to do |format|
+      format.html { render json: @slots }
+      format.json { render json: @slots }
+    end
+  end
 
   private
   # Use callbacks to share common setup or constraints between actions.

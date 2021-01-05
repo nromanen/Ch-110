@@ -10,6 +10,7 @@ Rails.application.routes.draw do
                                     confirmations: 'user/confirmations'}
   get 'account' => 'users#show'
   resources :visits, except: [:edit, :update]
+  get '/slots' => 'visits#slots'
   resources :visit_types
   resources :schedules
   root to: "home#index"
