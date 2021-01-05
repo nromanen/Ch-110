@@ -93,8 +93,8 @@ class VisitsController < ApplicationController
                   available: SlotChecker.new(params[:doctor_id], date + start_time.hour.hours + start_time.min.minutes).slot_check}
     end
     respond_to do |format|
-      format.html { render json: @slots }
-      format.json { render json: @slots }
+      format.html { render json: [visit_type_id: schedule.visit_type.id, slots: @slots] }
+      format.json { render json: [visit_type_id: schedule.visit_type.id, slots: @slots] }
     end
   end
 
