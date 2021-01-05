@@ -9,14 +9,19 @@ import './appointment.css'
 import Footer from "./Footer"
 import DoctorInfo from "./DoctorInfo"
 import BasicTable from "./Schedule"
-import { appointments } from './mock.js'
+import { mockAppointments } from './mock.js'
 
 const Appointment = () => {
     const [selectedDate, setSelectedDate] = useState(Date.now())
+    const [appointments, setAppointments] = useState([])
     const handleDateChange = date => {
         console.log(date)
         setSelectedDate(date)
     }
+
+    useEffect(() => {
+        setAppointments(mockAppointments)
+    })
 
     return (
             <div className="wrapper">
@@ -45,7 +50,7 @@ const Appointment = () => {
                     </div>
                     <div className="schedule">
                         <div className="wrapper-container">
-                            <BasicTable />
+                            <BasicTable appointments={ appointments } />
                         </div>
                     </div>
                 </div>

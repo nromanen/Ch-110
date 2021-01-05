@@ -26,8 +26,9 @@ const rows = [
     createData('Gingerbread', 356, 16.0, 49, 3.9),
 ];
 
-export default function BasicTable() {
+export default function BasicTable({ appointments }) {
     const classes = useStyles();
+    console.log(appointments)
 
     return (
         <div className="schedule__table">
@@ -35,11 +36,11 @@ export default function BasicTable() {
                 <Table className={classes.table} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell>Dessert (100g serving)</TableCell>
-                            <TableCell align="right">Calories</TableCell>
-                            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                            <TableCell>Hour</TableCell>
+                            <TableCell align="right">0-15 min</TableCell>
+                            <TableCell align="right">15-30 min</TableCell>
+                            <TableCell align="right">30-45 min</TableCell>
+                            <TableCell align="right">45-60 min</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -54,6 +55,17 @@ export default function BasicTable() {
                                 <TableCell align="right">{row.protein}</TableCell>
                             </TableRow>
                         ))}
+                        {/*{appointments.map((row) => (*/}
+                        {/*    <TableRow key={row.index}>*/}
+                        {/*        <TableCell component="th" scope="row">*/}
+                        {/*            {row.start.getHours()}*/}
+                        {/*        </TableCell>*/}
+                        {/*        <TableCell align="right">{}</TableCell>*/}
+                        {/*        <TableCell align="right">{}</TableCell>*/}
+                        {/*        <TableCell align="right">{}</TableCell>*/}
+                        {/*        <TableCell align="right">{}</TableCell>*/}
+                        {/*    </TableRow>*/}
+                        {/*))}*/}
                     </TableBody>
                 </Table>
             </TableContainer>

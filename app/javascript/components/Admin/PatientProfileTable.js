@@ -25,6 +25,8 @@ function PatientProfileTable() {
 
     const [patientProfiles, setPatientProfiles] = useState([])
 
+    const getItems = async () => await axios.get('/patients_profile_get_items')
+
     useEffect(async () => {
         let isSubscribed = true
         const response = await getItems()
@@ -35,7 +37,6 @@ function PatientProfileTable() {
         return () => isSubscribed = false
     }, [])
 
-    const getItems = async () => await axios.get('/patients_profile_get_items')
 
 
     return (
