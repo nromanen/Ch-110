@@ -29,7 +29,10 @@ function Dashboard( props ) {
                             />}
                         />
                         <Route path='/admin/doctor_profiles' component={ DoctorProfileTable } />
-                        <Route path='/admin/appointments' component={ Appointment } />
+                        <Route path='/admin/appointments' render={(props) => <Appointment
+                            {...props}
+                            users={ users }
+                        />} />
                         <Route path='/admin/patient_profiles' component={ PatientProfileTable } />
                         <Route exact path='/admin/patient_profile/add' render={(props) => <Add
                             {...props}
