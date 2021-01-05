@@ -42,5 +42,25 @@ export const mockAppointments = [
         new Date(2021, 1, 1, 10, 45, 0),
         new Date(2021, 1, 1, 11, 0, 0),
         false
+    ),
+    createData(
+        new Date(2021, 1, 1, 11, 0, 0),
+        new Date(2021, 1, 1, 11, 15, 0),
+        false
+    ),
+    createData(
+        new Date(2021, 1, 1, 11, 15, 0),
+        new Date(2021, 1, 1, 11, 30, 0),
+        false
+    ),
+    createData(
+        new Date(2021, 1, 1, 11, 30, 0),
+        new Date(2021, 1, 1, 11, 45, 0),
+        false
+    ),
+    createData(
+        new Date(2021, 1, 1, 11, 45, 0),
+        new Date(2021, 1, 1, 12, 0, 0),
+        false
     )
 ]
