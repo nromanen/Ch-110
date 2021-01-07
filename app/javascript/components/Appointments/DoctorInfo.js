@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import CheckIcon from '@material-ui/icons/Check';
+import axios from 'axios'
 
-const DoctorInfo = () => {
+const DoctorInfo = ({ doctorId }) => {
+
+    const [doctor, setDoctor] = useState({})
+
+    useEffect(() => {
+    })
+
     return (
         <div className="header_doctor-info">
             <div className="header__title title">Title</div>
