@@ -35,6 +35,10 @@ class VisitsController < ApplicationController
   def create
     @visit = Visit.new(visit_params)
     @visit.created_by_id = current_user.id
+    patient = User.find_by(id: visit_params[:patient_id])
+    doctor = User.find_by(id: visit_params[:doctor_id])
+    @visit.patient_name = "#{patient.name} #{patient.surname}"
+    @visit.doctor_name = "#{doctor.name} #{doctor.surname}"
 
     respond_to do |format|
       if @visit.save
@@ -81,20 +85,16 @@ class VisitsController < ApplicationController
   end
 
   def slots
-    date =  DateTime.iso8601(params[:date])
+    date = DateTime.iso8601(params[:date])
     schedule = Schedule.find_by(user: params[:doctor_id], day: date.strftime("%u"))
-    @slots = []
-    slots_amount = (schedule.end_time - schedule.start_time).to_i / schedule.visit_type.length.minutes.to_i
-    slots_amount.times do | n |
-      start_time = schedule.start_time + (schedule.visit_type.length.to_i * n).minutes
-      end_time = schedule.start_time + (schedule.visit_type.length.to_i * (n + 1)).minutes
-      @slots << {start: start_time.strftime("%H:%M"),
-                  end: end_time.strftime("%H:%M"),
-                  available: SlotChecker.new(params[:doctor_id], date + start_time.hour.hours + start_time.min.minutes).slot_check}
+    if schedule
+      result = SlotManager.new(schedule, date, params[:doctor_id]).get_slots
+    else
+      result = []
     end
     respond_to do |format|
-      format.html { render json: [visit_type_id: schedule.visit_type.id, slots: @slots] }
-      format.json { render json: [visit_type_id: schedule.visit_type.id, slots: @slots] }
+      format.html { render json: result }
+      format.json { render json: result }
     end
   end
 

@@ -39,6 +39,16 @@
   </div>
 
   <div class="field">
+    <%= form.label :start_date %>
+    <%= form.date_select :start_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_date %>
+    <%= form.date_select :end_date %>
+  </div>
+
+  <div class="field">
     <%= form.label :visit_type_id %>
     <%= form.select :visit_type_id, VisitType.all.order(:length).map{ |vt| ["#{vt.name} - #{vt.length}", vt.id]}%>
   </div>

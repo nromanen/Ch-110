@@ -4,7 +4,7 @@ class SchedulesController < ApplicationController
   # GET /visits
   # GET /visits.json
   def index
-    @schedules = Schedule.where(id: current_user.id)
+    @schedules = Schedule.all
   end
 
   # GET /visits/1
@@ -77,6 +77,6 @@ class SchedulesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def schedule_params
-    params.require(:schedule).permit(:user_id, :day, :start_time, :end_time, :visit_type_id)
+    params.require(:schedule).permit(:user_id, :day, :start_time, :end_time, :visit_type_id, :start_date, :end_date)
   end
 end
