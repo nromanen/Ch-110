@@ -7,4 +7,9 @@ class UsersController < ApplicationController
     @users = User.all
     render json: @users
   end
+
+  def find_doctor_by_id
+
+  end
+
 end

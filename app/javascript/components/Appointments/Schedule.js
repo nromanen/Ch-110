@@ -5,23 +5,98 @@ import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Modal from '@material-ui/core/Modal';
 
-const useStyles = makeStyles({
+function rand() {
+    return Math.round(Math.random() * 20) - 10;
+}
+
+function getModalStyle() {
+    const top = 50 + rand();
+    const left = 50 + rand();
+
+    return {
+        top: `${top}%`,
+        left: `${left}%`,
+        transform: `translate(-${top}%, -${left}%)`,
+    };
+}
+
+const useStyles = makeStyles((theme) => ({
+    paper: {
+        position: 'absolute',
+        width: 400,
+        backgroundColor: theme.palette.background.paper,
+        border: '2px solid #000',
+        boxShadow: theme.shadows[5],
+        padding: theme.spacing(2, 4, 3),
+    },
     table: {
         minWidth: 650,
     },
-});
+}));
+
 
 export default function BasicTable({ appointments,
                                        limit,
-                                       handleButtonTableClick }) {
+                                       handleButtonTableClick,
+                                       selectedDate,
+                                        doctorId
+                                       }) {
     const classes = useStyles();
+
+    const [open, setOpen] = React.useState(false);
+    const [modalStyle] = React.useState(getModalStyle);
+    const [item, setItem] = React.useState({})
+
+    let body = ( <div style={modalStyle} className={classes.paper}>
+            <h2 id="simple-modal-title">Appointment</h2>
+            <ul>
+                <li>
+                    Doctor id: { doctorId }
+                </li>
+                <li>
+                    Date: { selectedDate.getFullYear() }-
+                    { selectedDate.getMonth() }-
+                    { selectedDate.getDate() }
+                </li>
+                <li>
+                    { item.start } -
+                    { item.end }
+                </li>
+            </ul>
+            <Button
+                color="primary"
+                onClick={ () => {
+                handleButtonTableClick(item)
+                handleClose()
+            } } >
+                Confirm
+            </Button>
+            <Button
+                onClick={ () => handleClose() }
+                color="secondary"
+            >
+                Close
+            </Button>
+        </div>
+    )
+
+
+    const handleOpen = item => {
+        setItem(item)
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+
+    };
+
     console.log(appointments)
 
-    let counter = 0
     let newTable = []
 
     const row = (appointments, i, limit) => {
@@ -31,13 +106,19 @@ export default function BasicTable({ appointments,
                     <TableCell key={ item.start } align="right">
                         { item.available ?
                             <Button
-                                onClick={ () => handleButtonTableClick(item) }
+                                onClick={ () =>{
+                                    handleOpen(item)
+                                } }
                                 variant="outlined"
                                 color="primary"
                             >
                                 { item.start } - { item.end }
                             </Button> :
-                            <Button variant="outlined" color="primary" disabled>
+                            <Button
+                                variant="outlined"
+                                color="primary"
+                                disabled
+                            >
                                 { item.start } - { item.end }
                             </Button>
                         }
@@ -65,7 +146,7 @@ export default function BasicTable({ appointments,
         <div className="schedule__table">
             <TableContainer component={Paper}>
                 <Table
-                    className={classes.table}
+                    className={ classes.table }
                     aria-label="simple table"
                 >
                     <TableBody>
@@ -73,6 +154,12 @@ export default function BasicTable({ appointments,
                     </TableBody>
                 </Table>
             </TableContainer>
+            <Modal
+                open={ open }
+                onClose={handleClose}
+            >
+                { body }
+            </Modal>
         </div>
     );
 }

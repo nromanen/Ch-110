@@ -6,8 +6,9 @@ const DoctorInfo = ({ doctorId }) => {
 
     const [doctor, setDoctor] = useState({})
 
-    useEffect(() => {
-    })
+    // useEffect(() => {
+    //     axios.get(``)
+    // })
 
     return (
         <div className="header_doctor-info">
