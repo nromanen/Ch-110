@@ -55,6 +55,27 @@ const Appointment = ({ users, user }) => {
                     setLimit(2)
                     break
             }
+
+            const timeNow = new Date(Date.now())
+            const yearNow = timeNow.getFullYear()
+            const monthNow = timeNow.getMonth() + 1
+            const dateNow = timeNow.getDate()
+            const hourNow = timeNow.getHours()
+            const minuteNow = timeNow.getMinutes()
+
+            const [year, month, day] = date.split('-')
+
+            slots.map(item => {
+                const [startHours, startMinutes] = item.start.split(':')
+                if (
+                    (yearNow === +year && monthNow === +month && dateNow === +day) &&
+                    ((+startHours < hourNow) || ((+startHours === hourNow) && (+startMinutes <= minuteNow))))
+                {
+                    item.available = false
+                    return item
+                }
+                return item
+            })
             setAppointments(slots)
             setVisit_type_id(visit_type_id)
         } catch (error) {
@@ -132,7 +153,6 @@ const Appointment = ({ users, user }) => {
     };
 
     useEffect(() => {
-        console.log(selectedDate)
         fetchData(doctorId, dateFormat(selectedDate))
     }, [])
 
