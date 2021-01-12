@@ -25,29 +25,29 @@ class User::RegistrationsController < Devise::RegistrationsController
 
   # DELETE /resource
   def destroy
-    if current_user.role == 'patient'
-      patient_visits = Visit.where(patient_id: current_user.id)
-      puts "============================================"
-      puts patient_visits
-      patient_visits.each do |visit|
-        puts visit.patient_id
-        visit.patient_id = nil
-        puts visit.patient_id
-        visit.save!
-      end
-    elsif current_user.role == 'doctor'
-      doctor_visits = Visit.where(doctor_id: current_user.id)
-      doctor_visits.each do |visit|
-        visit.doctor_id = nil
-        visit.save
-      end
-    end
-    # current_user.is_active = false
-    # current_user.save
-    # sign_out current_user
-    # flash[:notice] = "Your account was successfully deleted."
-    # redirect_to root_path
-    super
+    # if current_user.role == 'patient'
+    #   patient_visits = Visit.where(patient_id: current_user.id)
+    #   puts "============================================"
+    #   puts patient_visits
+    #   patient_visits.each do |visit|
+    #     puts visit.patient_id
+    #     visit.patient_id = nil
+    #     puts visit.patient_id
+    #     visit.save!
+    #   end
+    # elsif current_user.role == 'doctor'
+    #   doctor_visits = Visit.where(doctor_id: current_user.id)
+    #   doctor_visits.each do |visit|
+    #     visit.doctor_id = nil
+    #     visit.save
+    #   end
+    # end
+    current_user.is_active = false
+    current_user.save
+    sign_out current_user
+    flash[:notice] = "Your account was successfully deleted."
+    redirect_to root_path
+    # super
   end
 
   # GET /resource/cancel
