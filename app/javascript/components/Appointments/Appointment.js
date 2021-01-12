@@ -12,10 +12,17 @@ import BasicTable from "./Schedule"
 import CustomizedSnackbars from "./Toast";
 
 
-const Appointment = ({ users, user }) => {
+const Appointment = ({ user, location }) => {
+
+    let search = window.location.search;
+    let params = new URLSearchParams(search);
+    let doctorIdFromParams = params.get('doctor_id');
+
+    // console.log(location.search)
+
 
     const initialDate = new Date(Date.now())
-    const doctorId = 4
+    const doctorId = doctorIdFromParams
 
     const [selectedDate, setSelectedDate] = useState(initialDate)
     const [startTime, setStartTime] = useState('')
@@ -34,7 +41,6 @@ const Appointment = ({ users, user }) => {
         try {
             const res = await axios.get(`/slots?doctor_id=${user_id}&date=${date}`)
             const data = res.data
-            console.log(data)
             const [ { visit_type_id, slots } ] = data
 
             const duration = ({start, end}) => {
@@ -102,7 +108,6 @@ const Appointment = ({ users, user }) => {
     }
 
     const handleDateChange = date => {
-        console.log(date)
         fetchData(doctorId, dateFormat(date))
         setSelectedDate(date)
     }
@@ -117,14 +122,14 @@ const Appointment = ({ users, user }) => {
                 startHours,
                 startMinutes
                 ))
-            console.log(date)
+
             const response = await axios.post(
                 '/visits',
                 { visit: {
                         doctor_id: doctorId,
                         visit_type_id,
                         start_time: date,
-                        patient_id: 6
+                        patient_id: user.id
                     }
                 },
                 { headers: headers }
@@ -178,7 +183,7 @@ const Appointment = ({ users, user }) => {
                                         }}
                                     />
                                 </MuiPickersUtilsProvider>
-                                <DoctorInfo doctorId={ 4 } />
+                                <DoctorInfo doctorId={ doctorId } />
                             </div>
                         </div>
                     </div>

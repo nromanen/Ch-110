@@ -6,15 +6,32 @@ const DoctorInfo = ({ doctorId }) => {
 
     const [doctor, setDoctor] = useState({})
 
-    // useEffect(() => {
-    //     axios.get(``)
-    // })
+    const fetchDoctor = doctorId => {
+        axios.get(`/users_by_id?id=${doctorId}`)
+            .then(res => {
+                setDoctor(res.data)
+            })
+            .catch(err => console.log(err))
+    }
+
+    const fetchDoctorProfile = doctorId => {
+        axios.get(`/users_by_id?id=${doctorId}`)
+            .then(res => {
+                console.log(res.data)
+                setDoctor(res.data)
+            })
+            .catch(err => console.log(err))
+    }
+
+    useEffect(() => {
+        fetchDoctor(doctorId)
+    },[])
 
     return (
         <div className="header_doctor-info">
-            <div className="header__title title">Title</div>
+            <div className="header__title title">Doctor</div>
             <ul className="header__list">
-                <li><CheckIcon /><span>Name</span></li>
+                <li><CheckIcon /><span>{ doctor.name }</span><span>{ doctor.surname }</span></li>
                 <li><CheckIcon /><span>Specialization</span></li>
                 <li><CheckIcon /><span>Description</span></li>
             </ul>

@@ -95,8 +95,6 @@ export default function BasicTable({ appointments,
 
     };
 
-    console.log(appointments)
-
     let newTable = []
 
     const row = (appointments, i, limit) => {

@@ -13,7 +13,6 @@ import Appointment from '../Appointments/Appointment'
 
 function Dashboard( props ) {
     const { users, patientProfiles, doctorProfiles, user, enum_blood_types } = props
-    console.log(users)
     return (
         <Router>
             <div className='dash-board' >
