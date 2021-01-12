@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   get 'account' => 'users#show'
   resources :visits, except: [:edit, :update]
   get '/slots' => 'visits#slots'
+  get '/manager' => 'users#manage'
+  get '/manager/patients' => 'users#get_patients'
+  get '/manager/doctors' => 'users#get_doctors'
   resources :visit_types
   resources :schedules
   root to: "home#index"

@@ -24,7 +24,8 @@ class VisitValidator < ActiveModel::Validator
   end
 
   def schedule_present
-    @schedule = Schedule.find_by(user: @doctor.id, day: @start_time.strftime("%u"))
+    @schedule = Schedule.where("start_date <= :current_date AND end_date >= :current_date AND user_id = :user_id AND day = :day",
+                                   {current_date: DateTime.now, day: @start_time.strftime("%u"), user_id: @doctor.id}).order(created_at: :desc)[-1]
     unless @schedule
       @errors.add(:base, "The doctor doesn't take patients on this day")
     end

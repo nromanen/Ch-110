@@ -7,4 +7,16 @@ class UsersController < ApplicationController
     @users = User.all
     render json: @users
   end
+
+  def manage
+
+  end
+
+  def get_patients
+    @patients = User.where(role: 'patient')
+  end
+
+  def get_doctors
+    @doctors = User.where(role: 'doctor')
+  end
 end

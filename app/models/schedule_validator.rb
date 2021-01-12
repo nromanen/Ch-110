@@ -7,10 +7,14 @@ class ScheduleValidator < ActiveModel::Validator
     @end_time = record.end_time
     @start_date = record.start_date
     @end_date = record.end_date
+    @day = record.day
 
     user_is_doctor
     time_is_valid
     date_is_valid
+    date_not_in_past
+    date_not_in_schedule
+
   end
 
   def user_is_doctor
@@ -20,14 +24,28 @@ class ScheduleValidator < ActiveModel::Validator
   end
 
   def time_is_valid
-    if @start_time > @end_time
-      @errors.add(:start_time, "Invalid time interval")
+    if @start_time >= @end_time or @end_time - 1.hour < @start_time
+      @errors.add(:base, "Time interval less than 1 hour")
     end
   end
 
   def date_is_valid
     if @start_date > @end_date
-      @errors.add(:start_date, "Invalid date interval")
+      @errors.add(:base, "Invalid date interval")
+    end
+  end
+
+  def date_not_in_past
+    if @end_date < DateTime.now
+      @errors.add(:end_date, "can't be in past")
+    end
+  end
+
+  def date_not_in_schedule
+    schedule_list = Schedule.where("end_date > :start_date AND day = :day AND user_id = :user_id",
+                                  {start_date: @start_date, day: Schedule.days[@day], user_id: @doctor.id})
+    unless schedule_list.empty?
+      @errors.add(:base, "Schedule for this period already exist")
     end
   end
 
