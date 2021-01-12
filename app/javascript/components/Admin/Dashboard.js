@@ -17,7 +17,7 @@ function Dashboard( props ) {
         <Router>
             <div className='dash-board' >
                 <SideBar />
-                <div className='content'>
+                <div className='content-1'>
                     <Switch>
                         <Route
                             path='/admin/users'

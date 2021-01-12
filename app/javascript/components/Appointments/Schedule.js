@@ -1,27 +1,28 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react'
 import Button from '@material-ui/core/Button'
-import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
-import Modal from '@material-ui/core/Modal';
+import { makeStyles } from '@material-ui/core/styles'
+import Table from '@material-ui/core/Table'
+import TableBody from '@material-ui/core/TableBody'
+import TableCell from '@material-ui/core/TableCell'
+import TableContainer from '@material-ui/core/TableContainer'
+import TableRow from '@material-ui/core/TableRow'
+import Paper from '@material-ui/core/Paper'
+import Modal from '@material-ui/core/Modal'
+import axios from "axios";
 
 function rand() {
-    return Math.round(Math.random() * 20) - 10;
+    return Math.round(Math.random() * 20) - 10
 }
 
 function getModalStyle() {
-    const top = 50 + rand();
-    const left = 50 + rand();
+    const top = 50 + rand()
+    const left = 50 + rand()
 
     return {
         top: `${top}%`,
         left: `${left}%`,
         transform: `translate(-${top}%, -${left}%)`,
-    };
+    }
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -36,26 +37,40 @@ const useStyles = makeStyles((theme) => ({
     table: {
         minWidth: 650,
     },
-}));
+}))
 
 
 export default function BasicTable({ appointments,
                                        limit,
                                        handleButtonTableClick,
                                        selectedDate,
-                                        doctorId
+                                        doctorId,
+                                        setErrors
                                        }) {
-    const classes = useStyles();
+    const classes = useStyles()
 
-    const [open, setOpen] = React.useState(false);
-    const [modalStyle] = React.useState(getModalStyle);
+    const [open, setOpen] = React.useState(false)
+    const [modalStyle] = React.useState(getModalStyle)
     const [item, setItem] = React.useState({})
+    const [doctor, setDoctor] = useState({})
+
+    const fetchDoctor = doctorId => {
+        axios.get(`/users_by_id?id=${doctorId}`)
+            .then(res => {
+                setDoctor(res.data)
+            })
+            .catch(err => console.log(err))
+    }
+
+    useEffect(() => {
+        fetchDoctor(doctorId)
+    },[])
 
     let body = ( <div style={modalStyle} className={classes.paper}>
             <h2 id="simple-modal-title">Appointment</h2>
             <ul>
                 <li>
-                    Doctor id: { doctorId }
+                    Doctor: { doctor.name } { doctor.surname }
                 </li>
                 <li>
                     Date: { selectedDate.getFullYear() }-
@@ -86,14 +101,15 @@ export default function BasicTable({ appointments,
 
 
     const handleOpen = item => {
+        setErrors([])
         setItem(item)
-        setOpen(true);
-    };
+        setOpen(true)
+    }
 
     const handleClose = () => {
-        setOpen(false);
+        setOpen(false)
 
-    };
+    }
 
     let newTable = []
 
@@ -115,6 +131,9 @@ export default function BasicTable({ appointments,
                             <Button
                                 variant="outlined"
                                 color="primary"
+                                onClick={ () =>{
+                                    handleOpen(item)
+                                } }
                                 disabled
                             >
                                 { item.start } - { item.end }
@@ -142,7 +161,7 @@ export default function BasicTable({ appointments,
 
     return (
         <div className="schedule__table">
-            <TableContainer component={Paper}>
+            <TableContainer component={ Paper }>
                 <Table
                     className={ classes.table }
                     aria-label="simple table"
@@ -154,10 +173,10 @@ export default function BasicTable({ appointments,
             </TableContainer>
             <Modal
                 open={ open }
-                onClose={handleClose}
+                onClose={ handleClose }
             >
                 { body }
             </Modal>
         </div>
-    );
+    )
 }

@@ -9,7 +9,8 @@ import './appointment.css'
 import Footer from "./Footer"
 import DoctorInfo from "./DoctorInfo"
 import BasicTable from "./Schedule"
-import CustomizedSnackbars from "./Toast";
+import CustomizedSnackbars from "./Toast"
+import SimpleAlert from './Alert'
 
 
 const Appointment = ({ user, location }) => {
@@ -30,16 +31,22 @@ const Appointment = ({ user, location }) => {
     const [visit_type_id, setVisit_type_id] = useState(0)
     const [appointments, setAppointments] = useState([])
     const [openToast, setOpenToast] = useState(false);
+    const [errors, setErrors] = useState([])
 
     const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
     const headers = {
         'Content-Type': 'application/json',
-        'X-CSRF-Token': csrf
+        'X-CSRF-Token': csrf,
+        'Accept': 'application/json'
     }
+
 
     const fetchData = async (user_id, date) => {
         try {
-            const res = await axios.get(`/slots?doctor_id=${user_id}&date=${date}`)
+            setErrors([])
+            const res = await axios.get(`/slots?doctor_id=${user_id}&date=${date}`,{
+                headers: headers
+            })
             const data = res.data
             const [ { visit_type_id, slots } ] = data
 
@@ -51,7 +58,6 @@ const Appointment = ({ user, location }) => {
                     (startHours * minutesInOneHour + startMinutes)
                 return dur
             }
-
 
             switch (duration(slots[0])) {
                 case 20:
@@ -115,6 +121,7 @@ const Appointment = ({ user, location }) => {
 
     const handleButtonTableClick = async ({ start, end }) => {
         try {
+            setErrors([])
             const [startHours, startMinutes] = start.split(':')
             const date = new Date(Date.UTC(selectedDate.getFullYear(),
                 selectedDate.getMonth(),
@@ -134,18 +141,24 @@ const Appointment = ({ user, location }) => {
                 },
                 { headers: headers }
             )
-            console.log(JSON.parse(response.config.data))
-            setStartTime(start)
-            setAppointments(appointments.map(item => {
-                if (item.start === start) {
-                    item.available = false
+            console.log(response.data)
+            if (response.status === 200) {
+                console.log('All is OK!!!!')
+                setStartTime(start)
+                setAppointments(appointments.map(item => {
+                    if (item.start === start) {
+                        item.available = false
+                        return item
+                    }
                     return item
-                }
-                return item
-            }))
-            setOpenToast(true)
+                }))
+                setOpenToast(true)
+            } else {
+                console.log("Hurrrrrraaaaaa response status is not 200")
+            }
         } catch (error) {
-            console.log(error)
+            console.log(error.response.data)
+            setErrors(error.response.data)
         }
     }
 
@@ -157,13 +170,20 @@ const Appointment = ({ user, location }) => {
         setOpenToast(false);
     };
 
+    const errorMessages = errors.map(item => (
+        <SimpleAlert
+            key={ item }
+            text={ item }
+        />
+    ))
+
     useEffect(() => {
         fetchData(doctorId, dateFormat(selectedDate))
     }, [])
 
     return (
             <div className="wrapper">
-                <div className="content">
+                <div className="content-1">
                     <div className="header">
                         <div className="wrapper-container">
                             <div className="header__row">
@@ -189,13 +209,16 @@ const Appointment = ({ user, location }) => {
                     </div>
                     <div className="schedule">
                         <div className="wrapper-container">
+                            { errorMessages }
                             <BasicTable
                                 appointments={ appointments }
                                 limit={ limit }
                                 handleButtonTableClick={ handleButtonTableClick }
                                 selectedDate={ selectedDate }
                                 doctorId={ doctorId }
-                            />
+                                setErrors={ setErrors }
+
+                        />
                         </div>
                     </div>
                 </div>
