@@ -24,6 +24,9 @@
           <span class="psw"><%= link_to "#{ 'My schedule' }", schedules_path %></span>
         </div>
       <% end %>
+      <% if @user.role == 'manager' %>
+        <span class="psw"><%= link_to "#{ 'Manager Dashboard' }", manager_path %></span>
+      <% end %>
     </div>
   </div>
 </section>

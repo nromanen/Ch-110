@@ -11,17 +11,10 @@
     </div>
   <% end %>
 
-  <% if current_user.role == 'admin' %>
   <div class="field">
     <%= form.label :user_id %>
     <%= form.select :user_id, User.where(:role => 'doctor').order(:surname).map{ |user| ["#{user.surname} #{user.name}", user.id]}%>
   </div>
-    <% else %>
-    <div class="field">
-      <%= form.label :user_id %>
-      <%= form.select :user_id, User.where(id: current_user.id).map{ |user| ["#{user.surname} #{user.name}", user.id]} %>
-    </div>
-    <% end %>
 
   <div class="field">
     <%= form.label :day %>
@@ -36,6 +29,16 @@
   <div class="field">
     <%= form.label :end_time %>
     <%= form.time_select :end_time, minute_step: 30 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_date %>
+    <%= form.date_select :start_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_date %>
+    <%= form.date_select :end_date %>
   </div>
 
   <div class="field">

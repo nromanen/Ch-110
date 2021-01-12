@@ -10,8 +10,19 @@ class UsersController < ApplicationController
 
   def find_doctor_by_id
     @doctor = User.find(params[:id])
-    puts @doctor
     render json: @doctor
+  end
+
+  def manage
+
+  end
+
+  def get_patients
+    @patients = User.where(role: 'patient')
+  end
+
+  def get_doctors
+    @doctors = User.where(role: 'doctor')
   end
 
   private

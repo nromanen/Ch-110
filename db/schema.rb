@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_30_140331) do
+ActiveRecord::Schema.define(version: 2021_01_08_155815) do
 
   create_table "doctor_profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "photo_path"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 2020_12_30_140331) do
     t.bigint "visit_type_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "start_date"
+    t.date "end_date"
     t.index ["user_id"], name: "index_schedules_on_user_id"
     t.index ["visit_type_id"], name: "index_schedules_on_visit_type_id"
   end
@@ -77,13 +79,15 @@ ActiveRecord::Schema.define(version: 2020_12_30_140331) do
   end
 
   create_table "visits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "patient_id", null: false
-    t.bigint "doctor_id", null: false
+    t.bigint "patient_id"
+    t.bigint "doctor_id"
     t.datetime "start_time"
-    t.bigint "visit_type_id", null: false
-    t.bigint "created_by_id", null: false
+    t.bigint "visit_type_id"
+    t.bigint "created_by_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "patient_name"
+    t.string "doctor_name"
     t.index ["created_by_id"], name: "index_visits_on_created_by_id"
     t.index ["doctor_id"], name: "index_visits_on_doctor_id"
     t.index ["patient_id"], name: "index_visits_on_patient_id"

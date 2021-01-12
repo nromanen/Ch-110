@@ -13,6 +13,8 @@
       <th>Day</th>
       <th>Start time</th>
       <th>End time</th>
+      <th>Start date</th>
+      <th>End date</th>
       <th>Visit type</th>
     </tr>
   </thead>
@@ -25,6 +27,8 @@
         <td><%= schedule.day %></td>
         <td><%= schedule.start_time.strftime(dt_format) %></td>
         <td><%= schedule.end_time.strftime(dt_format) %></td>
+        <td><%= schedule.start_date %></td>
+        <td><%= schedule.end_date %></td>
         <td><%= "#{schedule.visit_type.name} (#{schedule.visit_type.length})" %></td>
 
         <td><%= link_to 'Show', schedule %></td>
