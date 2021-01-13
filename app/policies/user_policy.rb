@@ -23,6 +23,10 @@ class UserPolicy < ApplicationPolicy
     is_admin_or_manager?
   end
 
+  def find_doctor_by_id?
+    true
+  end
+
   def get_patients?
     is_admin_or_manager?
   end
