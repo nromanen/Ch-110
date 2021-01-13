@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/manager' => 'users#manage'
   get '/manager/patients' => 'users#get_patients'
   get '/manager/doctors' => 'users#get_doctors'
+  get '/users' => 'users#index'
   resources :visit_types
   resources :schedules
   root to: "home#index"

@@ -1,11 +1,8 @@
-<aside id="notice"><%= notice %></aside>
-<aside style="color:red;"><%= alert %></aside>
-
-<!--<h1>Visits:</h1>-->
-<%# if @visits.empty? %>
-<!--  <h4>You don't have visits right now:</h4>-->
-<%# end %>
-<%# unless @visits.empty? %>
+<h1>Schedules:</h1>
+<% if @schedules.empty? %>
+  <h4>You don't have schedules right now:</h4>
+<% end %>
+<% unless @schedules.empty? %>
 <table class="table">
   <thead>
     <tr>
@@ -38,7 +35,7 @@
     <% end %>
   </tbody>
 </table>
-<%# end %>
+<% end %>
 
 
 <%= link_to 'New Schedule', new_schedule_path %>

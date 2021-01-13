@@ -1,25 +1,26 @@
 class VisitsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_visit, only: [:show, :destroy]
+
+  after_action :verify_authorized, except: :index
+  after_action :verify_policy_scoped, only: :index
 
   # GET /visits
   # GET /visits.json
   def index
-    if current_user
-      @visits = Visit.all
-    end
+      @visits = policy_scope(Visit)
   end
 
   # GET /visits/1
   # GET /visits/1.json
   def show
-    unless current_user
-      redirect_to visits_url
-    end
+    @visit = policy_scope(Visit).find(params[:id])
   end
 
   # GET /visits/new
   def new
     @visit = Visit.new
+    authorize @visit
   end
 
 
@@ -34,6 +35,7 @@ class VisitsController < ApplicationController
   # POST /visits.json
   def create
     @visit = Visit.new(visit_params)
+    authorize @visit
     @visit.created_by_id = current_user.id
     patient = User.find_by(id: visit_params[:patient_id])
     doctor = User.find_by(id: visit_params[:doctor_id])
@@ -84,6 +86,16 @@ class VisitsController < ApplicationController
     end
   end
 
+  # def get_patient_visits
+  #   @visits = Visit.where("start_time > :current_time AND patient_id = :user_id",
+  #                                {current_time: DateTime.now, user_id: current_user.id})
+  # end
+  #
+  # def show_history
+  #   @visits = Visit.where("start_time < :current_time AND patient_id = :user_id",
+  #                        {current_time: DateTime.now, user_id: current_user.id})
+  # end
+
   def slots
     date = DateTime.iso8601(params[:date])
     schedule = Schedule.find_by(user: params[:doctor_id], day: date.strftime("%u"))
@@ -102,6 +114,7 @@ class VisitsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_visit
     @visit = Visit.find(params[:id])
+    authorize @visit
   end
 
   # Only allow a list of trusted parameters through.

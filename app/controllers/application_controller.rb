@@ -2,6 +2,10 @@ class ApplicationController < ActionController::Base
   include Pundit
   before_action :user_is_active?, :set_locale
 
+  rescue_from Pundit::NotAuthorizedError do
+    redirect_back fallback_location: root_url, alert: 'You do not have access to this page'
+  end
+
   def user_is_active?
     if current_user.present? && !current_user.is_active
       sign_out current_user

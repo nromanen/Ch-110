@@ -1,21 +1,27 @@
 class SchedulesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_schedule, only: [:show, :edit, :update, :destroy]
+
+  after_action :verify_authorized
+  after_action :verify_policy_scoped, only: :index
 
   # GET /visits
   # GET /visits.json
   def index
-    @schedules = Schedule.all
+    @schedules = policy_scope(Schedule)
+    authorize @schedules
   end
 
   # GET /visits/1
   # GET /visits/1.json
   def show
-
+    @schedule = policy_scope(Schedule).find(params[:id])
   end
 
   # GET /visits/new
   def new
     @schedule = Schedule.new
+    authorize @schedule
   end
 
 
@@ -28,6 +34,7 @@ class SchedulesController < ApplicationController
   # POST /visits.json
   def create
     @schedule = Schedule.new(schedule_params)
+    authorize @schedule
 
     respond_to do |format|
       if @schedule.save
@@ -73,6 +80,7 @@ class SchedulesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_schedule
     @schedule = Schedule.find(params[:id])
+    authorize @schedule
   end
 
   # Only allow a list of trusted parameters through.
