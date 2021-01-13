@@ -1,8 +1,21 @@
+<%= javascript_pack_tag 'application' %>
+
 <header class="main" xmlns="http://www.w3.org/1999/html">
   <div class="topnav">
-    <a class="active" href="/">Home</a>
-    <a href="#news">News</a>
-    <a href="#contact">Contact</a>
+    <%= react_component("Navbar") %>
+
+    <div class="dropdown">
+        <button class="dropbtn">Departments
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <% doctor_departments.each do |d| %>
+            <%= link_to d[0], {:controller => "doctor_profile", :action => "show_spec", :position => d[1]} %>
+          <% end %>
+        </div>
+      </div>
+
+
     <div class="topnav-right">
       <% if current_user %>
         <%= link_to "#{current_user.name} #{current_user.surname}", account_path %>
