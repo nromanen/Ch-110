@@ -22,6 +22,7 @@ class UsersController < ApplicationController
 
   def find_doctor_by_id
     @doctor = User.find(params[:id])
+    authorize @doctor, policy_class: UserPolicy
     render json: @doctor
   end
 

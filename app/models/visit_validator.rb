@@ -62,5 +62,4 @@ class VisitValidator < ActiveModel::Validator
       end
     end
   end
-
 end

@@ -1,5 +1,5 @@
 class VisitsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :slots
   before_action :set_visit, only: [:show, :destroy]
 
   after_action :verify_authorized, except: [:index, :slots]
@@ -98,7 +98,8 @@ class VisitsController < ApplicationController
 
   def slots
     date = DateTime.iso8601(params[:date])
-    schedule = Schedule.find_by(user: params[:doctor_id], day: date.strftime("%u"))
+
+    schedule = Schedule.find_by(user: params[:doctor_id], day: date.strftime("%u"), start_date: '2000-01-01'..date, end_date: date..DateTime::Infinity.new)
     if schedule
       result = SlotManager.new(schedule, date, params[:doctor_id]).get_slots
     else
