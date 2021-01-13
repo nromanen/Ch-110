@@ -19,12 +19,23 @@ const Edit = (props) => {
     const { enum_blood_types } = props
     const history = useHistory();
     const [profile, setProfile] = useState(initialForm)
+    const  { email } = props.location
+
+
+    const goBack = () => {
+        history.goBack()
+    }
+
     useEffect(() => {
+        let isSubscribed = true
         axios.get(`/patient_profile/${id}/edit`)
             .then(res => {
-                setProfile(res.data)
-                console.log(res.data)
+                if (isSubscribed) {
+                    setProfile(res.data)
+                    console.log(res.data)
+                }
             })
+        return () => isSubscribed = false
     }, [])
 
     const handleInputChange = event => {
@@ -39,19 +50,16 @@ const Edit = (props) => {
         )
             .then(res => {
                 console.log(res)
-                history.push('/admin/patient_profiles')
+                goBack()
             })
             .catch(error => {
                 console.log(error.response.data)
             })
     }
 
-    const goBack = () => {
-        history.goBack()
-    }
-
     return (
         <div>
+            <h3>User email: { email }</h3>
             <form onSubmit={ event => {
                 event.preventDefault()
                 updateProfile(profile)
@@ -114,6 +122,7 @@ const Edit = (props) => {
                     value={ profile.blood_type }
                     onChange={ handleInputChange }
                 >
+                    <option value=''>Choose your type of blood ...</option>
                     {Object.keys(enum_blood_types).map((key, index) => <option
                         key={ index }
                         value={ key }>
@@ -127,7 +136,7 @@ const Edit = (props) => {
                 </input>
                 <button>Update profile</button>
                 <button onClick={ goBack }>
-                    Back
+                    Cancel
                 </button>
                 <hr/>
             </form>
