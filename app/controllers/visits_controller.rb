@@ -2,7 +2,7 @@ class VisitsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_visit, only: [:show, :destroy]
 
-  after_action :verify_authorized, except: :index
+  after_action :verify_authorized, except: [:index, :slots]
   after_action :verify_policy_scoped, only: :index
 
   # GET /visits
