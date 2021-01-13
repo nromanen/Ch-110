@@ -1,0 +1,43 @@
+uk:
+
+  account:
+    edit_account: "Редагувати обліковий запис"
+    patient_card: "Карточка пацієнта"
+    doctor_profile: "Профіль лікаря"
+    waiting_confirmation: "Очікується підтвердження для"
+    leave_blank: "залиште вільним, якщо не хочете змінювати"
+    current_password: "Поточний пароль"
+    need_password: "введіть поточний пароль, щоб підтвердити зміни"
+    update: "Оновити"
+    delete_account: "Я хочу видатили обліковий запис"
+    are_you_sure: "Ви впевнені?"
+
+  devise:
+    remember_me: "Запам'ятати мене"
+    forgot_password: "Забули пароль?"
+    dnr_confirmation: "Не отримали підтвердження?"
+    characters_minimum: "символів мінімум"
+    send_me_rpi: "Надіслати листа для відновлення паролю"
+    change_password: "Змінити пароль"
+    new_password: "Новий пароль"
+    resend_ci: "Повторно надіслати підтвердження раєстрації"
+
+  nav_bar:
+    main: "Головна"
+    news: "Новини"
+    contacts: "Контакти"
+    sign_up: "Реєстрація"
+    log_in: "Увійти"
+    log_out: "Вийти"
+
+  activerecord:
+    attributes:
+      users:
+        email: "Електронна скринька"
+        password: "Пароль"
+        password_confirmation: "Підтвердження пароля"
+        name: "Ім'я"
+        surname: "Прізвище"
+        phone_number: "Номер телефону"
+        role: "Роль"
+        is_active: "Активний"

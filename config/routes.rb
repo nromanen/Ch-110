@@ -10,7 +10,13 @@ Rails.application.routes.draw do
                                     confirmations: 'user/confirmations'}
   get 'account' => 'users#show'
   resources :visits, except: [:edit, :update]
+  get '/slots' => 'visits#slots'
+  get '/manager' => 'users#manage'
+  get '/manager/patients' => 'users#get_patients'
+  get '/manager/doctors' => 'users#get_doctors'
+  get '/users' => 'users#index'
   resources :visit_types
+  resources :schedules
   root to: "home#index"
 
   match '/admin/*path', to: 'admin#index', via: :all

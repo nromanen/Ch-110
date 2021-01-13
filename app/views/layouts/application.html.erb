@@ -16,6 +16,12 @@
   <body>
   <%= render "shared/navigation" %>
   <%= render "shared/flash" %>
+  <% if current_user && current_user.role == 'manager' %>
+    <%= render "shared/manager_bar" %>
+    <div class="content">
+      <%= yield %>
+    </div>
+  <% end %>
   <div class="container">
     <%= yield %>
   </div>

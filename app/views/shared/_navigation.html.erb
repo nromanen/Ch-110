@@ -1,15 +1,25 @@
 <header class="main" xmlns="http://www.w3.org/1999/html">
   <div class="topnav">
-    <a class="active" href="/">Home</a>
-    <a href="#news">News</a>
-    <a href="#contact">Contact</a>
+    <a class="active" href="/"><%= t "nav_bar.main" %></a>
+    <a href="#news"><%= t "nav_bar.news" %></a>
+    <a href="#contact"><%= t "nav_bar.contacts" %></a>
     <div class="topnav-right">
+      <div class="dropdown">
+        <button class="dropbtn"><%= locale.upcase %>
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <%= link_to "EN", url_for(locale: :en) %>
+          <%= link_to "RU", url_for(locale: :ru) %>
+          <%= link_to "UA", url_for(locale: :uk) %>
+        </div>
+      </div>
       <% if current_user %>
         <%= link_to "#{current_user.name} #{current_user.surname}", account_path %>
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+        <%= link_to "#{t "nav_bar.log_out"}", destroy_user_session_path, method: :delete %>
       <% else %>
-        <%= link_to 'Login', new_user_session_path %>
-        <%= link_to 'Sign Up', new_user_registration_path %>
+        <%= link_to "#{t "nav_bar.log_in"}", new_user_session_path %>
+        <%= link_to "#{t "nav_bar.sign_up"}", new_user_registration_path %>
       <% end %>
     </div>
   </div>

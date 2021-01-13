@@ -30,4 +30,45 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+
+  account:
+    edit_account: "Edit account"
+    patient_card: "Patient card"
+    doctor_profile: "Doctor profile"
+    waiting_confirmation: "Currently waiting confirmation for"
+    leave_blank: "leave blank if you don't want to change it"
+    current_password: "Current password"
+    need_password: "we need your current password to confirm your changes"
+    update: "Update"
+    delete_account: "I want to delete my account"
+    are_you_sure: "Are you sure?"
+
+  devise:
+    remember_me: "Remember me"
+    forgot_password: "Forgot your password?"
+    dnr_confirmation: "Didn't receive confirmation instructions?"
+    characters_minimum: "characters minimum"
+    send_me_rpi: "Send me reset password instruction"
+    change_password: "Change your password"
+    new_password: "New password"
+    resend_ci: "Resend confirmation instructions"
+
+  nav_bar:
+    main: "Home"
+    news: "News"
+    contacts: "Contacts"
+    sign_up: "Sign Up"
+    log_in: "Log In"
+    log_out: "Log Out"
+
+  activerecord:
+    attributes:
+      users:
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        name: "Name"
+        surname: "Surname"
+        phone_number: "Phone number"
+        role: "Role"
+        is_active: "Is active"
