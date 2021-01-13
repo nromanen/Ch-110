@@ -4,14 +4,9 @@ class PatientProfileController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :is_admin
 
-
   def index
-
     if params[:user_id]
       @patient_profile = PatientProfile.find_by(user_id: params[:user_id])
-      puts 'hello from users table ============'
-      puts params[:user_id]
-      puts @patient_profile
 
       if @patient_profile.nil?
         render json: { message: 'no profile' }
@@ -19,7 +14,6 @@ class PatientProfileController < ApplicationController
         render json: @patient_profile
       end
     end
-
     @patient_profiles = PatientProfile.all
     @users = User.order(:name)
     @enum_blood_types = PatientProfile.blood_types
@@ -45,7 +39,6 @@ class PatientProfileController < ApplicationController
       render json: @patient_profile, status: :created
     else
       render json: @patient_profile.errors.full_messages, status: :unprocessable_entity   #errors.full_messages
-      # render json: {message: 'rere'}, status: :unprocessable_entity
     end
   end
 

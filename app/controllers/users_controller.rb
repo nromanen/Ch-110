@@ -20,6 +20,11 @@ class UsersController < ApplicationController
     render json: @users
   end
 
+  def find_doctor_by_id
+    @doctor = User.find(params[:id])
+    render json: @doctor
+  end
+
   def manage
     authorize current_user, policy_class: UserPolicy
   end
@@ -32,5 +37,11 @@ class UsersController < ApplicationController
   def get_doctors
     @doctors = User.where(role: 'doctor')
     authorize @doctors
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:id)
   end
 end

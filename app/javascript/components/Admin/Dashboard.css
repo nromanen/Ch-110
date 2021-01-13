@@ -1,6 +1,6 @@
 .dash-board {
     display: flex;
-    height: 100vh;
+    height: calc(100vh - 48px);
 }
 
 .side-bar {
@@ -17,7 +17,7 @@
     list-style: none;
 }
 
-.content {
+.content-1 {
     flex: 1 1 auto ;
 }
 

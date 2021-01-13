@@ -21,4 +21,5 @@ Rails.application.routes.draw do
 
   match '/admin/*path', to: 'admin#index', via: :all
   get '/users_to_react_form' => 'users#users_to_react_form'
+  get '/users_by_id' => 'users#find_doctor_by_id'
 end
