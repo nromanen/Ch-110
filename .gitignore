@@ -5,7 +5,9 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 /.idea
+.idea
 .env
+Gemfile.lock
 
 # Ignore bundler config.
 /.bundle

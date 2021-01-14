@@ -14,14 +14,6 @@ const DoctorInfo = ({ doctorId }) => {
             .catch(err => console.log(err))
     }
 
-    const fetchDoctorProfile = doctorId => {
-        axios.get(`/users_by_id?id=${doctorId}`)
-            .then(res => {
-                console.log(res.data)
-                setDoctor(res.data)
-            })
-            .catch(err => console.log(err))
-    }
 
     useEffect(() => {
         fetchDoctor(doctorId)
