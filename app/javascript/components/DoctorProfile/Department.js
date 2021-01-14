@@ -13,6 +13,7 @@ const Department = props => {
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
                 
                 <div className="container">
+                    <div className="doctors">
                     <div className="row">
                         {
                             users.map( user => <DoctorsInDepartment
@@ -21,6 +22,7 @@ const Department = props => {
                             />
                             )
                         }
+                    </div>
                     </div>
                 </div>
             </>    
