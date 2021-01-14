@@ -32,6 +32,7 @@ const Appointment = ({ user, location, doctorId }) => {
     const [appointments, setAppointments] = useState([])
     const [openToast, setOpenToast] = useState(false);
     const [errors, setErrors] = useState([])
+    const [weekend, setWeekend] = useState(false)
 
     const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
     const headers = {
@@ -49,6 +50,7 @@ const Appointment = ({ user, location, doctorId }) => {
             })
             const data = res.data
             if (res.data.length > 0) {
+                setWeekend(false)
                 const [ { visit_type_id, slots } ] = data
 
                 const duration = ({start, end}) => {
@@ -93,6 +95,7 @@ const Appointment = ({ user, location, doctorId }) => {
                 setVisit_type_id(visit_type_id)
             } else {
                 setErrors(['Sorry but the doctor is not working that day'])
+                setWeekend(true)
             }
 
         } catch (error) {
@@ -215,7 +218,7 @@ const Appointment = ({ user, location, doctorId }) => {
                     <div className="schedule">
                         <div className="wrapper-container">
                             { errorMessages }
-                            <BasicTable
+                            { !weekend && <BasicTable
                                 appointments={ appointments }
                                 limit={ limit }
                                 handleButtonTableClick={ handleButtonTableClick }
@@ -223,7 +226,8 @@ const Appointment = ({ user, location, doctorId }) => {
                                 doctorId={ doctorId }
                                 setErrors={ setErrors }
 
-                        />
+                            />
+                            }
                         </div>
                     </div>
                 </div>
