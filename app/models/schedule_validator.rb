@@ -48,5 +48,4 @@ class ScheduleValidator < ActiveModel::Validator
       @errors.add(:base, "Schedule for this period already exist")
     end
   end
-
 end
