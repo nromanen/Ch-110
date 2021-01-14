@@ -1,6 +1,11 @@
+.container{
+  align: center;
+  margin-top: 3%;
+}
+
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
+  max-width: 200px;
   margin: auto;
   text-align: center;
   font-family: arial;
@@ -9,6 +14,14 @@
 .position {
   color: grey;
   font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.description{
+  font-size: 15px;
+  text-align: center;
+  margin-top: 5px;
+  white-space: pre-wrap;
 }
 
 .card button {
@@ -31,3 +44,18 @@
   width: auto;
   height: 200px;
 }
+
+.link {
+    border: 1px solid #333; 
+    display: inline-block;
+    padding: 5px 15px; 
+    text-decoration: none; 
+    color: #000;
+    margin-bottom: 7px; 
+  }
+
+.link:hover {
+    box-shadow: 0 0 5px rgba(0,0,0,0.3); 
+    background: linear-gradient(to bottom, #fcfff4, #e9e9ce); 
+    color: #a00;
+   }

@@ -15,6 +15,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: time_manager
   password: Password11
+  
 
 development:
   <<: *default
