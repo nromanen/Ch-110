@@ -1,2 +1,7 @@
-h1 DoctorProfile#index
-p Find me in app/views/doctor_profile/index.html.slim
+
+= react_component 'DoctorProfile/ListOfDoctorProfiles',
+        doctorProfiles: @doctor_profiles,
+        users: @users,
+        specializations: @specializations
+        user: current_user
+

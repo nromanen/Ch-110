@@ -8,6 +8,7 @@
 .idea
 .env
 Gemfile.lock
+
 # Ignore bundler config.
 /.bundle
 

@@ -19,39 +19,46 @@ users = User.create([{email: 'admin@admin.com', password: 'admin1', password_con
                      {email: 'manager@gmail.com', password: '123456', password_confirmation: '123456', name: 'Manager',
                       surname: 'Manager', phone_number: '11111111111', role: 1, confirmed_at: '202012120000'}])
 
-visit_types = VisitType.create([{name: 'Inspection', description: 'Inspection', length: 30},
+visit_types = VisitType.create([{name: 'Check-up', description: 'Check-up', length: 30},
                                 {name: 'Consultation', description: 'Consultation', length: 20}])
 
-schedules = Schedule.create([{user_id: User.find_by(email: 'doctor1@gmail.com'), day: 'Monday', start_time: '2000-01-01 09:00:00',
-                              end_time: '2000-01-01 09:00:00', visit_type_id: 1, start_date: '2021-01-01', end_date: '2021-01-31'},
-                             {user_id: User.find_by(email: 'doctor1@gmail.com'), day: 'Tuesday', start_time: '2000-01-01 14:00:00',
-                              end_time: '2000-01-01 18:00:00', visit_type_id: 1, start_date: '2021-01-01', end_date: '2021-01-31'},
-                             {user_id: User.find_by(email: 'doctor1@gmail.com'), day: 'Wednesday', start_time: '2000-01-01 09:00:00',
-                              end_time: '2000-01-01 09:00:00', visit_type_id: 1, start_date: '2021-01-01', end_date: '2021-01-31'},
-                             {user_id: User.find_by(email: 'doctor1@gmail.com'), day: 'Thursday', start_time: '2000-01-01 14:00:00',
-                              end_time: '2000-01-01 18:00:00', visit_type_id: 1, start_date: '2021-01-01', end_date: '2021-01-31'},
-                             {user_id: User.find_by(email: 'doctor1@gmail.com'), day: 'Friday', start_time: '2000-01-01 09:00:00',
-                              end_time: '2000-01-01 09:00:00', visit_type_id: 1, start_date: '2021-01-01', end_date: '2021-01-31'},
-                             {user_id: User.find_by(email: 'doctor2@gmail.com'), day: 'Monday', start_time: '2000-01-01 14:00:00',
-                              end_time: '2000-01-01 18:00:00', visit_type_id: 2, start_date: '2021-01-01', end_date: '2021-01-31'},
-                             {user_id: User.find_by(email: 'doctor2@gmail.com'), day: 'Tuesday', start_time: '2000-01-01 09:00:00',
-                              end_time: '2000-01-01 13:00:00', visit_type_id: 2, start_date: '2021-01-01', end_date: '2021-01-31'},
-                             {user_id: User.find_by(email: 'doctor2@gmail.com'), day: 'Wednesday', start_time: '2000-01-01 14:00:00',
-                              end_time: '2000-01-01 18:00:00', visit_type_id: 2, start_date: '2021-01-01', end_date: '2021-01-31'},
-                             {user_id: User.find_by(email: 'doctor2@gmail.com'), day: 'Thursday', start_time: '2000-01-01 09:00:00',
-                              end_time: '2000-01-01 13:00:00', visit_type_id: 2, start_date: '2021-01-01', end_date: '2021-01-31'},
-                             {user_id: User.find_by(email: 'doctor2@gmail.com'), day: 'Friday', start_time: '2000-01-01 14:00:00',
-                              end_time: '2000-01-01 18:00:00', visit_type_id: 2, start_date: '2021-01-01', end_date: '2021-01-31'}])
+doctor_1 = User.find_by(email: 'doctor1@gmail.com')
+doctor_2 = User.find_by(email: 'doctor2@gmail.com')
+patient_1 = User.find_by(email: 'user1@gmail.com')
+patient_2 = User.find_by(email: 'user2@gmail.com')
+visit_type_1 = VisitType.find_by_id(1)
+visit_type_2 = VisitType.find_by_id(2)
 
-visits = Visit.create([{patient_id: User.find_by(email: 'user1@gmail.com'), doctor_id: User.find_by(email: 'doctor1@gmail.com'),
-                        start_time: '2021-01-08 10:00:00', visit_type: 1, created_by_id: User.find_by(email: 'user1@gmail.com')},
-                       {patient_id: User.find_by(email: 'user1@gmail.com'), doctor_id: User.find_by(email: 'doctor1@gmail.com'),
-                        start_time: '2021-01-13 11:00:00', visit_type: 1, created_by_id: User.find_by(email: 'user1@gmail.com')},
-                       {patient_id: User.find_by(email: 'user1@gmail.com'), doctor_id: User.find_by(email: 'doctor1@gmail.com'),
-                        start_time: '2021-01-19 15:00:00', visit_type: 1, created_by_id: User.find_by(email: 'user1@gmail.com')},
-                       {patient_id: User.find_by(email: 'user2@gmail.com'), doctor_id: User.find_by(email: 'doctor2@gmail.com'),
-                        start_time: '2021-01-12 12:00:00', visit_type: 2, created_by_id: User.find_by(email: 'user2@gmail.com')},
-                       {patient_id: User.find_by(email: 'user2@gmail.com'), doctor_id: User.find_by(email: 'doctor2@gmail.com'),
-                        start_time: '2021-01-15 17:00:00', visit_type: 2, created_by_id: User.find_by(email: 'user2@gmail.com')},
-                       {patient_id: User.find_by(email: 'user2@gmail.com'), doctor_id: User.find_by(email: 'doctor2@gmail.com'),
-                        start_time: '2021-01-18 16:00:00', visit_type: 2, created_by_id: User.find_by(email: 'user2@gmail.com')}])
+schedules = Schedule.create([{user: doctor_1, day: 'Monday', start_time: '2000-01-01 09:00:00',
+                              end_time: '2000-01-01 13:00:00', visit_type: visit_type_1, start_date: '2021-01-01', end_date: '2021-01-31'},
+                             {user: doctor_1, day: 'Tuesday', start_time: '2000-01-01 14:00:00',
+                              end_time: '2000-01-01 18:00:00', visit_type: visit_type_1, start_date: '2021-01-01', end_date: '2021-01-31'},
+                             {user: doctor_1, day: 'Wednesday', start_time: '2000-01-01 09:00:00',
+                              end_time: '2000-01-01 13:00:00', visit_type: visit_type_1, start_date: '2021-01-01', end_date: '2021-01-31'},
+                             {user: doctor_1, day: 'Thursday', start_time: '2000-01-01 14:00:00',
+                              end_time: '2000-01-01 18:00:00', visit_type: visit_type_1, start_date: '2021-01-01', end_date: '2021-01-31'},
+                             {user: doctor_1, day: 'Friday', start_time: '2000-01-01 09:00:00',
+                              end_time: '2000-01-01 13:00:00', visit_type: visit_type_1, start_date: '2021-01-01', end_date: '2021-01-31'},
+                             {user: doctor_2, day: 'Monday', start_time: '2000-01-01 14:00:00',
+                              end_time: '2000-01-01 18:00:00', visit_type: visit_type_2, start_date: '2021-01-01', end_date: '2021-01-31'},
+                             {user: doctor_2, day: 'Tuesday', start_time: '2000-01-01 09:00:00',
+                              end_time: '2000-01-01 13:00:00', visit_type: visit_type_2, start_date: '2021-01-01', end_date: '2021-01-31'},
+                             {user: doctor_2, day: 'Wednesday', start_time: '2000-01-01 14:00:00',
+                              end_time: '2000-01-01 18:00:00', visit_type: visit_type_2, start_date: '2021-01-01', end_date: '2021-01-31'},
+                             {user: doctor_2, day: 'Thursday', start_time: '2000-01-01 09:00:00',
+                              end_time: '2000-01-01 13:00:00', visit_type: visit_type_2, start_date: '2021-01-01', end_date: '2021-01-31'},
+                             {user: doctor_2, day: 'Friday', start_time: '2000-01-01 14:00:00',
+                              end_time: '2000-01-01 18:00:00', visit_type: visit_type_2, start_date: '2021-01-01', end_date: '2021-01-31'}])
+
+visits = Visit.create([{patient: patient_1, doctor: doctor_1,
+                        start_time: '2021-01-08 10:00:00', visit_type: visit_type_1},
+                       {patient: patient_1, doctor: doctor_1,
+                        start_time: '2021-01-13 11:00:00', visit_type: visit_type_1},
+                       {patient: patient_1, doctor: doctor_1,
+                        start_time: '2021-01-19 15:00:00', visit_type: visit_type_1},
+                       {patient: patient_2, doctor: doctor_2,
+                        start_time: '2021-01-12 12:00:00', visit_type: visit_type_2},
+                       {patient: patient_2, doctor: doctor_2,
+                        start_time: '2021-01-15 17:00:00', visit_type: visit_type_2},
+                       {patient: patient_2, doctor: doctor_2,
+                        start_time: '2021-01-18 16:00:00', visit_type: visit_type_2}])

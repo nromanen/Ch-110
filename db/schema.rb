@@ -79,11 +79,11 @@ ActiveRecord::Schema.define(version: 2021_01_08_155815) do
   end
 
   create_table "visits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "patient_id", null: false
-    t.bigint "doctor_id", null: false
+    t.bigint "patient_id"
+    t.bigint "doctor_id"
     t.datetime "start_time"
-    t.bigint "visit_type_id", null: false
-    t.bigint "created_by_id", null: false
+    t.bigint "visit_type_id"
+    t.bigint "created_by_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "patient_name"
