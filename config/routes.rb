@@ -14,13 +14,17 @@ Rails.application.routes.draw do
   get 'show' => 'doctor_profile#show_spec'
 
   resources :visits, except: [:edit, :update]
+  get '/slots' => 'visits#slots'
+  get '/manager' => 'users#manage'
+  get '/manager/patients' => 'users#get_patients'
+  get '/manager/doctors' => 'users#get_doctors'
+  get '/users' => 'users#index'
   resources :visit_types
+  resources :schedules
   root to: "home#index"
 
   match '/admin/*path', to: 'admin#index', via: :all
   get '/users_to_react_form' => 'users#users_to_react_form'
-
-
   post 'send_tel' => 'home#send_numb'
-
+  get '/users_by_id' => 'users#find_doctor_by_id'
 end

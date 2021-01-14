@@ -4,7 +4,7 @@ class ApplicationMailer < ActionMailer::Base
 
   def consultation(tel)
   	@tel = tel
-    mail( :to => 'deeven.dark@gmail.com', subject: "Consultation")   
+    mail( :to => 'healthbookcv@gmail.com', subject: "Consultation")   
   end
 
 

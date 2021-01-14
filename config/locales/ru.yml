@@ -1,0 +1,43 @@
+ru:
+
+  account:
+    edit_account: "Редактировать учетную запись"
+    patient_card: "Карточка пациента"
+    doctor_profile: "Профиль доктора"
+    waiting_confirmation: "Ожидается подтверждение для"
+    leave_blank: "оставте пустым, если не хотите изменять"
+    current_password: "Текущий пароль"
+    need_password: "введите текущий пароль, чтобы подтвердить изменения"
+    update: "Обновить"
+    delete_account: "Я хочу удалить учетную запись"
+    are_you_sure: "Вы уверенны?"
+
+  devise:
+    remember_me: "Запомнить меня"
+    forgot_password: "Забыли пароль?"
+    dnr_confirmation: "Не пришло подтверждение?"
+    characters_minimum: "символов минимум"
+    send_me_rpi: "Отправить письмо для восстановления пароля"
+    change_password: "Сменить пароль"
+    new_password: "Новый пароль"
+    resend_ci: "Повторно отправить подтверждение регистрации"
+
+  nav_bar:
+    main: "Главная"
+    news: "Новости"
+    contacts: "Контакты"
+    sign_up: "Регистрация"
+    log_in: "Войти"
+    log_out: "Выйти"
+
+  activerecord:
+    attributes:
+      users:
+        email: "Электронная почта"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        name: "Имя"
+        surname: "Фамилия"
+        phone_number: "Номер телефона"
+        role: "Роль"
+        is_active: "Активный"

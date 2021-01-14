@@ -1,23 +1,39 @@
-
 <section class="devise">
   <div class="container">
     <h2><b><%= "#{@user.name} #{@user.surname}" %></b></h2>
     <div class="container">
       <p>
-        <strong>Email:</strong>
+        <strong><%= t 'activerecord.attributes.users.email' %>:</strong>
         <%= @user.email %>
       </p>
 
       <p>
-        <strong>Phone:</strong>
+        <strong><%= t 'activerecord.attributes.users.phone_number' %>:</strong>
         <%= @user.phone_number %>
       </p>
-      <span class="psw"><%= link_to 'Edit account', edit_user_registration_path %></span>
+      <span class="psw"><%= link_to "#{ t 'account.edit_account' }", edit_user_registration_path %></span>
       <% if @user.role == 'patient' %>
-        <span class="psw"><%= link_to 'Patient Card' %></span>
+        <div>
+          <span class="psw"><%= link_to "#{ t 'account.patient_card' }" %></span>
+        </div>
       <% end %>
       <% if @user.role == 'doctor' %>
-        <span class="psw"><%= link_to 'Doctor Profile' %></span>
+        <div>
+          <span class="psw"><%= link_to "#{ t 'account.doctor_profile' }" %></span>
+        </div>
+        <div>
+          <span class="psw"><%= link_to "#{ 'My schedules' }", schedules_path %></span>
+        </div>
+      <% end %>
+      <% if @user.role == 'doctor' or @user.role == 'patient' %>
+        <div>
+          <span class="psw"><%= link_to "My visits", visits_path %></span>
+        </div>
+        <% end %>
+      <% if @user.role == 'manager' %>
+          <div>
+            <span class="psw"><%= link_to "#{ 'Manager Dashboard' }", manager_path %></span>
+          </div>
       <% end %>
     </div>
   </div>

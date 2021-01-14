@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Doctor:</strong>
+  <%= @schedule.user.name %> <%= @schedule.user.surname %>
+</p>
+
+<p>
+  <strong>Day:</strong>
+  <%= @schedule.day %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @schedule.start_time.strftime("%H:%M") %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @schedule.end_time.strftime("%H:%M") %>
+</p>
+
+<p>
+  <strong>Visit type:</strong>
+  <%= @schedule.visit_type.name %> <%= @schedule.visit_type.length %> <%= 'minutes' %>
+</p>
+
+<%= link_to 'Back', schedules_path %> |
+<%= link_to 'Edit', edit_schedule_path %> |
+<%= link_to 'Destroy', @schedule, method: :delete, data: { confirm: 'Are you sure?' } %>

@@ -14,11 +14,17 @@
   </head>
 
   <body>
-    <%= render partial: "shared/navigation", locals: { doctor_departments: @doctor_departments } %>
-    <%= react_component("Bottom") %>
-    <%= render "shared/flash" %>
-    <div class="container">
+  <%= render partial: "shared/navigation", locals: { doctor_departments: @doctor_departments } %>
+  <%= render "shared/flash" %>
+  <%= react_component("Bottom") %>
+  <% if current_user && current_user.role == 'manager' %>
+    <%= render "shared/manager_bar" %>
+    <div class="content">
       <%= yield %>
     </div>
+  <% end %>
+  <div class="container">
+    <%= yield %>
+  </div>
   </body>
 </html>

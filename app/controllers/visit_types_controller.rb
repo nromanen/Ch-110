@@ -1,9 +1,11 @@
 class VisitTypesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_visit_type, only: [:show, :edit, :update, :destroy]
   # GET /doctors
   # GET /doctors.json
   def index
     @visit_types = VisitType.order(:name)
+    authorize @visit_types
   end
 
   # GET /doctors/1
@@ -15,6 +17,7 @@ class VisitTypesController < ApplicationController
   # GET /doctors/new
   def new
     @visit_type = VisitType.new
+    authorize @visit_type
   end
 
   # GET /doctors/1/edit
@@ -26,6 +29,7 @@ class VisitTypesController < ApplicationController
   # POST /doctors.json
   def create
     @visit_type = VisitType.new(visit_type_params)
+    authorize @visit_type
     respond_to do |format|
         if @visit_type.save
           format.html { redirect_to @visit_type, notice: 'Visit type was successfully created.' }
@@ -70,6 +74,7 @@ class VisitTypesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_visit_type
     @visit_type = VisitType.find(params[:id])
+    authorize @visit_type
   end
 
   # Only allow a list of trusted parameters through.

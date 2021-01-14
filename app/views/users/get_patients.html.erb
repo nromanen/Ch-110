@@ -1,0 +1,35 @@
+<aside id="notice"><%= notice %></aside>
+<aside style="color:red;"><%= alert %></aside>
+
+<h1>Patients:</h1>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Email</th>
+      <th>Phone number</th>
+      <th>Active</th>
+      <th>Registration date</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @patients.each do |patient| %>
+      <tr>
+        <td><%= patient.name %></td>
+        <td><%= patient.surname %></td>
+        <td><%= patient.email %></td>
+        <td><%= patient.phone_number %></td>
+        <td><%= patient.is_active %></td>
+        <td><%= patient.created_at %></td>
+
+<!--        <td><%#= link_to 'Show', patient %></td>-->
+<!--        <td><%#= link_to 'Delete', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+
+<%#= link_to 'New Patient', new_user_path %>

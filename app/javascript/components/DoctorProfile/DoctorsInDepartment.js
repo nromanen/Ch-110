@@ -4,7 +4,7 @@ import '../../../assets/stylesheets/doctor_card.scss'
 
 const DoctorsInDepartment = ( { user } ) => {
 
-		let url = `/appointments?doctor_id=${user.id}`;
+		let url = `/choose_date?doctor_id=${user.id}`;
 
         return (  
             <>       

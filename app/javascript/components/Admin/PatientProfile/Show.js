@@ -6,6 +6,7 @@ import Card from "./Card"
 const Show = (props) => {
 
     const history = useHistory();
+    const  { email } = props.location
 
     const goBack = () => {
         history.goBack()
@@ -23,6 +24,7 @@ const Show = (props) => {
     return (
         <div>
             <h1>Show</h1>
+            <h3>User email: { email }</h3>
             <Card profile={ item } />
             <button onClick={ goBack }>
                 Back

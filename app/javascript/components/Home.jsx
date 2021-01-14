@@ -9,7 +9,8 @@ class Home extends React.Component {
         return (
         <>
             <div className="left_up">
-        <h1>
+
+               <h1>
             <a className="link_online" href="#" title="Online Recording">HealthBook</a>
         </h1>
         <p className="describe">
@@ -25,6 +26,7 @@ class Home extends React.Component {
     <hr className="line" align="left" />
 
     <div className="rigth_up">
+
         
         <div className="rigth_up_first">
             <p>
@@ -48,7 +50,8 @@ class Home extends React.Component {
         </div>
         
         
-        <div className="rigth_up_third">
+
+               <div className="rigth_up_third">
             <p>
                 We are waiting for your messages at <a href="mailto:healthbookcv@gmail.com">healthbookcv@gmail.com</a> or
                  write your number here and we will call you.
