@@ -42,6 +42,8 @@ en:
     update: "Update"
     delete_account: "I want to delete my account"
     are_you_sure: "Are you sure?"
+    my_visits: "My visits"
+    my_schedules: "My schedules"
 
   devise:
     remember_me: "Remember me"
@@ -61,6 +63,13 @@ en:
     log_in: "Log In"
     log_out: "Log Out"
 
+  manager_bar:
+    patients: "Patients"
+    doctors: "Doctors"
+    visits: "Visits"
+    visit_types: "Visit types"
+    schedules: "Schedules"
+
   activerecord:
     attributes:
       users:
@@ -72,3 +81,55 @@ en:
         phone_number: "Phone number"
         role: "Role"
         is_active: "Is active"
+        registration_date: "Registration date"
+      visits:
+        visits: "Visits"
+        patient: "Patient"
+        doctor: "Doctor"
+        date: "Date"
+        time: "Time"
+        visit_type: "Visit type"
+        new_visit: "New visit"
+        no_visits_message: "You don't have visits right now"
+        create_visit: "Create visit"
+      schedules:
+        schedules: "Schedules"
+        doctor: "Doctor"
+        day: "Day"
+        start_time: "Start time"
+        end_time: "End time"
+        start_date: "Start date"
+        end_date: "End date"
+        visit_type: "Visit type"
+        new_schedule: "New schedule"
+        no_schedules_message: "You don't have schedules right now"
+        create_schedule: "Save schedule"
+        edit_schedule: "Editing schedule"
+      visit_types:
+        visit_types: "Visit types"
+        duration: "Duration"
+        minutes: "minutes"
+        new_visit_type: "New visit type"
+        create_visit_type: "Save visit type"
+        name: "Name"
+        description: "Description"
+        edit_visit_type: "Editing visit type"
+
+  records:
+    show: "Show"
+    edit: "Edit"
+    delete: "Delete"
+    back: "Back"
+
+  visit_types:
+    Check-up: "Check-up"
+    Consultation: "Consultation"
+
+  days:
+    monday: "Monday"
+    tuesday: "Tuesday"
+    wednesday: "Wednesday"
+    thursday: "Thursday"
+    friday: "Friday"
+    saturday: "Saturday"
+    sunday: "Sunday"

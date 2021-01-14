@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+git_source(:github) { |repo| "https://github.com#{repo}.git" }
 
 ruby '2.6.6'
 
@@ -15,6 +15,7 @@ gem 'devise'
 gem 'pundit'
 gem 'dotenv-rails'
 gem 'rails-i18n'
+gem 'i18n-js'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 
@@ -48,4 +49,4 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # for windows
-gem 'wdm'
+# gem 'wdm'

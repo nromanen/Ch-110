@@ -26,7 +26,7 @@ class SchedulePolicy < ApplicationPolicy
   end
 
   def update?
-    is_not_patient?
+    user.role != 'patient'
   end
 
   def edit?

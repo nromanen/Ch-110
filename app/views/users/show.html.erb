@@ -22,12 +22,12 @@
           <span class="psw"><%= link_to "#{ t 'account.doctor_profile' }" %></span>
         </div>
         <div>
-          <span class="psw"><%= link_to "#{ 'My schedules' }", schedules_path %></span>
+          <span class="psw"><%= link_to "#{ t 'account.my_schedules' }", schedules_path %></span>
         </div>
       <% end %>
       <% if @user.role == 'doctor' or @user.role == 'patient' %>
         <div>
-          <span class="psw"><%= link_to "My visits", visits_path %></span>
+          <span class="psw"><%= link_to "#{ t 'account.my_visits' }", visits_path %></span>
         </div>
         <% end %>
       <% if @user.role == 'manager' %>

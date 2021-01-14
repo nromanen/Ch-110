@@ -9,6 +9,14 @@ class VisitsController < ApplicationController
   # GET /visits.json
   def index
       @visits = policy_scope(Visit)
+      visits = []
+      @visits.each do |visit|
+        visits << {patient_name: visit.patient_name,
+                   doctor_name: visit.doctor_name,
+                   start_time: visit.start_time,
+                   visit_type: visit.visit_type.name}
+      end
+      @visits = visits
   end
 
   # GET /visits/1
@@ -36,7 +44,12 @@ class VisitsController < ApplicationController
   def create
     @visit = Visit.new(visit_params)
     authorize @visit
-    @visit.created_by_id = current_user.id
+    if current_user
+      @visit.created_by_id = current_user.id
+    else
+      @visit.created_by_id = User.find_by(id: 1)
+    end
+
     patient = User.find_by(id: visit_params[:patient_id])
     doctor = User.find_by(id: visit_params[:doctor_id])
     @visit.patient_name = "#{patient.name} #{patient.surname}"
@@ -47,7 +60,7 @@ class VisitsController < ApplicationController
         format.html { redirect_to @visit, notice: 'Visit was successfully created.' }
         format.json { render json: @visit }
       else
-        format.html { render :new, params: { doctor_id: 3 } }
+        format.html { render :new, params: { doctor_id: doctor.id } }
         format.json { render json: @visit.errors.full_messages, status: :unprocessable_entity }
       end
     end

@@ -1,8 +1,8 @@
 <header class="main" xmlns="http://www.w3.org/1999/html">
   <div class="topnav">
-    <a class="active" href="/"><%= t "nav_bar.main" %></a>
-    <a href="#news"><%= t "nav_bar.news" %></a>
-    <a href="#contact"><%= t "nav_bar.contacts" %></a>
+    <%= link_to (t "nav_bar.main"), root_path, class: "active" %>
+    <%= link_to (t "nav_bar.news"), root_path %>
+    <%= link_to (t "nav_bar.contacts"), root_path %>
 
     <% if current_user && current_user.role == 'admin' %>
       <a href="/admin/index">Admin</a>

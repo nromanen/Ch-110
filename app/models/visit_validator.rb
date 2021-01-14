@@ -4,7 +4,7 @@ class VisitValidator < ActiveModel::Validator
     @patient = User.find_by_id(record.patient_id)
     @doctor = User.find_by_id(record.doctor_id)
     @start_time = record.start_time
-    @visit_type = VisitType.find_by_id(record.visit_type)
+    @visit_type = VisitType.find_by_id(record.visit_type_id)
     @record_time = DateTime.new(2000, 1, 1, @start_time.strftime("%H").to_i, @start_time.strftime("%M").to_i)
     @errors = record.errors
 

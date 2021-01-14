@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 <p>
-  <strong>Name:</strong>
+  <strong><%= t 'activerecord.attributes.visit_types.name' %>:</strong>
   <%= @visit_type.name %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong><%= t 'activerecord.attributes.visit_types.description' %>:</strong>
   <%= @visit_type.description %>
 </p>
 
 <p>
-  <strong>Length:</strong>
+  <strong><%= t 'activerecord.attributes.visit_types.duration' %>:</strong>
   <%= @visit_type.length %>
 </p>
 
-<%= link_to 'Edit', edit_visit_type_path(@visit_type) %> |
-<%= link_to 'Back', visit_types_path %>
+<%= link_to (t 'records.edit'), edit_visit_type_path(@visit_type) %> |
+<%= link_to (t 'records.back'), visit_types_path %>
 

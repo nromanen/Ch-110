@@ -1,16 +1,13 @@
-<aside id="notice"><%= notice %></aside>
-<aside style="color:red;"><%= alert %></aside>
-
-<h1>Doctors:</h1>
+<h1><%= t 'manager_bar.doctors' %>:</h1>
 <table class="table">
   <thead>
   <tr>
-    <th>Name</th>
-    <th>Surname</th>
-    <th>Email</th>
-    <th>Phone number</th>
-    <th>Active</th>
-    <th>Registration date</th>
+    <th><%= t 'activerecord.attributes.users.name' %></th>
+    <th><%= t 'activerecord.attributes.users.surname' %></th>
+    <th><%= t 'activerecord.attributes.users.email' %></th>
+    <th><%= t 'activerecord.attributes.users.phone_number' %></th>
+    <th><%= t 'activerecord.attributes.users.is_active' %></th>
+    <th><%= t 'activerecord.attributes.users.registration_date' %></th>
   </tr>
   </thead>
 
@@ -22,7 +19,7 @@
       <td><%= doctor.email %></td>
       <td><%= doctor.phone_number %></td>
       <td><%= doctor.is_active %></td>
-      <td><%= doctor.created_at %></td>
+      <td><%= doctor.created_at.strftime("%Y-%m-%d") %></td>
 
       <!--        <td><%#= link_to 'Show', doctor %></td>-->
       <!--        <td><%#= link_to 'Delete', doctor, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->

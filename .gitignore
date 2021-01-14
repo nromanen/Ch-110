@@ -6,6 +6,8 @@
 
 /.idea
 .env
+Gemfile.lock
+yarn.lock
 
 # Ignore bundler config.
 /.bundle
