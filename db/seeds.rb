@@ -62,3 +62,34 @@ visits = Visit.create([{patient: patient_1, doctor: doctor_1,
                         start_time: '2021-01-15 17:00:00', visit_type: visit_type_2},
                        {patient: patient_2, doctor: doctor_2,
                         start_time: '2021-01-18 16:00:00', visit_type: visit_type_2}])
+
+doctor_profiles = DoctorProfile.create([
+                                         { user_id: doctor_1.id,
+                                           photo_path: './app/assets/images/first.png',
+                                           description: 'I am the best doctor ever been in the world!',
+                                           specialization: 0
+                                         },
+                                         { user_id: doctor_2.id,
+                                           photo_path: './app/assets/images/third.png',
+                                           description: 'Ha ha ha, tell the truth!!!',
+                                           specialization: 0
+                                         }
+                                       ])
+patient_profiles = PatientProfile.create([
+                                        { user_id: patient_1.id,
+                                          weight: 80,
+                                          height: 180,
+                                          blood_type: 0,
+                                          allergies: 'citrus fruits',
+                                          gender: 1,
+                                          is_insured: true
+                                        },
+                                        { user_id: patient_2.id,
+                                          weight: 50,
+                                          height: 160,
+                                          blood_type: 1,
+                                          allergies: 'gluten',
+                                          gender: 0,
+                                          is_insured: true
+                                        },
+                                      ])
