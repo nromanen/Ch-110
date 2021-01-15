@@ -14,13 +14,21 @@ const Show = (props) => {
 
     const { id } = props.match.params
     const [item, setItem] = useState({})
+
     useEffect(() => {
-        axios.get(`/patient_profile/${id}`)
-            .then(res => {
-                setItem(res.data)
-                console.log(res.data)
-            })
+        let isRendered = true
+        if (isRendered) {
+            axios.get(`/patient_profile/${id}`)
+                .then(res => {
+                    setItem(res.data)
+                    console.log(res.data)
+                })
+                .catch(err => console.log(err))
+        }
+        return(() => isRendered = false)
     }, [])
+
+
     return (
         <div>
             <h1>Show</h1>

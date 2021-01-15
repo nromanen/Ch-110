@@ -112,7 +112,7 @@ class VisitsController < ApplicationController
   end
 
   def choose_date
-    @doctor_id = params[:doctor_id]
+    @doctor_id = params[:id]
   end
 
   private
@@ -124,6 +124,6 @@ class VisitsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def visit_params
-    params.require(:visit).permit(:patient_id, :doctor_id, :start_time, :visit_type_id)
+    params.require(:visit).permit(:patient_id, :doctor_id, :start_time, :visit_type_id, :id)
   end
 end
