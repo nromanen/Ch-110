@@ -20,9 +20,9 @@ function SideBar() {
                 <Link style={ navStyle } to='/admin/patient_profiles'>
                     <li>Patients profile</li>
                 </Link>
-                <Link style={ navStyle } to='/admin/appointments?doctor_id=4'>
-                    <li>Appointments</li>
-                </Link>
+                {/*<Link style={ navStyle } to='/admin/appointments?doctor_id=4'>*/}
+                {/*    <li>Appointments</li>*/}
+                {/*</Link>*/}
             </ul>
         </nav>
     )

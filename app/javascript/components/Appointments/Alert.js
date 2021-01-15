@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SimpleAlert({ text, handleClose }) {
     const classes = useStyles();
-    setTimeout(() => handleClose([]), 3000)
+    setTimeout(() => handleClose([]), 5000)
 
     return (
         <div className={classes.root}>

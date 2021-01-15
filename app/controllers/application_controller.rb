@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   def departments_list
     @doctor_departments = DoctorProfile.specializations
-  end 
+  end
 
   def user_is_active?
     if current_user.present? && !current_user.is_active
