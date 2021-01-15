@@ -13,17 +13,17 @@ import CustomizedSnackbars from "./Toast"
 import SimpleAlert from './Alert'
 
 
-const Appointment = ({ user, location }) => {
+const Appointment = ({ user, location, doctorId }) => {
 
-    let search = window.location.search;
-    let params = new URLSearchParams(search);
-    let doctorIdFromParams = params.get('doctor_id');
+    // let search = window.location.search;
+    // let params = new URLSearchParams(search);
+    // let doctorIdFromParams = params.get('doctor_id');
 
     // console.log(location.search)
 
 
     const initialDate = new Date(Date.now())
-    const doctorId = doctorIdFromParams
+    // const doctorId = doctorIdFromParams
 
     const [selectedDate, setSelectedDate] = useState(initialDate)
     const [startTime, setStartTime] = useState('')
@@ -32,6 +32,7 @@ const Appointment = ({ user, location }) => {
     const [appointments, setAppointments] = useState([])
     const [openToast, setOpenToast] = useState(false);
     const [errors, setErrors] = useState([])
+    const [weekend, setWeekend] = useState(false)
 
     const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
     const headers = {
@@ -48,48 +49,55 @@ const Appointment = ({ user, location }) => {
                 headers: headers
             })
             const data = res.data
-            const [ { visit_type_id, slots } ] = data
+            if (res.data.length > 0) {
+                setWeekend(false)
+                const [ { visit_type_id, slots } ] = data
 
-            const duration = ({start, end}) => {
-                const [startHours, startMinutes] = start.split(':')
-                const [endHours, endMinutes] = end.split(':')
-                const minutesInOneHour = 60
-                const dur = (endHours * minutesInOneHour + endMinutes) -
-                    (startHours * minutesInOneHour + startMinutes)
-                return dur
-            }
-
-            switch (duration(slots[0])) {
-                case 20:
-                    setLimit(3)
-                    break
-                case 30:
-                    setLimit(2)
-                    break
-            }
-
-            const timeNow = new Date(Date.now())
-            const yearNow = timeNow.getFullYear()
-            const monthNow = timeNow.getMonth() + 1
-            const dateNow = timeNow.getDate()
-            const hourNow = timeNow.getHours()
-            const minuteNow = timeNow.getMinutes()
-
-            const [year, month, day] = date.split('-')
-
-            slots.map(item => {
-                const [startHours, startMinutes] = item.start.split(':')
-                if (
-                    (yearNow === +year && monthNow === +month && dateNow === +day) &&
-                    ((+startHours < hourNow) || ((+startHours === hourNow) && (+startMinutes <= minuteNow))))
-                {
-                    item.available = false
-                    return item
+                const duration = ({start, end}) => {
+                    const [startHours, startMinutes] = start.split(':')
+                    const [endHours, endMinutes] = end.split(':')
+                    const minutesInOneHour = 60
+                    const dur = (endHours * minutesInOneHour + endMinutes) -
+                        (startHours * minutesInOneHour + startMinutes)
+                    return dur
                 }
-                return item
-            })
-            setAppointments(slots)
-            setVisit_type_id(visit_type_id)
+
+                switch (duration(slots[0])) {
+                    case 20:
+                        setLimit(3)
+                        break
+                    case 30:
+                        setLimit(2)
+                        break
+                }
+
+                const timeNow = new Date(Date.now())
+                const yearNow = timeNow.getFullYear()
+                const monthNow = timeNow.getMonth() + 1
+                const dateNow = timeNow.getDate()
+                const hourNow = timeNow.getHours()
+                const minuteNow = timeNow.getMinutes()
+
+                const [year, month, day] = date.split('-')
+
+                slots.map(item => {
+                    const [startHours, startMinutes] = item.start.split(':')
+                    if (
+                        (yearNow === +year && monthNow === +month && dateNow === +day) &&
+                        ((+startHours < hourNow) || ((+startHours === hourNow) && (+startMinutes <= minuteNow))))
+                    {
+                        item.available = false
+                        return item
+                    }
+                    return item
+                })
+                setAppointments(slots)
+                setVisit_type_id(visit_type_id)
+            } else {
+                setErrors(['Sorry but the doctor is not working that day'])
+                setWeekend(true)
+            }
+
         } catch (error) {
             console.log(error)
         }
@@ -141,9 +149,8 @@ const Appointment = ({ user, location }) => {
                 },
                 { headers: headers }
             )
-            console.log(response.data)
+
             if (response.status === 200) {
-                console.log('All is OK!!!!')
                 setStartTime(start)
                 setAppointments(appointments.map(item => {
                     if (item.start === start) {
@@ -174,6 +181,7 @@ const Appointment = ({ user, location }) => {
         <SimpleAlert
             key={ item }
             text={ item }
+            handleClose={ setErrors }
         />
     ))
 
@@ -210,7 +218,7 @@ const Appointment = ({ user, location }) => {
                     <div className="schedule">
                         <div className="wrapper-container">
                             { errorMessages }
-                            <BasicTable
+                            { !weekend && <BasicTable
                                 appointments={ appointments }
                                 limit={ limit }
                                 handleButtonTableClick={ handleButtonTableClick }
@@ -218,7 +226,8 @@ const Appointment = ({ user, location }) => {
                                 doctorId={ doctorId }
                                 setErrors={ setErrors }
 
-                        />
+                            />
+                            }
                         </div>
                     </div>
                 </div>
@@ -227,7 +236,7 @@ const Appointment = ({ user, location }) => {
                     openToast={ openToast }
                     time={ startTime }
                 />
-                < Footer text={ 'Your advertising can be here' } />
+                {/*< Footer text={ 'Your advertising can be here' } />*/}
             </div>
 
     )

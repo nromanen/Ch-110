@@ -9,20 +9,25 @@
 	left : 10%;
 	position: fixed;
     bottom: 10; 
-    padding: 10px; 
+    padding: 10%; 
     width: 10%;
 
 
 }
 
+.left_up h1{
+
+  margin-bottom: 0%;
+
+ } 
 
 .left_up a{
-		margin-left: 30px;
+		margin-left: 2%;
   		text-decoration: none;
   		display: inline-block;
   		padding: 5px 10px;
   		letter-spacing: 1px;
-  		top: 30px;
+  		top: 2%;
   		margin-bottom: 0px;
   		font-weight: 700;
   		font-size: 40px;
@@ -33,13 +38,15 @@
 }
 
 .left_up .describe{
+    line-height: 1.5;
 		margin-left: 25px;
 		margin-top: 0px;
 		margin-bottom: 15px;
-		font-size: 18px;
+		font-size: 20px;
 		color: 00f;
 		font-weight: 600;
-		width: 60%;
+		max-width: 60%;
+
 	}
 
 
@@ -48,7 +55,7 @@
   height: 5px;
   margin-left: 25px;
   border: 1px solid #f17e00;
-  width: 56%;
+  max-width: 56.5%;
   margin-top: 0px;
   margin-bottom: 0px;
 }
@@ -59,24 +66,27 @@
 	margin-right: 20px;
     
     padding: 10px; 
-    top: 110px;
+    top: 15%;
     width: 35%;  
 }
 
 .rigth_up .rigth_up_first{
+  font-family: Arial;
 	text-align: center;
-	padding-left: 30px;
-	font-size: 20px;
+	padding-left: 12%;
+	font-size: 24px;
 	color: #fff;
 	font-weight: 600;
 }
 
 .rigth_up .rigth_up_first p{
+
 	background: #333; 
 }
 
 .rigth_up .rigth_up_second{
-	font-size: 20px;
+  font-family: Arial;
+	font-size: 23px;
 	font-weight: 600;
 }
 
@@ -97,7 +107,7 @@
 
 .rigth_up .rigth_up_third li{
     list-style-type: none;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
   
 }
 
@@ -106,12 +116,13 @@
 	
   	background-color: white;
   	background-image: url(/assets/tel.png);
-  	background-size: 12%;
+  	background-size: 10.5%;
   	background-position: 2px 1px;
   	background-repeat: no-repeat;
   	padding-left: 40px;
   	margin-top: 0px;
   	width: 200px;
+    height: 25px;
 }
 
 .rigth_up .rigth_up_third input[type=submit] {
@@ -124,6 +135,7 @@
     border-radius: 5px; 
     margin-top: 0px;
     margin-left: 5px;
+    height: 32px;
 }
 
 
@@ -136,6 +148,7 @@
   padding: 10px; 
   top: 110px;
   width: 56%;
+  height: 20px;
 }
 
 .left_down .img_discount{
@@ -146,14 +159,19 @@
 
 .left_down p{
   margin-bottom: 0px;
+  margin-top: 0px;
+
 }
 
 .left_down h2{
+  margin-top: 0px;
+  margin-bottom: 0px;
   font: bold 36px Arial;
   color: #f17e00;
 }
 
 .left_down h4{
+  margin-top: 10px;
   font: bold 24px Arial;
   color: #4682B4;
 }

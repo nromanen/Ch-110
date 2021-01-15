@@ -2,7 +2,7 @@ class VisitsController < ApplicationController
   before_action :authenticate_user!, except: :slots
   before_action :set_visit, only: [:show, :destroy]
 
-  after_action :verify_authorized, except: [:index, :slots]
+  after_action :verify_authorized, except: [:index, :slots, :choose_date]
   after_action :verify_policy_scoped, only: :index
 
   # GET /visits
@@ -122,6 +122,10 @@ class VisitsController < ApplicationController
       format.html { render json: result }
       format.json { render json: result }
     end
+  end
+
+  def choose_date
+    @doctor_id = params[:doctor_id]
   end
 
   private

@@ -57,6 +57,7 @@
   border-left: 6px solid #4CAF50;
 }
 
+
 /* The dropdown container */
 .dropdown {
   float: left;
@@ -109,7 +110,9 @@
 .topnav a:hover, .dropdown:hover, .dropbtn:hover {
   background-color: #ddd;
   color: black;
+
 }
+
 
 /* The side navigation menu */
 .sidebar {
@@ -167,3 +170,4 @@ div.content {
     float: none;
   }
 }
+

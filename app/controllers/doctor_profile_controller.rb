@@ -5,16 +5,50 @@ class DoctorProfileController < ApplicationController
 
 
   def index
+
+    if params[:user_id]
+      @doctor_profile = DoctorProfile.find_by(user_id: params[:user_id])
+      puts 'hello from users table ============'
+      puts params[:user_id]
+      puts @doctor_profile
+
+      if @doctor_profile.nil?
+        render json: { message: 'no profile' }
+      else
+        render json: @doctor_profile
+      end
+    end
+
     @doctor_profiles = DoctorProfile.all
-    @users = User.order(:name)
+    @users = User.where(:role => 2).order(:name)
+    @specializations = DoctorProfile.specializations
   end
+
+
 
   def new
     @doctor_profile = DoctorProfile.new
   end
 
   def show
-    render json: @doctor_profile
+    render json: @doctor_profiles
+  end
+
+  def show_spec
+
+    @doctor_spec = DoctorProfile.where(specialization: params[:position])
+    @users = []
+
+    @doctor_spec.each do |doctor|
+      @users << {
+                 name: doctor.user.name,
+                 surname: doctor.user.surname,
+                 specialization: doctor.specialization,
+                 description: doctor.description,
+                 photo_path: doctor.photo_path,
+                 id: doctor.user_id
+                }
+    end
   end
 
   def show_by_query_params
@@ -30,7 +64,7 @@ class DoctorProfileController < ApplicationController
     if @doctor_profile.save
       render json: @doctor_profile, status: :created
     else
-      render json: @doctor_profile.errors, status: :unprocessable_entity
+      render json: @doctor_profile.errors.full_messages, status: :unprocessable_entity
     end
   end
 
@@ -38,7 +72,7 @@ class DoctorProfileController < ApplicationController
     if @doctor_profile.update(doctor_profile_params)
       render json: @doctor_profile
     else
-      render json: @doctor_profile.errors, status: :unprocessable_entity
+      render json: @doctor_profile.errors.full_messages, status: :unprocessable_entity
     end
   end
 
@@ -58,7 +92,7 @@ class DoctorProfileController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def doctor_profile_params
-    params.require(:doctor_profile).permit(:photo_path, :specialization, :description, :user_id)
+    params.require(:doctor_profile).permit(:photo_path, :specialization, :description, :user_id, :position)
   end
 
 end

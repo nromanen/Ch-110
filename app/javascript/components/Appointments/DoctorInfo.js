@@ -14,14 +14,6 @@ const DoctorInfo = ({ doctorId }) => {
             .catch(err => console.log(err))
     }
 
-    const fetchDoctorProfile = doctorId => {
-        axios.get(`/users_by_id?id=${doctorId}`)
-            .then(res => {
-                console.log(res.data)
-                setDoctor(res.data)
-            })
-            .catch(err => console.log(err))
-    }
 
     useEffect(() => {
         fetchDoctor(doctorId)
@@ -29,11 +21,10 @@ const DoctorInfo = ({ doctorId }) => {
 
     return (
         <div className="header_doctor-info">
-            <div className="header__title title">Doctor</div>
+            <div className="header__title title">Doctor: { doctor.name } { doctor.surname }</div>
             <ul className="header__list">
-                <li><CheckIcon /><span>{ doctor.name }</span><span>{ doctor.surname }</span></li>
-                <li><CheckIcon /><span>Specialization</span></li>
-                <li><CheckIcon /><span>Description</span></li>
+                <li><CheckIcon /><span>Specialization: { doctor.specialization }</span></li>
+                <li><CheckIcon /><span>Description: { doctor.description }</span></li>
             </ul>
         </div>
     )

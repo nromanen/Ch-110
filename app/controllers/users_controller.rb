@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
-  after_action :verify_authorized
+  # after_action :verify_authorized
   after_action :verify_policy_scoped, only: :index
 
   def index
@@ -22,8 +22,14 @@ class UsersController < ApplicationController
 
   def find_doctor_by_id
     @doctor = User.find(params[:id])
+    doctor_card = {
+      name: @doctor.name,
+      surname: @doctor.surname,
+      specialization: @doctor.doctor_profile.specialization,
+      description: @doctor.doctor_profile.description
+    }
     authorize @doctor, policy_class: UserPolicy
-    render json: @doctor
+    render json: doctor_card
   end
 
   def manage
