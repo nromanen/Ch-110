@@ -26,6 +26,7 @@ ru:
     main: "Главная"
     news: "Новости"
     contacts: "Контакты"
+    departments: "Отделения"
     sign_up: "Регистрация"
     log_in: "Войти"
     log_out: "Выйти"

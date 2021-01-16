@@ -9,12 +9,12 @@
     <a href="#contact"><%= t "nav_bar.contacts" %></a>
 
     <div class="dropdown">
-        <button class="dropbtn">Departments
+        <button class="dropbtn"><%= t "nav_bar.departments" %>
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-          <% doctor_departments.each do |d| %>
-            <%= link_to d[0], {:controller => "doctor_profile", :action => "show_spec", :position => d[1] } %>
+            <% doctor_departments.each do |d| %>
+              <%= link_to d[0].capitalize, show_spec_doctor_profile_index_path(:position => d[1]) %>
           <% end %>
         </div>
       </div>

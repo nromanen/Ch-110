@@ -26,6 +26,7 @@ uk:
     main: "Головна"
     news: "Новини"
     contacts: "Контакти"
+    departments: "Відділення"
     sign_up: "Реєстрація"
     log_in: "Увійти"
     log_out: "Вийти"

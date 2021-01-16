@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :doctor_profile
+  resources :doctor_profile do
+    collection do
+      get 'show_spec'
+    end
+  end
   resources :patient_profile
+ 
 
   get '/patients_profile_get_items' => 'patient_profile#get_items'
   get 'departments' => 'doctor_profile#departments'
@@ -10,9 +15,9 @@ Rails.application.routes.draw do
                                     sessions: 'user/sessions',
                                     passwords: 'user/passwords',
                                     confirmations: 'user/confirmations'}
-  get 'account' => 'users#show'
-  get 'show' => 'doctor_profile#show_spec'
 
+  get 'account' => 'users#show'
+  
   resources :visits, except: [:edit, :update]
   get '/slots' => 'visits#slots'
   get '/manager' => 'users#manage'

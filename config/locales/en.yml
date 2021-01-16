@@ -57,6 +57,7 @@ en:
     main: "Home"
     news: "News"
     contacts: "Contacts"
+    departments: "Departments"
     sign_up: "Sign Up"
     log_in: "Log In"
     log_out: "Log Out"
