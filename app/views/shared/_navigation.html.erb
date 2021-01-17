@@ -14,7 +14,7 @@
         </button>
         <div class="dropdown-content">
           <% doctor_departments.each do |d| %>
-            <%= link_to d[0], {:controller => "doctor_profile", :action => "show_spec", :position => d[1] } %>
+            <%= link_to d[0], show_spec_doctor_profile_index_path(:position => d[1])  %>
           <% end %>
         </div>
       </div>

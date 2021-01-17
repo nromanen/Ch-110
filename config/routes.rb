@@ -1,31 +1,44 @@
 Rails.application.routes.draw do
 
-  resources :doctor_profile
-  resources :patient_profile
+  root to: "home#index"
 
-  get '/patients_profile_get_items' => 'patient_profile#get_items'
-  get 'departments' => 'doctor_profile#departments'
+  resources :doctor_profile do
+    collection do
+      get 'show_spec'
+    end
+  end
+
+  resources :patient_profile do
+    collection do
+      get 'get_items'
+    end
+  end
+
+  resources :visit_types
+  resources :schedules
 
   devise_for :users, controllers: { registrations: 'user/registrations',
                                     sessions: 'user/sessions',
                                     passwords: 'user/passwords',
                                     confirmations: 'user/confirmations'}
-  get 'account' => 'users#show'
-  get 'show' => 'doctor_profile#show_spec'
 
-  resources :visits, except: [:edit, :update]
+  resources :visits, except: [:edit, :update] do
+    member do
+      get 'choose_date'
+    end
+  end
+
+  match '/admin/*path', to: 'admin#index', via: :all
+
+
+  get 'account' => 'users#show'
   get '/slots' => 'visits#slots'
   get '/manager' => 'users#manage'
   get '/manager/patients' => 'users#get_patients'
   get '/manager/doctors' => 'users#get_doctors'
   get '/users' => 'users#index'
-  resources :visit_types
-  resources :schedules
-  root to: "home#index"
-
-  match '/admin/*path', to: 'admin#index', via: :all
   get '/users_to_react_form' => 'users#users_to_react_form'
   post 'send_tel' => 'home#send_numb'
   get '/users_by_id' => 'users#find_doctor_by_id'
-  get 'choose_date' => 'visits#choose_date'
+  get 'departments' => 'doctor_profile#departments'
 end
