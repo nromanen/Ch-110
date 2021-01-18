@@ -1,0 +1,62 @@
+.doctors{
+  align: center;
+  margin-top: 20px;
+}
+
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 200px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.position {
+  color: grey;
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.description{
+  font-size: 15px;
+  text-align: center;
+  margin-top: 5px;
+  white-space: pre-wrap;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+.img_responsive{
+  width: auto;
+  height: 200px;
+}
+
+.link {
+    border: 1px solid #333; 
+    display: inline-block;
+    padding: 5px 15px; 
+    text-decoration: none; 
+    color: #000;
+    margin-bottom: 7px; 
+  }
+
+.link:hover {
+    box-shadow: 0 0 5px rgba(0,0,0,0.3); 
+    background: linear-gradient(to bottom, #fcfff4, #e9e9ce); 
+    color: #a00;
+   }
