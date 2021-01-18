@@ -1,28 +1,13 @@
-<%= javascript_pack_tag 'application' %>
-
 <header class="main" xmlns="http://www.w3.org/1999/html">
   <div class="topnav">
-
-    <%= link_to (t "nav_bar.main"), root_path, class: "active" %>
-    <%= link_to (t "nav_bar.news"), root_path %>
-    <%= link_to (t "nav_bar.contacts"), root_path %>
-
-    <div class="dropdown">
-        <button class="dropbtn">Departments
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-          <% doctor_departments.each do |d| %>
-            <%#= link_to d[0], {:controller => "doctor_profile", :action => "show_spec", :position => d[1] } %>
-          <% end %>
-        </div>
-      </div>
+    <a class="active" href="/"><%= t "nav_bar.main" %></a>
+    <a href="#news"><%= t "nav_bar.news" %></a>
+    <a href="#contact"><%= t "nav_bar.contacts" %></a>
 
     <% if current_user && current_user.role == 'admin' %>
       <a href="/admin/index">Admin</a>
       <a href="/patient_profile">Patient profile</a>
     <% end %>
-
 
     <div class="topnav-right">
       <div class="dropdown">

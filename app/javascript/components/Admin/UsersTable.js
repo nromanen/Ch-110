@@ -20,8 +20,7 @@ const useStyles = makeStyles({
 
 export default function BasicTable({ users, patientProfiles }) {
     const classes = useStyles();
-    console.log('users from table', users)
-    console.log('profiles from table', patientProfiles.find(item => item.user_id === 1))
+
 
 
     return (
