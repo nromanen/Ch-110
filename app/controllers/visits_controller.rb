@@ -2,13 +2,22 @@ class VisitsController < ApplicationController
   before_action :authenticate_user!, except: :slots
   before_action :set_visit, only: [:show, :destroy]
 
-  after_action :verify_authorized, except: [:index, :slots]
+  after_action :verify_authorized, except: [:index, :slots, :choose_date]
   after_action :verify_policy_scoped, only: :index
 
   # GET /visits
   # GET /visits.json
   def index
-      @visits = policy_scope(Visit)
+    @visits = policy_scope(Visit)
+    @result = []
+    @visits.each do |visit|
+      @result << {id: visit.id, patient_name: visit.patient_name, doctor_name: visit.doctor_name,
+                 start_time: visit.start_time, visit_duration: visit.visit_type.length}
+    end
+    respond_to do |format|
+      format.html { @result }
+      format.json { render json: @result }
+    end
   end
 
   # GET /visits/1
@@ -81,7 +90,10 @@ class VisitsController < ApplicationController
       end
     else
       respond_to do |format|
+        puts "==========================================="
+        puts @visit.errors.full_messages
         format.html { redirect_to visits_path, alert: "Visit can't be canceled. #{@visit.errors[:base][-1]}"}
+        format.json { render json: @visit.errors.full_messages, status: :unprocessable_entity }
       end
     end
   end
@@ -109,6 +121,10 @@ class VisitsController < ApplicationController
       format.html { render json: result }
       format.json { render json: result }
     end
+  end
+
+  def choose_date
+    @doctor_id = params[:id]
   end
 
   private

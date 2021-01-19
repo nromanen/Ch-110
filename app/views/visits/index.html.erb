@@ -30,12 +30,12 @@
     <%# end %>
 <!--  </tbody>-->
 <!--</table>-->
-  <%= react_component("User/UserVisits", {visits:@visits, locale: {visits: (t 'activerecord.attributes.visits.visits'),
+  <%= react_component("User/UserVisits", {userVisits:@result, locale: {visits: (t 'activerecord.attributes.visits.visits'),
                                                                         patient: (t 'activerecord.attributes.visits.patient'),
                                                                         doctor: (t 'activerecord.attributes.visits.doctor'),
                                                                         date: (t 'activerecord.attributes.visits.date'),
                                                                         time: (t 'activerecord.attributes.visits.time'),
-                                                                        visit_type: (t 'activerecord.attributes.visits.visit_type'),
+                                                                        visit_duration: (t 'activerecord.attributes.visit_types.duration'),
                                                                         no_visit_message: (t 'activerecord.attributes.visits.no_visits_message')}}) %>
 <%# end %>
 

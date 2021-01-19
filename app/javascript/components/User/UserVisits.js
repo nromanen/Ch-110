@@ -10,7 +10,7 @@ class UserVisits extends React.Component {
     render () {
 
         return (
-            <VisitsTable visits={this.props.visits} locale={this.props.locale}/>
+            <VisitsTable userVisits={this.props.userVisits} locale={this.props.locale}/>
         );
     }
 }

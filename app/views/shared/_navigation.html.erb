@@ -4,6 +4,17 @@
     <a href="#news"><%= t "nav_bar.news" %></a>
     <a href="#contact"><%= t "nav_bar.contacts" %></a>
 
+    <div class="dropdown">
+      <button class="dropbtn">Departments
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <% doctor_departments.each do |d| %>
+          <%= link_to d[0], show_spec_doctor_profile_index_path(:position => d[1])  %>
+        <% end %>
+      </div>
+    </div>
+
     <% if current_user && current_user.role == 'admin' %>
       <a href="/admin/index">Admin</a>
       <a href="/patient_profile">Patient profile</a>
@@ -17,7 +28,7 @@
         <div class="dropdown-content">
           <%= link_to "EN", url_for(locale: :en) %>
           <%= link_to "RU", url_for(locale: :ru) %>
-          <%= link_to "UA", url_for(locale: :uk) %>
+          <%= link_to "UK", url_for(locale: :uk) %>
         </div>
       </div>
       <% if current_user %>
