@@ -8,18 +8,23 @@ class DoctorProfileController < ApplicationController
 
     if params[:user_id]
       @doctor_profile = DoctorProfile.find_by(user_id: params[:user_id])
+      
+      @avatar = rails_blob_path(doctor_profile.avatar)
       puts 'hello from users table ============'
       puts params[:user_id]
-      puts @doctor_profile
+      
 
       if @doctor_profile.nil?
         render json: { message: 'no profile' }
       else
-        render json: @doctor_profile
+        render json: { doctor_profile: @doctor_profile, avatar: @avatar }
       end
     end
 
     @doctor_profiles = DoctorProfile.all
+
+    puts @doctor_profiles[0].avatar
+
     @users = User.where(:role => 2).order(:name)
     @specializations = DoctorProfile.specializations
   end
@@ -92,7 +97,7 @@ class DoctorProfileController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def doctor_profile_params
-    params.require(:doctor_profile).permit(:photo_path, :specialization, :description, :user_id, :position)
+    params.require(:doctor_profile).permit(:photo_path, :specialization, :description, :user_id, :position, :avatar)
   end
 
 end

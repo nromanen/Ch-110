@@ -73,3 +73,8 @@ en:
         phone_number: "Phone number"
         role: "Role"
         is_active: "Is active"
+
+  home:
+    healthbook: "Healthbook"
+
+    

@@ -33,4 +33,6 @@ Rails.application.routes.draw do
   post 'send_tel' => 'home#send_numb'
   get '/users_by_id' => 'users#find_doctor_by_id'
   get 'choose_date' => 'visits#choose_date'
+
+  post 'rails/active_storage/direct_uploads', to: 'direct_uploads#create'
 end

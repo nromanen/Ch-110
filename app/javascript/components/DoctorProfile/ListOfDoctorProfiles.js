@@ -15,6 +15,7 @@ const ListOfDoctorProfiles = props => {
         photo_path: '',
         specialization: '',
         description: '',
+        avatar: null,
         user_id: users[0].id || 1
     }
 

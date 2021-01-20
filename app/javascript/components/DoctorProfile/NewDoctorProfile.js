@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import TextField from '@material-ui/core/TextField';
 
+import { DirectUpload } from 'activestorage';
+
 
 const NewProfileForm = props => {
     const [profile, setProfile] = useState(props.initialFormState);
@@ -11,8 +13,14 @@ const NewProfileForm = props => {
 
     const handleInputChange = event => {
         const { type, checked, name, value } = event.target;
-        setProfile({ ...profile, [name]: type === 'checkbox' ? checked : value })
+        setProfile({ ...profile, [name]: type === 'checkbox' ? checked : value })  
     };
+
+    const handleFile = event => {
+        setProfile({
+            avatar: event.target.files[0]
+        })
+    }
 
 
     return (
@@ -37,14 +45,23 @@ const NewProfileForm = props => {
 
             <label>Photo: </label><br/>
 
+            
             <input
                 type="file"
-                name="photo_path"
-                accept="image/png, image/jpeg"
-                value={ profile.photo_path }
-                onChange={ handleInputChange } >
+                name="avatar"
+                value={profile.avatar}
+                onChange={ handleFile } >
             </input><br/>
 
+            
+            
+            <input
+                name="photo_path"
+                value={ profile.photo_path }
+                onChange={ handleInputChange }>
+            </input><br/>
+            
+            
             <label>Specialization: </label><br/>
             <select
                 name='specialization'
