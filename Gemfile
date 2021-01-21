@@ -35,7 +35,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 2.15'
+  gem 'capybara', '~> 3.34'
   gem 'factory_bot_rails'
   gem 'pry'
   gem 'rspec-rails', '~> 4.0'
@@ -43,6 +43,8 @@ group :test do
   gem 'shoulda-matchers', '~> 4.0'
   gem 'simplecov'
   gem 'webdrivers'
+  gem 'rspec', '~> 3.10'
+  gem 'database_cleaner'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

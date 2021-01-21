@@ -3,6 +3,17 @@
 # The generated `.rspec` file contains `--require spec_helper` which will cause
 # this file to always be loaded, without a need to explicitly require it in any
 # files.
+
+
+require 'capybara/dsl'
+require 'capybara/rspec'
+# Bundler.setup(:default)
+# Bundler.require
+#
+Capybara.default_driver = :selenium_chrome_headless
+Capybara.app_host = 'http://localhost:3000'
+
+
 #
 # Given that it is always loaded, you are encouraged to keep this file as
 # light-weight as possible. Requiring heavyweight dependencies from this file
@@ -35,6 +46,7 @@ RSpec.configure do |config|
     # a real object. This is generally recommended, and will default to
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
+    config.formatter = :documentation
   end
 
   # This option will default to `:apply_to_host_groups` in RSpec 4 (and will
