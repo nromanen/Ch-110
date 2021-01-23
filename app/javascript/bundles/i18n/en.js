@@ -8,13 +8,30 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     "doctor_profile": "Doctor profile",
     "edit_account": "Edit account",
     "leave_blank": "leave blank if you don't want to change it",
+    "my_schedules": "My schedules",
+    "my_visits": "My visits",
     "need_password": "we need your current password to confirm your changes",
+    "not_saved": "User account was not created:",
     "patient_card": "Patient card",
     "update": "Update",
     "waiting_confirmation": "Currently waiting confirmation for"
   },
   "activerecord": {
     "attributes": {
+      "schedules": {
+        "create_schedule": "Save schedule",
+        "day": "Day",
+        "doctor": "Doctor",
+        "edit_schedule": "Editing schedule",
+        "end_date": "End date",
+        "end_time": "End time",
+        "new_schedule": "New schedule",
+        "no_schedules_message": "You don't have schedules right now",
+        "schedules": "Schedules",
+        "start_date": "Start date",
+        "start_time": "Start time",
+        "visit_type": "Visit type"
+      },
       "users": {
         "email": "Email",
         "is_active": "Is active",
@@ -22,16 +39,30 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
         "password": "Password",
         "password_confirmation": "Password confirmation",
         "phone_number": "Phone number",
+        "registration_date": "Registration date",
         "role": "Role",
         "surname": "Surname"
       },
+      "visit_types": {
+        "create_visit_type": "Save visit type",
+        "description": "Description",
+        "duration": "Duration",
+        "edit_visit_type": "Editing visit type",
+        "minutes": "minutes",
+        "name": "Name",
+        "new_visit_type": "New visit type",
+        "visit_types": "Visit types"
+      },
       "visits": {
+        "create_visit": "Create visit",
         "date": "Date",
         "doctor": "Doctor",
         "new_visit": "New visit",
+        "no_visits_message": "You don't have visits right now",
         "patient": "Patient",
         "time": "Time",
-        "visit_type": "Visit type"
+        "visit_type": "Visit type",
+        "visits": "Visits"
       }
     },
     "errors": {
@@ -165,9 +196,20 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
       "year": "Year"
     }
   },
+  "days": {
+    "friday": "Friday",
+    "monday": "Monday",
+    "saturday": "Saturday",
+    "sunday": "Sunday",
+    "thursday": "Thursday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday"
+  },
   "devise": {
-    "change_password": "Change your password",
+    "change_password": "Change my password",
+    "change_password_error": "Password was not changed:",
     "characters_minimum": "characters minimum",
+    "confirm_new_password": "Confirm new password",
     "confirmations": {
       "confirmed": "Your email address has been successfully confirmed.",
       "send_instructions": "You will receive an email with instructions for how to confirm your email address in a few minutes.",
@@ -227,6 +269,7 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     },
     "remember_me": "Remember me",
     "resend_ci": "Resend confirmation instructions",
+    "reset_password_error": "Instruction was not sent:",
     "send_me_rpi": "Send me reset password instruction",
     "sessions": {
       "already_signed_out": "Signed out successfully.",
@@ -310,7 +353,6 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
       }
     }
   },
-  "hello": "Hello",
   "helpers": {
     "select": {
       "prompt": "Please select"
@@ -327,7 +369,7 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
         "one",
         "other"
       ],
-      "rule": "#<Proc:0x000000000a014de8@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/rails-i18n-6.0.0/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+      "rule": "#<Proc:0x000000000980ca10@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/rails-i18n-6.0.0/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
     }
   },
   "manager_bar": {
@@ -339,6 +381,7 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
   },
   "nav_bar": {
     "contacts": "Contacts",
+    "departments": "Departments",
     "log_in": "Log In",
     "log_out": "Log Out",
     "main": "Home",
@@ -399,8 +442,8 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
       }
     },
     "nth": {
-      "ordinalized": "#<Proc:0x0000000009f12aa8@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:26 (lambda)>",
-      "ordinals": "#<Proc:0x0000000009f12ad0@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:7 (lambda)>"
+      "ordinalized": "#<Proc:0x000000000967f1c0@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:26 (lambda)>",
+      "ordinals": "#<Proc:0x000000000967f1e8@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:7 (lambda)>"
     },
     "percentage": {
       "format": {
@@ -413,6 +456,12 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
         "delimiter": ""
       }
     }
+  },
+  "records": {
+    "back": "Back",
+    "delete": "Delete",
+    "edit": "Edit",
+    "show": "Show"
   },
   "support": {
     "array": {
@@ -429,6 +478,10 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
       "short": "%d %b %H:%M"
     },
     "pm": "pm"
+  },
+  "visit_types": {
+    "Check-up": "Check-up",
+    "Consultation": "Consultation"
   }
 });
 I18n.translations["ru"] = I18n.extend((I18n.translations["ru"] || {}), {
@@ -439,13 +492,30 @@ I18n.translations["ru"] = I18n.extend((I18n.translations["ru"] || {}), {
     "doctor_profile": "Doctor profile",
     "edit_account": "Edit account",
     "leave_blank": "leave blank if you don't want to change it",
+    "my_schedules": "My schedules",
+    "my_visits": "My visits",
     "need_password": "we need your current password to confirm your changes",
+    "not_saved": "User account was not created:",
     "patient_card": "Patient card",
     "update": "Update",
     "waiting_confirmation": "Currently waiting confirmation for"
   },
   "activerecord": {
     "attributes": {
+      "schedules": {
+        "create_schedule": "Save schedule",
+        "day": "Day",
+        "doctor": "Doctor",
+        "edit_schedule": "Editing schedule",
+        "end_date": "End date",
+        "end_time": "End time",
+        "new_schedule": "New schedule",
+        "no_schedules_message": "You don't have schedules right now",
+        "schedules": "Schedules",
+        "start_date": "Start date",
+        "start_time": "Start time",
+        "visit_type": "Visit type"
+      },
       "users": {
         "email": "Email",
         "is_active": "Is active",
@@ -453,16 +523,30 @@ I18n.translations["ru"] = I18n.extend((I18n.translations["ru"] || {}), {
         "password": "Password",
         "password_confirmation": "Password confirmation",
         "phone_number": "Phone number",
+        "registration_date": "Registration date",
         "role": "Role",
         "surname": "Surname"
       },
+      "visit_types": {
+        "create_visit_type": "Save visit type",
+        "description": "Description",
+        "duration": "Duration",
+        "edit_visit_type": "Editing visit type",
+        "minutes": "minutes",
+        "name": "Name",
+        "new_visit_type": "New visit type",
+        "visit_types": "Visit types"
+      },
       "visits": {
+        "create_visit": "Create visit",
         "date": "Date",
         "doctor": "Doctor",
         "new_visit": "New visit",
+        "no_visits_message": "You don't have visits right now",
         "patient": "Patient",
         "time": "Time",
-        "visit_type": "Visit type"
+        "visit_type": "Visit type",
+        "visits": "Visits"
       }
     },
     "errors": {
@@ -596,9 +680,20 @@ I18n.translations["ru"] = I18n.extend((I18n.translations["ru"] || {}), {
       "year": "Year"
     }
   },
+  "days": {
+    "friday": "Friday",
+    "monday": "Monday",
+    "saturday": "Saturday",
+    "sunday": "Sunday",
+    "thursday": "Thursday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday"
+  },
   "devise": {
-    "change_password": "Change your password",
+    "change_password": "Change my password",
+    "change_password_error": "Password was not changed:",
     "characters_minimum": "characters minimum",
+    "confirm_new_password": "Confirm new password",
     "confirmations": {
       "confirmed": "Your email address has been successfully confirmed.",
       "send_instructions": "You will receive an email with instructions for how to confirm your email address in a few minutes.",
@@ -658,6 +753,7 @@ I18n.translations["ru"] = I18n.extend((I18n.translations["ru"] || {}), {
     },
     "remember_me": "Remember me",
     "resend_ci": "Resend confirmation instructions",
+    "reset_password_error": "Instruction was not sent:",
     "send_me_rpi": "Send me reset password instruction",
     "sessions": {
       "already_signed_out": "Signed out successfully.",
@@ -741,7 +837,6 @@ I18n.translations["ru"] = I18n.extend((I18n.translations["ru"] || {}), {
       }
     }
   },
-  "hello": "Hello",
   "helpers": {
     "select": {
       "prompt": "Please select"
@@ -758,7 +853,7 @@ I18n.translations["ru"] = I18n.extend((I18n.translations["ru"] || {}), {
         "one",
         "other"
       ],
-      "rule": "#<Proc:0x000000000a014de8@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/rails-i18n-6.0.0/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+      "rule": "#<Proc:0x000000000980ca10@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/rails-i18n-6.0.0/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
     }
   },
   "manager_bar": {
@@ -770,6 +865,7 @@ I18n.translations["ru"] = I18n.extend((I18n.translations["ru"] || {}), {
   },
   "nav_bar": {
     "contacts": "Contacts",
+    "departments": "Departments",
     "log_in": "Log In",
     "log_out": "Log Out",
     "main": "Home",
@@ -830,8 +926,8 @@ I18n.translations["ru"] = I18n.extend((I18n.translations["ru"] || {}), {
       }
     },
     "nth": {
-      "ordinalized": "#<Proc:0x0000000009f12aa8@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:26 (lambda)>",
-      "ordinals": "#<Proc:0x0000000009f12ad0@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:7 (lambda)>"
+      "ordinalized": "#<Proc:0x000000000967f1c0@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:26 (lambda)>",
+      "ordinals": "#<Proc:0x000000000967f1e8@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:7 (lambda)>"
     },
     "percentage": {
       "format": {
@@ -844,6 +940,12 @@ I18n.translations["ru"] = I18n.extend((I18n.translations["ru"] || {}), {
         "delimiter": ""
       }
     }
+  },
+  "records": {
+    "back": "Back",
+    "delete": "Delete",
+    "edit": "Edit",
+    "show": "Show"
   },
   "support": {
     "array": {
@@ -860,6 +962,10 @@ I18n.translations["ru"] = I18n.extend((I18n.translations["ru"] || {}), {
       "short": "%d %b %H:%M"
     },
     "pm": "pm"
+  },
+  "visit_types": {
+    "Check-up": "Check-up",
+    "Consultation": "Consultation"
   }
 });
 I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {
@@ -870,13 +976,30 @@ I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {
     "doctor_profile": "Doctor profile",
     "edit_account": "Edit account",
     "leave_blank": "leave blank if you don't want to change it",
+    "my_schedules": "My schedules",
+    "my_visits": "My visits",
     "need_password": "we need your current password to confirm your changes",
+    "not_saved": "User account was not created:",
     "patient_card": "Patient card",
     "update": "Update",
     "waiting_confirmation": "Currently waiting confirmation for"
   },
   "activerecord": {
     "attributes": {
+      "schedules": {
+        "create_schedule": "Save schedule",
+        "day": "Day",
+        "doctor": "Doctor",
+        "edit_schedule": "Editing schedule",
+        "end_date": "End date",
+        "end_time": "End time",
+        "new_schedule": "New schedule",
+        "no_schedules_message": "You don't have schedules right now",
+        "schedules": "Schedules",
+        "start_date": "Start date",
+        "start_time": "Start time",
+        "visit_type": "Visit type"
+      },
       "users": {
         "email": "Email",
         "is_active": "Is active",
@@ -884,16 +1007,30 @@ I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {
         "password": "Password",
         "password_confirmation": "Password confirmation",
         "phone_number": "Phone number",
+        "registration_date": "Registration date",
         "role": "Role",
         "surname": "Surname"
       },
+      "visit_types": {
+        "create_visit_type": "Save visit type",
+        "description": "Description",
+        "duration": "Duration",
+        "edit_visit_type": "Editing visit type",
+        "minutes": "minutes",
+        "name": "Name",
+        "new_visit_type": "New visit type",
+        "visit_types": "Visit types"
+      },
       "visits": {
+        "create_visit": "Create visit",
         "date": "Date",
         "doctor": "Doctor",
         "new_visit": "New visit",
+        "no_visits_message": "You don't have visits right now",
         "patient": "Patient",
         "time": "Time",
-        "visit_type": "Visit type"
+        "visit_type": "Visit type",
+        "visits": "Visits"
       }
     },
     "errors": {
@@ -1027,9 +1164,20 @@ I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {
       "year": "Year"
     }
   },
+  "days": {
+    "friday": "Friday",
+    "monday": "Monday",
+    "saturday": "Saturday",
+    "sunday": "Sunday",
+    "thursday": "Thursday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday"
+  },
   "devise": {
-    "change_password": "Change your password",
+    "change_password": "Change my password",
+    "change_password_error": "Password was not changed:",
     "characters_minimum": "characters minimum",
+    "confirm_new_password": "Confirm new password",
     "confirmations": {
       "confirmed": "Your email address has been successfully confirmed.",
       "send_instructions": "You will receive an email with instructions for how to confirm your email address in a few minutes.",
@@ -1089,6 +1237,7 @@ I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {
     },
     "remember_me": "Remember me",
     "resend_ci": "Resend confirmation instructions",
+    "reset_password_error": "Instruction was not sent:",
     "send_me_rpi": "Send me reset password instruction",
     "sessions": {
       "already_signed_out": "Signed out successfully.",
@@ -1172,7 +1321,6 @@ I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {
       }
     }
   },
-  "hello": "Hello",
   "helpers": {
     "select": {
       "prompt": "Please select"
@@ -1189,7 +1337,7 @@ I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {
         "one",
         "other"
       ],
-      "rule": "#<Proc:0x000000000a014de8@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/rails-i18n-6.0.0/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+      "rule": "#<Proc:0x000000000980ca10@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/rails-i18n-6.0.0/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
     }
   },
   "manager_bar": {
@@ -1201,6 +1349,7 @@ I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {
   },
   "nav_bar": {
     "contacts": "Contacts",
+    "departments": "Departments",
     "log_in": "Log In",
     "log_out": "Log Out",
     "main": "Home",
@@ -1261,8 +1410,8 @@ I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {
       }
     },
     "nth": {
-      "ordinalized": "#<Proc:0x0000000009f12aa8@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:26 (lambda)>",
-      "ordinals": "#<Proc:0x0000000009f12ad0@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:7 (lambda)>"
+      "ordinalized": "#<Proc:0x000000000967f1c0@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:26 (lambda)>",
+      "ordinals": "#<Proc:0x000000000967f1e8@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:7 (lambda)>"
     },
     "percentage": {
       "format": {
@@ -1275,6 +1424,12 @@ I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {
         "delimiter": ""
       }
     }
+  },
+  "records": {
+    "back": "Back",
+    "delete": "Delete",
+    "edit": "Edit",
+    "show": "Show"
   },
   "support": {
     "array": {
@@ -1291,5 +1446,9 @@ I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {
       "short": "%d %b %H:%M"
     },
     "pm": "pm"
+  },
+  "visit_types": {
+    "Check-up": "Check-up",
+    "Consultation": "Consultation"
   }
 });

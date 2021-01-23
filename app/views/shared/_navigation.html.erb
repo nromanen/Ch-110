@@ -1,43 +1,49 @@
-<header class="main" xmlns="http://www.w3.org/1999/html">
-  <div class="topnav">
-    <a class="active" href="/"><%= t "nav_bar.main" %></a>
-    <a href="#news"><%= t "nav_bar.news" %></a>
-    <a href="#contact"><%= t "nav_bar.contacts" %></a>
+<!--<header class="main" xmlns="http://www.w3.org/1999/html">-->
+<!--  <div class="topnav">-->
+    <%#= link_to (t "nav_bar.main"), root_path, class: "active" %>
+    <%#= link_to (t "nav_bar.news"), root_path %>
+    <%#= link_to (t "nav_bar.contacts"), root_path %>
 
-    <div class="dropdown">
-      <button class="dropbtn">Departments
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-        <% doctor_departments.each do |d| %>
-          <%= link_to d[0], show_spec_doctor_profile_index_path(:position => d[1])  %>
-        <% end %>
-      </div>
-    </div>
+<!--    <div class="dropdown">-->
+<!--      <button class="dropbtn">Departments-->
+<!--        <i class="fa fa-caret-down"></i>-->
+<!--      </button>-->
+<!--      <div class="dropdown-content">-->
+        <%# doctor_departments.each do |d| %>
+          <%#= link_to d[0], show_spec_doctor_profile_index_path(:position => d[1])  %>
+        <%# end %>
+<!--      </div>-->
+<!--    </div>-->
 
-    <% if current_user && current_user.role == 'admin' %>
-      <a href="/admin/index">Admin</a>
-      <a href="/patient_profile">Patient profile</a>
-    <% end %>
+    <%# if current_user && current_user.role == 'admin' %>
+<!--      <a href="/admin/index">Admin</a>-->
+<!--      <a href="/patient_profile">Patient profile</a>-->
+    <%# end %>
 
-    <div class="topnav-right">
-      <div class="dropdown">
-        <button class="dropbtn"><%= locale.upcase %>
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-          <%= link_to "EN", url_for(locale: :en) %>
-          <%= link_to "RU", url_for(locale: :ru) %>
-          <%= link_to "UK", url_for(locale: :uk) %>
-        </div>
-      </div>
-      <% if current_user %>
-        <%= link_to "#{current_user.name} #{current_user.surname}", account_path %>
-        <%= link_to "#{t "nav_bar.log_out"}", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "#{t "nav_bar.log_in"}", new_user_session_path %>
-        <%= link_to "#{t "nav_bar.sign_up"}", new_user_registration_path %>
-      <% end %>
-    </div>
-  </div>
-</header>
+<!--    <div class="topnav-right">-->
+<!--      <div class="dropdown">-->
+<!--        <button class="dropbtn"><%#= locale.upcase %>-->
+<!--          <i class="fa fa-caret-down"></i>-->
+<!--        </button>-->
+<!--        <div class="dropdown-content">-->
+          <%#= link_to "EN", url_for(locale: :en) %>
+          <%#= link_to "RU", url_for(locale: :ru) %>
+          <%#= link_to "UK", url_for(locale: :uk) %>
+<!--        </div>-->
+<!--      </div>-->
+      <%# if current_user %>
+        <%#= link_to "#{current_user.name} #{current_user.surname}", account_path %>
+        <%#= link_to "#{t "nav_bar.log_out"}", destroy_user_session_path, method: :delete %>
+      <%# else %>
+        <%#= link_to "#{t "nav_bar.log_in"}", new_user_session_path %>
+        <%#= link_to "#{t "nav_bar.sign_up"}", new_user_registration_path %>
+      <%# end %>
+<!--    </div>-->
+<!--  </div>-->
+<!--</header>-->
+
+<%= react_component("NavBar/NavBar", { locale: locale, root_path: root_path, departments: doctor_departments,
+                                       user: current_user, logout_path: destroy_user_session_path,
+                                       login_path: new_user_session_path, account_path: account_path,
+                                       registration_path: new_user_registration_path,
+                                       spec_path: show_spec_doctor_profile_index_path}) %>

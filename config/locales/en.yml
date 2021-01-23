@@ -44,6 +44,7 @@ en:
     are_you_sure: "Are you sure?"
     my_visits: "My visits"
     my_schedules: "My schedules"
+    "not_saved": "User account was not created:"
 
   devise:
     remember_me: "Remember me"
@@ -51,9 +52,12 @@ en:
     dnr_confirmation: "Didn't receive confirmation instructions?"
     characters_minimum: "characters minimum"
     send_me_rpi: "Send me reset password instruction"
-    change_password: "Change your password"
+    change_password: "Change my password"
     new_password: "New password"
     resend_ci: "Resend confirmation instructions"
+    reset_password_error: "Instruction was not sent:"
+    change_password_error: "Password was not changed:"
+    confirm_new_password: "Confirm new password"
 
   nav_bar:
     main: "Home"
@@ -62,6 +66,7 @@ en:
     sign_up: "Sign Up"
     log_in: "Log In"
     log_out: "Log Out"
+    departments: "Departments"
 
   manager_bar:
     patients: "Patients"

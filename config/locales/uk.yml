@@ -13,16 +13,20 @@ uk:
     are_you_sure: "Ви впевнені?"
     my_visits: "Мої візити"
     my_schedules: "Мої розклади"
+    "not_saved": "Обліковий запис не був створений:"
 
   devise:
     remember_me: "Запам'ятати мене"
     forgot_password: "Забули пароль?"
     dnr_confirmation: "Не отримали підтвердження?"
     characters_minimum: "символів мінімум"
-    send_me_rpi: "Надіслати листа для відновлення паролю"
+    send_me_rpi: "Надіслати інструкцію для відновлення паролю"
     change_password: "Змінити пароль"
     new_password: "Новий пароль"
     resend_ci: "Повторно надіслати підтвердження раєстрації"
+    reset_password_error: "Інструкція не була відправлена:"
+    change_password_error: "Пароль не був змінений:"
+    confirm_new_password: "Підтвердіть новий пароль"
 
   nav_bar:
     main: "Головна"
@@ -31,6 +35,7 @@ uk:
     sign_up: "Реєстрація"
     log_in: "Увійти"
     log_out: "Вийти"
+    departments: "Відділення"
 
   manager_bar:
     patients: "Пацієнти"

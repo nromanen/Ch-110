@@ -90,8 +90,6 @@ class VisitsController < ApplicationController
       end
     else
       respond_to do |format|
-        puts "==========================================="
-        puts @visit.errors.full_messages
         format.html { redirect_to visits_path, alert: "Visit can't be canceled. #{@visit.errors[:base][-1]}"}
         format.json { render json: @visit.errors.full_messages, status: :unprocessable_entity }
       end

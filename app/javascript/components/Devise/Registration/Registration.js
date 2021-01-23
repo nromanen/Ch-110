@@ -10,7 +10,10 @@ class Registration extends React.Component {
     render () {
 
         return (
-            <RegistrationForm action={"/users"} method={"post"} authenticity_token={this.props.authenticity_token}/>
+            <section className="devise">
+                <RegistrationForm action={"/users"} method={"post"} authenticity_token={this.props.authenticity_token}
+                                  errors={this.props.errors} locale={this.props.locale}/>
+            </section>
         );
     }
 }
