@@ -14,6 +14,7 @@ Capybara.default_driver = :selenium_chrome_headless
 Capybara.app_host = 'http://localhost:3000'
 
 
+
 #
 # Given that it is always loaded, you are encouraged to keep this file as
 # light-weight as possible. Requiring heavyweight dependencies from this file

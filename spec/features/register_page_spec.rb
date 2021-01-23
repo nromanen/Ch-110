@@ -4,7 +4,7 @@ RSpec.feature "Register page content", type: :feature do
 
   form = 'form#new_user'
 
-  background do
+  before(:each) do
     visit '/users/sign_up?locale=en'
   end
 
