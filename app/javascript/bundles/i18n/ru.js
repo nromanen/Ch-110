@@ -390,10 +390,10 @@ I18n.translations["ru"] = I18n.extend((I18n.translations["ru"] || {}), {
         "many",
         "other"
       ],
-      "rule": "#<Proc:0x000000000980ef90@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/rails-i18n-6.0.0/lib/rails_i18n/common_pluralizations/east_slavic.rb:16 (lambda)>"
+      "rule": "#<Proc:0x00000000082418e8@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/rails-i18n-6.0.0/lib/rails_i18n/common_pluralizations/east_slavic.rb:16 (lambda)>"
     },
     "transliterate": {
-      "rule": "#<Proc:0x000000000985d2d0@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/rails-i18n-6.0.0/lib/rails_i18n/../../rails/transliteration/ru.rb:11 (lambda)>"
+      "rule": "#<Proc:0x0000000008312100@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/rails-i18n-6.0.0/lib/rails_i18n/../../rails/transliteration/ru.rb:11 (lambda)>"
     }
   },
   "manager_bar": {

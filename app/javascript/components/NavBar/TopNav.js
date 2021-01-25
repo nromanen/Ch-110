@@ -23,7 +23,7 @@ class TopNav extends React.Component {
                     </button>
                     <div className="dropdown-content">
                         {Object.keys(this.props.departments).map(key => (
-                            <a href={`${spec_url}${this.props.departments[key]}`}>{key}</a>
+                            <a key={key} href={`${spec_url}${this.props.departments[key]}`}>{key}</a>
                         ))}
                     </div>
                 </div>
