@@ -2,15 +2,14 @@ import React from "react"
 
 class Home extends React.Component {
     
-
     render () {
 
         return (
-        <>
+        <>  
             <div className="left_up">
 
                <h1>
-            <a className="link_online" href="#" title="Online Recording">HealthBook</a>
+            <a className="link_online" href="#" title="Online Recording">{I18n.t('home.healthbook')}</a>
         </h1>
         <p className="describe">
             Take a look at online doctors and record to them.

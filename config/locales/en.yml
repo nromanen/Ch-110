@@ -63,6 +63,7 @@ en:
     main: "Home"
     news: "News"
     contacts: "Contacts"
+    departments: "Departments"
     sign_up: "Sign Up"
     log_in: "Log In"
     log_out: "Log Out"
@@ -74,6 +75,9 @@ en:
     visits: "Visits"
     visit_types: "Visit types"
     schedules: "Schedules"
+
+  home:
+    healthbook: "Healthbook"
 
   activerecord:
     attributes:

@@ -363,13 +363,16 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
       "update": "Update %{model}"
     }
   },
+  "home": {
+    "healthbook": "Healthbook"
+  },
   "i18n": {
     "plural": {
       "keys": [
         "one",
         "other"
       ],
-      "rule": "#<Proc:0x000000000822e400@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/rails-i18n-6.0.0/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+      "rule": "#<Proc:0x0000558cbd0cba80@/home/dv/.rvm/gems/ruby-2.6.6/gems/rails-i18n-6.0.0/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
     }
   },
   "manager_bar": {
@@ -442,8 +445,8 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
       }
     },
     "nth": {
-      "ordinalized": "#<Proc:0x000000000a031f60@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:26 (lambda)>",
-      "ordinals": "#<Proc:0x000000000a031f88@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:7 (lambda)>"
+      "ordinalized": "#<Proc:0x0000558cbc803290@/home/dv/.rvm/gems/ruby-2.6.6/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:26 (lambda)>",
+      "ordinals": "#<Proc:0x0000558cbc8032e0@/home/dv/.rvm/gems/ruby-2.6.6/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:7 (lambda)>"
     },
     "percentage": {
       "format": {
@@ -847,15 +850,19 @@ I18n.translations["ru"] = I18n.extend((I18n.translations["ru"] || {}), {
       "update": "Update %{model}"
     }
   },
+  "home": {
+    "healthbook": "Healthbook"
+  },
   "i18n": {
     "plural": {
       "keys": [
         "one",
         "other"
       ],
-      "rule": "#<Proc:0x000000000822e400@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/rails-i18n-6.0.0/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+      "rule": "#<Proc:0x0000558cbd0cba80@/home/dv/.rvm/gems/ruby-2.6.6/gems/rails-i18n-6.0.0/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
     }
   },
+
   "manager_bar": {
     "doctors": "Doctors",
     "patients": "Patients",
@@ -1331,13 +1338,16 @@ I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {
       "update": "Update %{model}"
     }
   },
+  "home": {
+    "healthbook": "Healthbook"
+  },
   "i18n": {
     "plural": {
       "keys": [
         "one",
         "other"
       ],
-      "rule": "#<Proc:0x000000000822e400@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/rails-i18n-6.0.0/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+      "rule": "#<Proc:0x0000558cbd0cba80@/home/dv/.rvm/gems/ruby-2.6.6/gems/rails-i18n-6.0.0/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
     }
   },
   "manager_bar": {
@@ -1410,8 +1420,8 @@ I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {
       }
     },
     "nth": {
-      "ordinalized": "#<Proc:0x000000000a031f60@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:26 (lambda)>",
-      "ordinals": "#<Proc:0x000000000a031f88@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:7 (lambda)>"
+      "ordinalized": "#<Proc:0x0000558cbc803290@/home/dv/.rvm/gems/ruby-2.6.6/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:26 (lambda)>",
+      "ordinals": "#<Proc:0x0000558cbc8032e0@/home/dv/.rvm/gems/ruby-2.6.6/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:7 (lambda)>"
     },
     "percentage": {
       "format": {

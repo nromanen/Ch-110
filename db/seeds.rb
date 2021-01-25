@@ -78,6 +78,19 @@ doctor_profiles = DoctorProfile.create([
                                            specialization: 0
                                          }
                                        ])
+
+doctor_profiles[0].avatar.attach(
+    io: File.open('./public/avatars/first.jpeg'),
+    filename: 'first.jpeg',
+    content_type: 'application/jpeg'
+  )
+
+doctor_profiles[1].avatar.attach(
+    io: File.open('./public/avatars/second.png'),
+    filename: 'second.png',
+    content_type: 'application/png'
+  )
+
 patient_profiles = PatientProfile.create([
                                            { user_id: patient_1.id,
                                              weight: 80,
@@ -96,4 +109,3 @@ patient_profiles = PatientProfile.create([
                                              is_insured: true
                                            },
                                          ])
-
