@@ -339,10 +339,10 @@ I18n.translations["ru"] = I18n.extend((I18n.translations["ru"] || {}), {
         "many",
         "other"
       ],
-      "rule": "#<Proc:0x000056227409d5c0@/home/dv/.rvm/gems/ruby-2.6.6/gems/rails-i18n-6.0.0/lib/rails_i18n/common_pluralizations/east_slavic.rb:16 (lambda)>"
+      "rule": "#<Proc:0x0000558cbd16fea0@/home/dv/.rvm/gems/ruby-2.6.6/gems/rails-i18n-6.0.0/lib/rails_i18n/common_pluralizations/east_slavic.rb:16 (lambda)>"
     },
     "transliterate": {
-      "rule": "#<Proc:0x00005622740f10d0@/home/dv/.rvm/gems/ruby-2.6.6/gems/rails-i18n-6.0.0/lib/rails_i18n/../../rails/transliteration/ru.rb:11 (lambda)>"
+      "rule": "#<Proc:0x0000558cbd22be20@/home/dv/.rvm/gems/ruby-2.6.6/gems/rails-i18n-6.0.0/lib/rails_i18n/../../rails/transliteration/ru.rb:11 (lambda)>"
     }
   },
   "nav_bar": {
@@ -377,7 +377,36 @@ I18n.translations["ru"] = I18n.extend((I18n.translations["ru"] || {}), {
       "decimal_units": {
         "format": "%n %u",
         "units": {
-          
+          "billion": {
+            "few": "миллиардов",
+            "many": "миллиардов",
+            "one": "миллиард",
+            "other": "миллиардов"
+          },
+          "million": {
+            "few": "миллионов",
+            "many": "миллионов",
+            "one": "миллион",
+            "other": "миллионов"
+          },
+          "quadrillion": {
+            "few": "квадриллионов",
+            "many": "квадриллионов",
+            "one": "квадриллион",
+            "other": "квадриллионов"
+          },
+          "thousand": {
+            "few": "тысяч",
+            "many": "тысяч",
+            "one": "тысяча",
+            "other": "тысяч"
+          },
+          "trillion": {
+            "few": "триллионов",
+            "many": "триллионов",
+            "one": "триллион",
+            "other": "триллионов"
+          },
           "unit": ""
         }
       },

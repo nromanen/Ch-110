@@ -5,11 +5,11 @@ class DoctorProfileController < ApplicationController
 
 
   def index
-
+=begin
     if params[:user_id]
       @doctor_profile = DoctorProfile.find_by(user_id: params[:user_id])
       
-      @avatar = rails_blob_path(doctor_profile.avatar)
+      #avatar = rails_blob_path(@doctor_profile.avatar)
       puts 'hello from users table ============'
       puts params[:user_id]
       
@@ -17,14 +17,24 @@ class DoctorProfileController < ApplicationController
       if @doctor_profile.nil?
         render json: { message: 'no profile' }
       else
-        render json: { doctor_profile: @doctor_profile, avatar: @avatar }
+        render json: { doctor_profile: @doctor_profile }
       end
     end
+=end
+    @avatars = []
 
     @doctor_profiles = DoctorProfile.all
 
-    puts @doctor_profiles[0].avatar
+    @doctor_profiles.each do |doctor|
+      @avatars << {
+                  id: doctor.id,
+                 avatar: rails_blob_path(doctor.avatar)
+                }
+    end
 
+    @avatars.each do |key, value|
+      puts "#{key}:#{value}"
+    end
     @users = User.where(:role => 2).order(:name)
     @specializations = DoctorProfile.specializations
   end
@@ -36,7 +46,7 @@ class DoctorProfileController < ApplicationController
   end
 
   def show
-    render json: @doctor_profiles
+    render json: @doctor_profile
   end
 
   def show_spec
@@ -75,6 +85,7 @@ class DoctorProfileController < ApplicationController
 
   def update
     if @doctor_profile.update(doctor_profile_params)
+      @doctor_profile.update(avatar: params[:avatar])
       render json: @doctor_profile
     else
       render json: @doctor_profile.errors.full_messages, status: :unprocessable_entity

@@ -335,10 +335,10 @@ I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {
         "many",
         "other"
       ],
-      "rule": "#<Proc:0x000056227409ca80@/home/dv/.rvm/gems/ruby-2.6.6/gems/rails-i18n-6.0.0/lib/rails_i18n/common_pluralizations/east_slavic.rb:16 (lambda)>"
+      "rule": "#<Proc:0x0000558cbd16ef78@/home/dv/.rvm/gems/ruby-2.6.6/gems/rails-i18n-6.0.0/lib/rails_i18n/common_pluralizations/east_slavic.rb:16 (lambda)>"
     },
     "transliterate": {
-      "rule": "#<Proc:0x0000562274148b28@/home/dv/.rvm/gems/ruby-2.6.6/gems/rails-i18n-6.0.0/lib/rails_i18n/../../rails/transliteration/uk.rb:8 (lambda)>"
+      "rule": "#<Proc:0x0000558cbd5eefd0@/home/dv/.rvm/gems/ruby-2.6.6/gems/rails-i18n-6.0.0/lib/rails_i18n/../../rails/transliteration/uk.rb:8 (lambda)>"
     }
   },
   "nav_bar": {
@@ -373,7 +373,36 @@ I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {
       "decimal_units": {
         "format": "%n %u",
         "units": {
-          
+          "billion": {
+            "few": "Мільярдів",
+            "many": "Мільярдів",
+            "one": "Мільярд",
+            "other": "Мільярдів"
+          },
+          "million": {
+            "few": "Мільйонів",
+            "many": "Мільйонів",
+            "one": "Мільйон",
+            "other": "Мільйонів"
+          },
+          "quadrillion": {
+            "few": "Квадрильйонів",
+            "many": "Квадрильйонів",
+            "one": "Квадрильйон",
+            "other": "Квадрильйонів"
+          },
+          "thousand": {
+            "few": "Тисяч",
+            "many": "Тисяч",
+            "one": "Тисяча",
+            "other": "Тисяч"
+          },
+          "trillion": {
+            "few": "Трильйонів",
+            "many": "Трильйонів",
+            "one": "Трильйон",
+            "other": "Трильйонів"
+          },
           "unit": ""
         }
       },

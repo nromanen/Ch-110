@@ -7,15 +7,17 @@ import EditDoctorProfile from "./EditDoctorProfile";
 import DoctorProfile from "./DoctorProfile";
 import SimpleAlerts from './Alert'
 
+import { DirectUpload } from 'activestorage';
+
+
 const ListOfDoctorProfiles = props => {
 
-    const { doctorProfiles = [], users = [], specializations = {} } = props
+    const { doctorProfiles = [], users = [], specializations = {}, avatars = [] } = props
 
     let initialForm = {
         photo_path: '',
         specialization: '',
         description: '',
-        avatar: null,
         user_id: users[0].id || 1
     }
 
@@ -25,6 +27,7 @@ const ListOfDoctorProfiles = props => {
     }
 
     const [profiles, setProfiles] = useState([])
+    const [newProfile, setNewProfile] = useState({})
     const [editing, setEditing] = useState(false)
     const [currentProfile, setCurrentProfile] = useState({})
     const [errorsFromController, setErrorsFromController] = useState([])
@@ -33,6 +36,7 @@ const ListOfDoctorProfiles = props => {
     useEffect(  () => {
         setProfiles(doctorProfiles)
         console.log(doctorProfiles)
+        console.log(avatars)
         console.log(specializations)
     }, [])
 
@@ -49,17 +53,21 @@ const ListOfDoctorProfiles = props => {
             { headers: headers }
         )
             .then(res => {
+                setNewProfile(res.data)
                 console.log(res.data)
                 setProfiles( [...profiles, res.data])
                 setInitialFormState(initialForm)
                 setErrorsFromController([])
+                const new_profile = res.data
             })
+
             .catch( error => {
                 console.log((error))
                 setInitialFormState(JSON.parse(error.response.config.data).doctor_profile)
                 setErrorsFromController(error.response.data)
             })
     };
+
 
     const deleteProfile = id => {
         axios.delete(
@@ -121,6 +129,7 @@ const ListOfDoctorProfiles = props => {
                     <EditDoctorProfile
                         currentProfile={ currentProfile }
                         user={ users.find(item => item.id === currentProfile.user_id) }
+                        avatar={avatars.find(item => item.id === currentProfile.id)}
                         setEditing={ setEditing }
                         updateProfile={ updateProfile }
                         specializations={ specializations }
@@ -131,18 +140,21 @@ const ListOfDoctorProfiles = props => {
                         users={ users }
                         addProfile={ addProfile }
                         specializations={ specializations }
-                        initialFormState={ initialFormState }/>
+                        initialFormState={ initialFormState }
+                        newProfile={newProfile}
+                        new_profile={new_profile}/>
                 )}
             </div>
             <div>
                 <h3>Profiles :</h3>
-                {profiles.map(profile => <DoctorProfile
+                {profiles.map((profile, index) => <DoctorProfile
                     user={ profile }
                     key={ profile.id }
                     profile={ profile }
                     deleteProfile={ deleteProfile }
                     editProfile={ editProfile }
-                    editing={ editing } />
+                    editing={ editing }
+                    avatar={avatars[index]} />
                 )
                 }
             </div>
