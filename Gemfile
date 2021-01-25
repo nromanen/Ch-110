@@ -50,4 +50,4 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # for windows
-gem 'wdm'
+# gem 'wdm'
