@@ -1,20 +1,21 @@
-<section class="devise">
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-    <div class="container">
-      <h2><%= t 'devise.resend_ci' %></h2>
-      <div class="field">
-        <%= f.label t 'activerecord.attributes.users.email' %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
-      </div>
+<!--<section class="devise">-->
+<%#= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+  <%#= render "devise/shared/error_messages", resource: resource %>
+<!--    <div class="container">-->
+<!--      <h2><%#= t 'devise.resend_ci' %></h2>-->
+<!--      <div class="field">-->
+<!--        <%#= f.label t 'activerecord.attributes.users.email' %><br />-->
+        <%#= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+<!--      </div>-->
 
-      <div class="actions">
-        <%= f.submit class: 'button', value: "#{ t 'devise.resend_ci' }" %>
-      </div>
-      <span class="psw"><%= render "devise/shared/links" %></span>
-    </div>
-<% end %>
+<!--      <div class="actions">-->
+        <%#= f.submit class: 'button', value: "#{ t 'devise.resend_ci' }" %>
+<!--      </div>-->
+<!--      <span class="psw"><%#= render "devise/shared/links" %></span>-->
+<!--    </div>-->
+<%# end %>
 
-  <%#= react_component("Devise/Confirmation/Confirmation", {authenticity_token:form_authenticity_token, resource:resource}) %>
+  <%= react_component("Devise/Confirmation/Confirmation", {authenticity_token:form_authenticity_token,
+                                                           errors:resource.errors.full_messages, locale: locale}) %>
 
-</section>
+<!--</section>-->

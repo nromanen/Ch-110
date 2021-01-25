@@ -1,36 +1,44 @@
-<h1>Visits:</h1>
-<% if @visits.empty? %>
-  <h4>You don't have visits right now:</h4>
+<!--<h1>Visits:</h1>-->
+<%# if @visits.empty? %>
+<!--  <h4>You don't have visits right now:</h4>-->
+<%# end %>
+<%# unless @visits.empty? %>
+<!--<table class="table">-->
+<!--  <thead>-->
+<!--    <tr>-->
+<!--      <th>Patient</th>-->
+<!--      <th>Doctor</th>-->
+<!--      <th>Start time</th>-->
+<!--      <th>Visit type</th>-->
+<!--      <th>Created by</th>-->
+<!--    </tr>-->
+<!--  </thead>-->
+
+<!--  <tbody>-->
+    <%# @visits.each do |visit| %>
+<!--      <tr>-->
+        <%# dt_format = "%d-%m-%Y %H:%M" %>
+<!--        <td><%#= "#{visit.patient.name} #{visit.patient.surname}" %></td>-->
+<!--        <td><%#= "#{visit.doctor.name} #{visit.doctor.surname}" %></td>-->
+<!--        <td><%#= visit.start_time.strftime(dt_format) %></td>-->
+<!--        <td><%#= "#{visit.visit_type.name} (#{visit.visit_type.length})" %></td>-->
+<!--        <td><%#= "#{visit.created_by.name} #{visit.created_by.surname}" %></td>-->
+
+<!--        <td><%#= link_to 'Show', visit %></td>-->
+<!--        <td><%#= link_to 'Cancel', visit, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+<!--      </tr>-->
+    <%# end %>
+<!--  </tbody>-->
+<!--</table>-->
+  <%= react_component("User/UserVisits", {userVisits:@result, locale: {visits: (t 'activerecord.attributes.visits.visits'),
+                                                                        patient: (t 'activerecord.attributes.visits.patient'),
+                                                                        doctor: (t 'activerecord.attributes.visits.doctor'),
+                                                                        date: (t 'activerecord.attributes.visits.date'),
+                                                                        time: (t 'activerecord.attributes.visits.time'),
+                                                                        visit_duration: (t 'activerecord.attributes.visit_types.duration'),
+                                                                        no_visit_message: (t 'activerecord.attributes.visits.no_visits_message')}}) %>
+<%# end %>
+
+<% if current_user && (current_user.role == 'manager' || current_user.role == 'admin') %>
+  <%= link_to "#{t 'activerecord.attributes.visits.new_visit'}", new_visit_path %>
 <% end %>
-<% unless @visits.empty? %>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Patient</th>
-      <th>Doctor</th>
-      <th>Start time</th>
-      <th>Visit type</th>
-      <th>Created by</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @visits.each do |visit| %>
-      <tr>
-        <% dt_format = "%d-%m-%Y %H:%M" %>
-        <td><%= "#{visit.patient.name} #{visit.patient.surname}" %></td>
-        <td><%= "#{visit.doctor.name} #{visit.doctor.surname}" %></td>
-        <td><%= visit.start_time.strftime(dt_format) %></td>
-        <td><%= "#{visit.visit_type.name} (#{visit.visit_type.length})" %></td>
-        <td><%= "#{visit.created_by.name} #{visit.created_by.surname}" %></td>
-
-        <td><%= link_to 'Show', visit %></td>
-        <td><%= link_to 'Cancel', visit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<% end %>
-
-
-<%= link_to 'New Visit', new_visit_path %>

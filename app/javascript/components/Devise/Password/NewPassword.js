@@ -10,8 +10,10 @@ class NewPassword extends React.Component {
     render () {
 
         return (
-            <NewPasswordForm action={"/users/update_password"} method={"post"}
-                             authenticity_token={this.props.authenticity_token}/>
+            <section className="devise">
+                <NewPasswordForm action={"/users/update_password"} method={"post"} locale={this.props.locale}
+                             authenticity_token={this.props.authenticity_token} errors={this.props.errors}/>
+            </section>
         );
     }
 }

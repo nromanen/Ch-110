@@ -1,30 +1,38 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Doctor:</strong>
+  <strong><%= t 'activerecord.attributes.schedules.doctor' %>:</strong>
   <%= @schedule.user.name %> <%= @schedule.user.surname %>
 </p>
 
 <p>
-  <strong>Day:</strong>
-  <%= @schedule.day %>
+  <strong><%= t 'activerecord.attributes.schedules.day' %>:</strong>
+  <%= t "days.#{@schedule.day.downcase}" %>
 </p>
 
 <p>
-  <strong>Start time:</strong>
+  <strong><%= t 'activerecord.attributes.schedules.start_time' %>:</strong>
   <%= @schedule.start_time.strftime("%H:%M") %>
 </p>
 
 <p>
-  <strong>End time:</strong>
+  <strong><%= t 'activerecord.attributes.schedules.end_time' %>:</strong>
   <%= @schedule.end_time.strftime("%H:%M") %>
 </p>
 
 <p>
-  <strong>Visit type:</strong>
-  <%= @schedule.visit_type.name %> <%= @schedule.visit_type.length %> <%= 'minutes' %>
+  <strong><%= t 'activerecord.attributes.schedules.start_date' %>:</strong>
+  <%= @schedule.start_date.strftime("%Y-%m-%d") %>
 </p>
 
-<%= link_to 'Back', schedules_path %> |
-<%= link_to 'Edit', edit_schedule_path %> |
-<%= link_to 'Destroy', @schedule, method: :delete, data: { confirm: 'Are you sure?' } %>
+<p>
+  <strong><%= t 'activerecord.attributes.schedules.end_date' %>:</strong>
+  <%= @schedule.end_date.strftime("%Y-%m-%d") %>
+</p>
+
+<p>
+  <strong><%= t 'activerecord.attributes.schedules.visit_type' %>:</strong>
+  <%= t "visit_types.#{@schedule.visit_type.name}" %> <%= @schedule.visit_type.length %> <%= t 'activerecord.attributes.visit_types.minutes' %>
+</p>
+
+<%= link_to (t 'records.back'), schedules_path %> |
+<%= link_to (t 'records.edit'), edit_schedule_path %> |
+<%= link_to (t 'records.delete'), @schedule, method: :delete, data: { confirm: (t 'account.are_you_sure') } %>
