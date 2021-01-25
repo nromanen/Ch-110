@@ -10,8 +10,10 @@ class Confirmation extends React.Component {
     render () {
 
         return (
-            <ConfirmationForm action={"/users/confirmation"} method={"post"}
-                              authenticity_token={this.props.authenticity_token}/>
+            <section className="devise">
+                <ConfirmationForm action={"/users/confirmation"} method={"post"} errors={this.props.errors}
+                              authenticity_token={this.props.authenticity_token} locale={this.props.locale}/>
+            </section>
         );
     }
 }

@@ -1,18 +1,18 @@
-<h1>Schedules:</h1>
+<h1><%= t 'activerecord.attributes.schedules.schedules' %>:</h1>
 <% if @schedules.empty? %>
-  <h4>You don't have schedules right now:</h4>
+  <h4><%= t 'activerecord.attributes.schedules.no_schedules_message' %>:</h4>
 <% end %>
 <% unless @schedules.empty? %>
 <table class="table">
   <thead>
     <tr>
-      <th>Doctor</th>
-      <th>Day</th>
-      <th>Start time</th>
-      <th>End time</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th>Visit type</th>
+      <th><%= t 'activerecord.attributes.schedules.doctor' %></th>
+      <th><%= t 'activerecord.attributes.schedules.day' %></th>
+      <th><%= t 'activerecord.attributes.schedules.start_time' %></th>
+      <th><%= t 'activerecord.attributes.schedules.end_time' %></th>
+      <th><%= t 'activerecord.attributes.schedules.start_date' %></th>
+      <th><%= t 'activerecord.attributes.schedules.end_date' %></th>
+      <th><%= t 'activerecord.attributes.schedules.visit_type' %></th>
     </tr>
   </thead>
 
@@ -21,16 +21,16 @@
       <tr>
         <% dt_format = "%H:%M" %>
         <td><%= "#{schedule.user.name} #{schedule.user.surname}" %></td>
-        <td><%= schedule.day %></td>
+        <td><%= t "days.#{schedule.day.downcase}" %></td>
         <td><%= schedule.start_time.strftime(dt_format) %></td>
         <td><%= schedule.end_time.strftime(dt_format) %></td>
         <td><%= schedule.start_date %></td>
         <td><%= schedule.end_date %></td>
-        <td><%= "#{schedule.visit_type.name} (#{schedule.visit_type.length})" %></td>
+        <td><%= t "visit_types.#{schedule.visit_type.name}" %></td>
 
-        <td><%= link_to 'Show', schedule %></td>
-        <td><%= link_to 'Edit', edit_schedule_path(schedule) %></td>
-        <td><%= link_to 'Delete', schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to "#{ t 'records.show'}", schedule %></td>
+        <td><%= link_to "#{ t 'records.edit'}", edit_schedule_path(schedule) %></td>
+        <td><%= link_to "#{ t 'records.delete'}", schedule, method: :delete, data: { confirm: (t 'account.are_you_sure') } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -38,4 +38,4 @@
 <% end %>
 
 
-<%= link_to 'New Schedule', new_schedule_path %>
+<%= link_to "#{ t 'activerecord.attributes.schedules.new_schedule'}", new_schedule_path %>

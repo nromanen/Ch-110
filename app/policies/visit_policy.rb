@@ -39,6 +39,14 @@ class VisitPolicy < ApplicationPolicy
     is_admin_or_manager? or is_users_record?
   end
 
+  def choose_date?
+    true
+  end
+
+  def slots?
+    choose_date?
+  end
+
   def is_admin_or_manager?
     user.role == 'admin' or user.role == 'manager'
   end

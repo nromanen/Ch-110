@@ -15,7 +15,7 @@ gem 'devise'
 gem 'pundit'
 gem 'dotenv-rails'
 gem 'rails-i18n'
-
+gem 'i18n-js'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
@@ -50,5 +50,4 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # for windows
-#gem 'wdm'
-
+# gem 'wdm'

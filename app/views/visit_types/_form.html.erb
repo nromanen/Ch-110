@@ -12,21 +12,21 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label t 'activerecord.attributes.visit_types.name' %>
     <%= form.text_field :name %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
+    <%= form.label t 'activerecord.attributes.visit_types.description' %>
     <%= form.text_field :description %>
   </div>
 
   <div class="field">
-    <%= form.label :length %>
+    <%= form.label t 'activerecord.attributes.visit_types.duration' %>
     <%= form.text_field :length %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit t 'activerecord.attributes.visit_types.create_visit_type' %>
   </div>
 <% end %>

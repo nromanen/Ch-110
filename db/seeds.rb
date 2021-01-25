@@ -1,10 +1,9 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-
 require 'database_cleaner'
 
 DatabaseCleaner.clean_with(:truncation)
-
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+#
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
@@ -23,7 +22,7 @@ users = User.create([{email: 'admin@admin.com', password: 'admin1', password_con
                      {email: 'manager@gmail.com', password: '123456', password_confirmation: '123456', name: 'Manager',
                       surname: 'Manager', phone_number: '11111111111', role: 1, confirmed_at: '202012120000'}])
 
-visit_types = VisitType.create([{name: 'Check-up', description: 'Check-up', length: 30},
+visit_types = VisitType.create([{name: 'Inspection', description: 'Inspection', length: 30},
                                 {name: 'Consultation', description: 'Consultation', length: 20}])
 
 doctor_1 = User.find_by(email: 'doctor1@gmail.com')
@@ -54,17 +53,17 @@ schedules = Schedule.create([{user: doctor_1, day: 'Monday', start_time: '2000-0
                              {user: doctor_2, day: 'Friday', start_time: '2000-01-01 14:00:00',
                               end_time: '2000-01-01 18:00:00', visit_type: visit_type_2, start_date: '2021-01-01', end_date: '2021-01-31'}])
 
-visits = Visit.create([{patient: patient_1, doctor: doctor_1,
+visits = Visit.create!([{patient: patient_1, doctor: doctor_1, created_by: patient_1,
                         start_time: '2021-01-08 10:00:00', visit_type: visit_type_1},
-                       {patient: patient_1, doctor: doctor_1,
+                       {patient: patient_1, doctor: doctor_1, created_by: patient_1,
                         start_time: '2021-01-13 11:00:00', visit_type: visit_type_1},
-                       {patient: patient_1, doctor: doctor_1,
+                       {patient: patient_1, doctor: doctor_1, created_by: patient_1,
                         start_time: '2021-01-19 15:00:00', visit_type: visit_type_1},
-                       {patient: patient_2, doctor: doctor_2,
+                       {patient: patient_2, doctor: doctor_2, created_by: patient_2,
                         start_time: '2021-01-12 12:00:00', visit_type: visit_type_2},
-                       {patient: patient_2, doctor: doctor_2,
+                       {patient: patient_2, doctor: doctor_2, created_by: patient_2,
                         start_time: '2021-01-15 17:00:00', visit_type: visit_type_2},
-                       {patient: patient_2, doctor: doctor_2,
+                       {patient: patient_2, doctor: doctor_2, created_by: patient_2,
                         start_time: '2021-01-18 16:00:00', visit_type: visit_type_2}])
 
 doctor_profiles = DoctorProfile.create([
@@ -80,20 +79,21 @@ doctor_profiles = DoctorProfile.create([
                                          }
                                        ])
 patient_profiles = PatientProfile.create([
-                                        { user_id: patient_1.id,
-                                          weight: 80,
-                                          height: 180,
-                                          blood_type: 0,
-                                          allergies: 'citrus fruits',
-                                          gender: 1,
-                                          is_insured: true
-                                        },
-                                        { user_id: patient_2.id,
-                                          weight: 50,
-                                          height: 160,
-                                          blood_type: 1,
-                                          allergies: 'gluten',
-                                          gender: 0,
-                                          is_insured: true
-                                        },
-                                      ])
+                                           { user_id: patient_1.id,
+                                             weight: 80,
+                                             height: 180,
+                                             blood_type: 0,
+                                             allergies: 'citrus fruits',
+                                             gender: 1,
+                                             is_insured: true
+                                           },
+                                           { user_id: patient_2.id,
+                                             weight: 50,
+                                             height: 160,
+                                             blood_type: 1,
+                                             allergies: 'gluten',
+                                             gender: 0,
+                                             is_insured: true
+                                           },
+                                         ])
+

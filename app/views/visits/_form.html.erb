@@ -12,27 +12,27 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :patient_id %>
+    <%= form.label t 'activerecord.attributes.visits.patient' %>
     <%= form.select :patient_id, User.where(:role => 'patient').order(:surname).map{ |pat| ["#{pat.surname} #{pat.name}", pat.id]}%>
   </div>
 
   <div class="field">
-    <%= form.label :doctor_id %>
+    <%= form.label t 'activerecord.attributes.visits.doctor' %>
     <%= form.select :doctor_id, User.where(:role => 'doctor').order(:surname).map{ |doc| ["#{doc.surname} #{doc.name}", doc.id]}%>
   </div>
 
   <div class="field">
-    <%= form.label :start_time %>
+    <%= form.label t 'activerecord.attributes.visits.time' %>
     <%= form.datetime_select :start_time, default: 1.hours.from_now, minute_step: 5,
                              start_year:Date.today.year, end_year: Date.today.year + 1 %>
   </div>
 
   <div class="field">
-    <%= form.label :visit_type_id %>
-    <%= form.select :visit_type_id, VisitType.all.order(:length).map{ |vt| ["#{vt.name} - #{vt.length}", vt.id]}%>
+    <%= form.label t 'activerecord.attributes.visits.visit_type' %>
+    <%= form.select :visit_type_id, VisitType.all.order(:length).map{ |vt| [ (t "visit_types.#{ vt.name }"), vt.id]}%>
   </div>
 
   <div class="actions">
-    <%= form.submit 'Confirm an appointment' %>
+    <%= form.submit t 'activerecord.attributes.visits.create_visit' %>
   </div>
 <% end %>
