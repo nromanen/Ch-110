@@ -4,7 +4,7 @@ RSpec.feature "Register page content", type: :feature do
 
   form = 'form#new_user'
 
-  before(:each) do
+  background do
     visit '/users/sign_up?locale=en'
   end
 
@@ -77,10 +77,10 @@ RSpec.feature 'Fill in with valid credentials' do
            'Presly',
            '123456789'
     )
+    click_button('Sign Up')
   end
 
   scenario 'Good credentials: display notice: Signed up successfully.' do
-    click_button('Sign Up')
     message = 'A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.'
     expect(page).to have_css('div.alert.alert-primary', text: message)
   end
