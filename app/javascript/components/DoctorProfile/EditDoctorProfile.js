@@ -6,6 +6,7 @@ const EditProfileForm = ( props ) => {
         specializations,
         currentProfile,
         user,
+        avatar,
         updateProfile,
         setEditing,
         setErrorsFromController
@@ -18,6 +19,10 @@ const EditProfileForm = ( props ) => {
         setProfile({ ...profile, [name]: type === 'checkbox' ? checked : value })
     };
 
+    const url = `http://localhost:3000/${avatar.avatar}`
+
+    console.log(avatar.avatar)
+
     return (
         <form onSubmit={ event => {
             event.preventDefault()
@@ -27,6 +32,8 @@ const EditProfileForm = ( props ) => {
             <h3>{ user.email }</h3>
 
             <label>Photo: </label><br/>
+
+            <img src={url} /> <br />
 
             <input
                 type="text"

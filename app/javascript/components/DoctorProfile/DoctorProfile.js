@@ -7,15 +7,12 @@ import Form from "./Form";
 
 
 
-const DoctorProfile = ( { profile, deleteProfile, editProfile, editing, user } ) => {
-
+const DoctorProfile = ( { profile, deleteProfile, editProfile, editing, user, avatar } ) => {
+    console.log(avatar.avatar)
+    const url = `http://localhost:3000/${avatar.avatar}`;
     return (
             <div key={ profile.id }>
-                {/* 
-                <h3>{ profile.user_id }</h3> 
-                <p>Photo_path: { profile.photo_path }</p>
-                */}
-                <img src={profile.photo_path} alt={"photo_path"}/> 
+                <img src={url} alt={"photo_path"}/> 
                 <p>Specialization: { profile.specialization }</p>
                 <p>Description: { profile.description }</p>
                 { editing ?

@@ -1,17 +1,20 @@
 import React from "react"
 import '../../assets/stylesheets/home.css'
+import I18n from 'i18n-js'
+import '../../javascript/bundles/i18n/en.js'
+import '../../javascript/bundles/i18n/ru.js'
+import '../../javascript/bundles/i18n/uk.js'
 
 class Home extends React.Component {
     
-
     render () {
 
         return (
-        <>
+        <>  
             <div className="left_up">
 
                <h1>
-            <a className="link_online" href="#" title="Online Recording">HealthBook</a>
+            <a className="link_online" href="#" title="Online Recording">{I18n.t('home.healthbook')}</a>
         </h1>
         <p className="describe">
             Take a look at online doctors and record to them.

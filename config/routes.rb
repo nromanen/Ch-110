@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
-
+  
   root to: "home#index"
+  resources :doctor_profile do
+    collection do
+      get 'show_spec'
+    end
+  end
+  resources :patient_profile
+
+
+
 
   resources :doctor_profile do
     collection do
@@ -21,7 +30,6 @@ Rails.application.routes.draw do
                                     sessions: 'user/sessions',
                                     passwords: 'user/passwords',
                                     confirmations: 'user/confirmations'}
-
   resources :visits, except: [:edit, :update] do
     member do
       get 'choose_date'
@@ -40,5 +48,7 @@ Rails.application.routes.draw do
   get '/users_to_react_form' => 'users#users_to_react_form'
   post 'send_tel' => 'home#send_numb'
   get '/users_by_id' => 'users#find_doctor_by_id'
+  get 'choose_date' => 'visits#choose_date'
+  post 'rails/active_storage/direct_uploads', to: 'direct_uploads#create'
   get 'departments' => 'doctor_profile#departments'
 end
