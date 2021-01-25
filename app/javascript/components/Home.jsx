@@ -1,5 +1,4 @@
 import React from "react"
-import '../../assets/stylesheets/home.css'
 
 class Home extends React.Component {
     
