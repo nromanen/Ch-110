@@ -1,6 +1,7 @@
 import React from "react"
 import InputField from "../InputField";
 import SubmitButton from "../SubmitButton";
+import DeviseErrors from "../DeviseErrors"
 class ConfirmationForm extends React.Component {
 
     constructor(props) {
@@ -11,22 +12,29 @@ class ConfirmationForm extends React.Component {
 
     render () {
 
+        const action_url = `${this.props.action}?locale=${this.props.locale}`
+        const forgot_url = `/users/password/new?locale=${this.props.locale}`
+
         return (
-            <form action={this.props.action} method={this.props.method}>
+            <form action={action_url} method={this.props.method}>
+
+                <DeviseErrors authenticity_token={this.props.authenticity_token} errors={this.props.errors}
+                                    message={I18n.t("devise.reset_password_error")}/>
+
                 <div className="field">
                     <input type="hidden" name='authenticity_token' value={this.props.authenticity_token} />
                 </div>
 
                 <div className="container">
-                    <h2>Resend confirmation instructions</h2>
+                    <h2>{I18n.t("devise.resend_ci")}</h2>
 
-                    <InputField htmlFor={"user_email"} label={"Email"} autoFocus={"autofocus"} type={"email"}
+                    <InputField htmlFor={"user_email"} label={I18n.t("activerecord.attributes.users.email")} autoFocus={"autofocus"} type={"email"}
                                 name={"user[email]"} id={"user_email"}/>
 
-                    <SubmitButton value={"Resend confirmation instructions"}/>
+                    <SubmitButton value={I18n.t("devise.resend_ci")}/>
 
-                    <span className="psw">  <a href="/users/password/new">
-                        Didn't receive confirmation instructions?</a></span>
+                    <span className="psw">  <a href={forgot_url}>
+                        {I18n.t("devise.forgot_password")}</a></span>
 
                 </div>
             </form>

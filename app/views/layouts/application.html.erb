@@ -18,10 +18,6 @@
   </head>
 
   <body>
-    <div>
-     <%= I18n.locale %> 
-     <%= I18n.default_locale %>
-   </div> 
   <%= render partial: "shared/navigation", locals: { doctor_departments: @doctor_departments } %>
   <%= render "shared/flash" %>
   <%= react_component("Bottom") %>

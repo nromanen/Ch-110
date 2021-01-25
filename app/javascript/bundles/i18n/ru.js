@@ -10,13 +10,30 @@ I18n.translations["ru"] = I18n.extend((I18n.translations["ru"] || {}), {
     "doctor_profile": "Профиль доктора",
     "edit_account": "Редактировать учетную запись",
     "leave_blank": "оставте пустым, если не хотите изменять",
+    "my_schedules": "Мои расписания",
+    "my_visits": "Мои визиты",
     "need_password": "введите текущий пароль, чтобы подтвердить изменения",
+    "not_saved": "Учетная запись не была создана:",
     "patient_card": "Карточка пациента",
     "update": "Обновить",
     "waiting_confirmation": "Ожидается подтверждение для"
   },
   "activerecord": {
     "attributes": {
+      "schedules": {
+        "create_schedule": "Сохранить расписание",
+        "day": "День",
+        "doctor": "Доктор",
+        "edit_schedule": "Редактирование расписания",
+        "end_date": "Дата конца",
+        "end_time": "Время конца",
+        "new_schedule": "Новое расписание",
+        "no_schedules_message": "У Вас еще нет расписаний",
+        "schedules": "Расписания",
+        "start_date": "Дата начала",
+        "start_time": "Время начала",
+        "visit_type": "Тип визита"
+      },
       "users": {
         "email": "Электронная почта",
         "is_active": "Активный",
@@ -24,8 +41,30 @@ I18n.translations["ru"] = I18n.extend((I18n.translations["ru"] || {}), {
         "password": "Пароль",
         "password_confirmation": "Подтверждение пароля",
         "phone_number": "Номер телефона",
+        "registration_date": "Дата регистрации",
         "role": "Роль",
         "surname": "Фамилия"
+      },
+      "visit_types": {
+        "create_visit_type": "Сохранить тип визита",
+        "description": "Описание",
+        "duration": "Продолжительность",
+        "edit_visit_type": "Редактирование типа визита",
+        "minutes": "минут",
+        "name": "Название",
+        "new_visit_type": "Новый тип визита",
+        "visit_types": "Типы визитов"
+      },
+      "visits": {
+        "create_visit": "Создать визит",
+        "date": "Дата",
+        "doctor": "Доктор",
+        "new_visit": "Новый визит",
+        "no_visits_message": "У Вас еще нет визитов",
+        "patient": "Пациент",
+        "time": "Время",
+        "visit_type": "Тип визита",
+        "visits": "Визиты"
       }
     },
     "errors": {
@@ -183,9 +222,20 @@ I18n.translations["ru"] = I18n.extend((I18n.translations["ru"] || {}), {
       "year": "Год"
     }
   },
+  "days": {
+    "friday": "Пятница",
+    "monday": "Понедельник",
+    "saturday": "Суббота",
+    "sunday": "Воскресенье",
+    "thursday": "Четверг",
+    "tuesday": "Вторник",
+    "wednesday": "Среда"
+  },
   "devise": {
     "change_password": "Сменить пароль",
+    "change_password_error": "Пароль не был изменен:",
     "characters_minimum": "символов минимум",
+    "confirm_new_password": "Подтвердите новый пароль",
     "confirmations": {
       "confirmed": "Ваша учётная запись успешно подтверждена.",
       "send_instructions": "В течение нескольких минут вы получите письмо с инструкциями по подтверждению вашей учётной записи.",
@@ -245,7 +295,8 @@ I18n.translations["ru"] = I18n.extend((I18n.translations["ru"] || {}), {
     },
     "remember_me": "Запомнить меня",
     "resend_ci": "Повторно отправить подтверждение регистрации",
-    "send_me_rpi": "Отправить письмо для восстановления пароля",
+    "reset_password_error": "Инструкция не была отправлена:",
+    "send_me_rpi": "Отправить инструкцию для восстановления пароля",
     "sessions": {
       "already_signed_out": "Выход из системы выполнен.",
       "signed_in": "Вход в систему выполнен.",
@@ -339,11 +390,18 @@ I18n.translations["ru"] = I18n.extend((I18n.translations["ru"] || {}), {
         "many",
         "other"
       ],
-      "rule": "#<Proc:0x0000558cbd16fea0@/home/dv/.rvm/gems/ruby-2.6.6/gems/rails-i18n-6.0.0/lib/rails_i18n/common_pluralizations/east_slavic.rb:16 (lambda)>"
+      "rule": "#<Proc:0x00000000082418e8@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/rails-i18n-6.0.0/lib/rails_i18n/common_pluralizations/east_slavic.rb:16 (lambda)>"
     },
     "transliterate": {
-      "rule": "#<Proc:0x0000558cbd22be20@/home/dv/.rvm/gems/ruby-2.6.6/gems/rails-i18n-6.0.0/lib/rails_i18n/../../rails/transliteration/ru.rb:11 (lambda)>"
+      "rule": "#<Proc:0x0000000008312100@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/rails-i18n-6.0.0/lib/rails_i18n/../../rails/transliteration/ru.rb:11 (lambda)>"
     }
+  },
+  "manager_bar": {
+    "doctors": "Доктора",
+    "patients": "Пациенты",
+    "schedules": "Расписания",
+    "visit_types": "Типы визитов",
+    "visits": "Визиты"
   },
   "nav_bar": {
     "contacts": "Контакты",
@@ -374,42 +432,42 @@ I18n.translations["ru"] = I18n.extend((I18n.translations["ru"] || {}), {
       "strip_insignificant_zeros": false
     },
     "human": {
-      "decimal_units": {
-        "format": "%n %u",
-        "units": {
-          "billion": {
-            "few": "миллиардов",
-            "many": "миллиардов",
-            "one": "миллиард",
-            "other": "миллиардов"
-          },
-          "million": {
-            "few": "миллионов",
-            "many": "миллионов",
-            "one": "миллион",
-            "other": "миллионов"
-          },
-          "quadrillion": {
-            "few": "квадриллионов",
-            "many": "квадриллионов",
-            "one": "квадриллион",
-            "other": "квадриллионов"
-          },
-          "thousand": {
-            "few": "тысяч",
-            "many": "тысяч",
-            "one": "тысяча",
-            "other": "тысяч"
-          },
-          "trillion": {
-            "few": "триллионов",
-            "many": "триллионов",
-            "one": "триллион",
-            "other": "триллионов"
-          },
-          "unit": ""
-        }
-      },
+      // "decimal_units": {
+      //   "format": "%n %u",
+      //   "units": {
+      //     "billion": {
+      //       "few": "миллиардов",
+      //       "many": "миллиардов",
+      //       "one": "миллиард",
+      //       "other": "миллиардов"
+      //     },
+      //     "million": {
+      //       "few": "миллионов",
+      //       "many": "миллионов",
+      //       "one": "миллион",
+      //       "other": "миллионов"
+      //     },
+      //     "quadrillion": {
+      //       "few": "квадриллионов",
+      //       "many": "квадриллионов",
+      //       "one": "квадриллион",
+      //       "other": "квадриллионов"
+      //     },
+      //     "thousand": {
+      //       "few": "тысяч",
+      //       "many": "тысяч",
+      //       "one": "тысяча",
+      //       "other": "тысяч"
+      //     },
+      //     "trillion": {
+      //       "few": "триллионов",
+      //       "many": "триллионов",
+      //       "one": "триллион",
+      //       "other": "триллионов"
+      //     },
+      //     "unit": ""
+      //   }
+      // },
       "format": {
         "delimiter": "",
         "precision": 1,
@@ -446,6 +504,12 @@ I18n.translations["ru"] = I18n.extend((I18n.translations["ru"] || {}), {
       }
     }
   },
+  "records": {
+    "back": "Назад",
+    "delete": "Удалить",
+    "edit": "Редактировать",
+    "show": "Просмотреть"
+  },
   "support": {
     "array": {
       "last_word_connector": " и ",
@@ -461,6 +525,10 @@ I18n.translations["ru"] = I18n.extend((I18n.translations["ru"] || {}), {
       "short": "%d %b, %H:%M"
     },
     "pm": "вечера"
+  },
+  "visit_types": {
+    "Check-up": "Осмотр",
+    "Consultation": "Консультация"
   }
 });
 I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {

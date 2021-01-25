@@ -11,16 +11,22 @@ ru:
     update: "Обновить"
     delete_account: "Я хочу удалить учетную запись"
     are_you_sure: "Вы уверенны?"
+    my_visits: "Мои визиты"
+    my_schedules: "Мои расписания"
+    "not_saved": "Учетная запись не была создана:"
 
   devise:
     remember_me: "Запомнить меня"
     forgot_password: "Забыли пароль?"
     dnr_confirmation: "Не пришло подтверждение?"
     characters_minimum: "символов минимум"
-    send_me_rpi: "Отправить письмо для восстановления пароля"
+    send_me_rpi: "Отправить инструкцию для восстановления пароля"
     change_password: "Сменить пароль"
     new_password: "Новый пароль"
     resend_ci: "Повторно отправить подтверждение регистрации"
+    reset_password_error: "Инструкция не была отправлена:"
+    change_password_error: "Пароль не был изменен:"
+    confirm_new_password: "Подтвердите новый пароль"
 
   nav_bar:
     main: "Главная"
@@ -30,6 +36,14 @@ ru:
     sign_up: "Регистрация"
     log_in: "Войти"
     log_out: "Выйти"
+    departments: "Отделения"
+
+  manager_bar:
+    patients: "Пациенты"
+    doctors: "Доктора"
+    visits: "Визиты"
+    visit_types: "Типы визитов"
+    schedules: "Расписания"
 
   activerecord:
     attributes:
@@ -42,3 +56,55 @@ ru:
         phone_number: "Номер телефона"
         role: "Роль"
         is_active: "Активный"
+        registration_date: "Дата регистрации"
+      visits:
+        visits: "Визиты"
+        patient: "Пациент"
+        doctor: "Доктор"
+        date: "Дата"
+        time: "Время"
+        visit_type: "Тип визита"
+        new_visit: "Новый визит"
+        no_visits_message: "У Вас еще нет визитов"
+        create_visit: "Создать визит"
+      schedules:
+        schedules: "Расписания"
+        doctor: "Доктор"
+        day: "День"
+        start_time: "Время начала"
+        end_time: "Время конца"
+        start_date: "Дата начала"
+        end_date: "Дата конца"
+        visit_type: "Тип визита"
+        new_schedule: "Новое расписание"
+        no_schedules_message: "У Вас еще нет расписаний"
+        create_schedule: "Сохранить расписание"
+        edit_schedule: "Редактирование расписания"
+      visit_types:
+        visit_types: "Типы визитов"
+        duration: "Продолжительность"
+        minutes: "минут"
+        new_visit_type: "Новый тип визита"
+        create_visit_type: "Сохранить тип визита"
+        name: "Название"
+        description: "Описание"
+        edit_visit_type: "Редактирование типа визита"
+
+  records:
+    show: "Просмотреть"
+    edit: "Редактировать"
+    delete: "Удалить"
+    back: "Назад"
+
+  visit_types:
+    Check-up: "Осмотр"
+    Consultation: "Консультация"
+
+  days:
+    monday: "Понедельник"
+    tuesday: "Вторник"
+    wednesday: "Среда"
+    thursday: "Четверг"
+    friday: "Пятница"
+    saturday: "Суббота"
+    sunday: "Воскресенье"

@@ -10,7 +10,10 @@ class Login extends React.Component {
     render () {
 
         return (
-            <LoginForm action={"/users/sign_in"} method={"post"} authenticity_token={this.props.authenticity_token}/>
+            <section className="devise">
+                <LoginForm action={"/users/sign_in"} method={"post"} authenticity_token={this.props.authenticity_token}
+                locale={this.props.locale}/>
+            </section>
         );
     }
 }

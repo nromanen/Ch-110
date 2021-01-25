@@ -8,7 +8,16 @@ class VisitsController < ApplicationController
   # GET /visits
   # GET /visits.json
   def index
-      @visits = policy_scope(Visit)
+    @visits = policy_scope(Visit)
+    @result = []
+    @visits.each do |visit|
+      @result << {id: visit.id, patient_name: visit.patient_name, doctor_name: visit.doctor_name,
+                 start_time: visit.start_time, visit_duration: visit.visit_type.length}
+    end
+    respond_to do |format|
+      format.html { @result }
+      format.json { render json: @result }
+    end
   end
 
   # GET /visits/1
@@ -82,6 +91,7 @@ class VisitsController < ApplicationController
     else
       respond_to do |format|
         format.html { redirect_to visits_path, alert: "Visit can't be canceled. #{@visit.errors[:base][-1]}"}
+        format.json { render json: @visit.errors.full_messages, status: :unprocessable_entity }
       end
     end
   end
@@ -112,7 +122,7 @@ class VisitsController < ApplicationController
   end
 
   def choose_date
-    @doctor_id = params[:doctor_id]
+    @doctor_id = params[:id]
   end
 
   private

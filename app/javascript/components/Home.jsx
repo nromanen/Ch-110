@@ -11,9 +11,6 @@ class Home extends React.Component {
 
         return (
         <>  
-            <div>
-                <p>{I18n.locale}</p>
-            </div>
             <div className="left_up">
 
                <h1>

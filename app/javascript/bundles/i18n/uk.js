@@ -12,13 +12,30 @@ I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {
     "doctor_profile": "Профіль лікаря",
     "edit_account": "Редагувати обліковий запис",
     "leave_blank": "залиште вільним, якщо не хочете змінювати",
+    "my_schedules": "Мої розклади",
+    "my_visits": "Мої візити",
     "need_password": "введіть поточний пароль, щоб підтвердити зміни",
+    "not_saved": "Обліковий запис не був створений:",
     "patient_card": "Карточка пацієнта",
     "update": "Оновити",
     "waiting_confirmation": "Очікується підтвердження для"
   },
   "activerecord": {
     "attributes": {
+      "schedules": {
+        "create_schedule": "Зберегти розклад",
+        "day": "День",
+        "doctor": "Лікар",
+        "edit_schedule": "Редагування розкладу",
+        "end_date": "Дата кінця",
+        "end_time": "Час кінця",
+        "new_schedule": "Новий розклад",
+        "no_schedules_message": "У Вас ще немає розкладів",
+        "schedules": "Розклади",
+        "start_date": "Дата початку",
+        "start_time": "Час початку",
+        "visit_type": "Тип візиту"
+      },
       "users": {
         "email": "Електронна скринька",
         "is_active": "Активний",
@@ -26,8 +43,30 @@ I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {
         "password": "Пароль",
         "password_confirmation": "Підтвердження пароля",
         "phone_number": "Номер телефону",
+        "registration_date": "Дата реєстрації",
         "role": "Роль",
         "surname": "Прізвище"
+      },
+      "visit_types": {
+        "create_visit_type": "Зберегти тип візиту",
+        "description": "Опис",
+        "duration": "Тривалість",
+        "edit_visit_type": "Редагування типу візиту",
+        "minutes": "хвилин",
+        "name": "Назва",
+        "new_visit_type": "Новий тип візиту",
+        "visit_types": "Типи візитів"
+      },
+      "visits": {
+        "create_visit": "Створити візит",
+        "date": "Дата",
+        "doctor": "Лікар",
+        "new_visit": "Новий візит",
+        "no_visits_message": "У Вас ще немає візитів",
+        "patient": "Пацієнт",
+        "time": "Час",
+        "visit_type": "Тип візиту",
+        "visits": "Візити"
       }
     },
     "errors": {
@@ -185,9 +224,20 @@ I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {
       "year": "Рік"
     }
   },
+  "days": {
+    "friday": "П'ятниця",
+    "monday": "Понеділок",
+    "saturday": "Субота",
+    "sunday": "Неділя",
+    "thursday": "Четвер",
+    "tuesday": "Вівторок",
+    "wednesday": "Середа"
+  },
   "devise": {
     "change_password": "Змінити пароль",
+    "change_password_error": "Пароль не був змінений:",
     "characters_minimum": "символів мінімум",
+    "confirm_new_password": "Підтвердіть новий пароль",
     "confirmations": {
       "confirmed": "Ваш обліковий запис було успішно підтверджено.",
       "send_instructions": "На Ваш email надіслано інструкції з підтвердження облікового запису.",
@@ -243,7 +293,8 @@ I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {
     },
     "remember_me": "Запам'ятати мене",
     "resend_ci": "Повторно надіслати підтвердження раєстрації",
-    "send_me_rpi": "Надіслати листа для відновлення паролю",
+    "reset_password_error": "Інструкція не була відправлена:",
+    "send_me_rpi": "Надіслати інструкцію для відновлення паролю",
     "sessions": {
       "already_signed_out": "Вихід успішний.",
       "signed_in": "Вхід успішний.",
@@ -335,11 +386,18 @@ I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {
         "many",
         "other"
       ],
-      "rule": "#<Proc:0x0000558cbd16ef78@/home/dv/.rvm/gems/ruby-2.6.6/gems/rails-i18n-6.0.0/lib/rails_i18n/common_pluralizations/east_slavic.rb:16 (lambda)>"
+      "rule": "#<Proc:0x0000000008240470@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/rails-i18n-6.0.0/lib/rails_i18n/common_pluralizations/east_slavic.rb:16 (lambda)>"
     },
     "transliterate": {
-      "rule": "#<Proc:0x0000558cbd5eefd0@/home/dv/.rvm/gems/ruby-2.6.6/gems/rails-i18n-6.0.0/lib/rails_i18n/../../rails/transliteration/uk.rb:8 (lambda)>"
+      "rule": "#<Proc:0x0000000008508608@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/rails-i18n-6.0.0/lib/rails_i18n/../../rails/transliteration/uk.rb:8 (lambda)>"
     }
+  },
+  "manager_bar": {
+    "doctors": "Лікарі",
+    "patients": "Пацієнти",
+    "schedules": "Розклади",
+    "visit_types": "Типи візитів",
+    "visits": "Візити"
   },
   "nav_bar": {
     "contacts": "Контакти",
@@ -370,42 +428,42 @@ I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {
       "strip_insignificant_zeros": false
     },
     "human": {
-      "decimal_units": {
-        "format": "%n %u",
-        "units": {
-          "billion": {
-            "few": "Мільярдів",
-            "many": "Мільярдів",
-            "one": "Мільярд",
-            "other": "Мільярдів"
-          },
-          "million": {
-            "few": "Мільйонів",
-            "many": "Мільйонів",
-            "one": "Мільйон",
-            "other": "Мільйонів"
-          },
-          "quadrillion": {
-            "few": "Квадрильйонів",
-            "many": "Квадрильйонів",
-            "one": "Квадрильйон",
-            "other": "Квадрильйонів"
-          },
-          "thousand": {
-            "few": "Тисяч",
-            "many": "Тисяч",
-            "one": "Тисяча",
-            "other": "Тисяч"
-          },
-          "trillion": {
-            "few": "Трильйонів",
-            "many": "Трильйонів",
-            "one": "Трильйон",
-            "other": "Трильйонів"
-          },
-          "unit": ""
-        }
-      },
+      // "decimal_units": {
+      //   "format": "%n %u",
+      //   "units": {
+          // "billion": {
+            // "few": "Мільярдів",
+            // "many": "Мільярдів",
+            // "one": "Мільярд",
+            // "other": "Мільярдів"
+          // },
+      //     "million": {
+      //       "few": "Мільйонів",
+      //       "many": "Мільйонів",
+      //       "one": "Мільйон",
+      //       "other": "Мільйонів"
+      //     },
+      //     "quadrillion": {
+      //       "few": "Квадрильйонів",
+      //       "many": "Квадрильйонів",
+      //       "one": "Квадрильйон",
+      //       "other": "Квадрильйонів"
+      //     },
+      //     "thousand": {
+      //       "few": "Тисяч",
+      //       "many": "Тисяч",
+      //       "one": "Тисяча",
+      //       "other": "Тисяч"
+      //     },
+      //     "trillion": {
+      //       "few": "Трильйонів",
+      //       "many": "Трильйонів",
+      //       "one": "Трильйон",
+      //       "other": "Трильйонів"
+      //     },
+      //     "unit": ""
+      //   }
+      // },
       "format": {
         "delimiter": "",
         "precision": 1,
@@ -439,6 +497,12 @@ I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {
       }
     }
   },
+  "records": {
+    "back": "Назад",
+    "delete": "Видалити",
+    "edit": "Редагувати",
+    "show": "Переглянути"
+  },
   "support": {
     "array": {
       "last_word_connector": " та ",
@@ -454,5 +518,9 @@ I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {
       "short": "%d %b, %H:%M"
     },
     "pm": "по полудні"
+  },
+  "visit_types": {
+    "Check-up": "Огляд",
+    "Consultation": "Консультація"
   }
 });

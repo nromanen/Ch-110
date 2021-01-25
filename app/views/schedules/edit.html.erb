@@ -1,6 +1,6 @@
-<h1>Editing Schedule</h1>
+<h1><%= t 'activerecord.attributes.schedules.edit_schedule' %></h1>
 
 <%= render 'form', schedule: @schedule %>
 
-<%= link_to 'Show', @schedule %>
-<%= link_to 'Back', schedule_path %>
+<%= link_to (t 'records.edit'), @schedule %>
+<%= link_to (t 'records.back'), schedule_path %>

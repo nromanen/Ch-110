@@ -1,6 +1,6 @@
-<h1>Editing Visit type</h1>
+<h1><%= t 'activerecord.attributes.visit_types.edit_visit_type' %></h1>
 
 <%= render 'form', visit_type: @visit_type %>
 
-<%= link_to 'Show', @visit_type %>
-<%= link_to 'Back', visit_type_path %>
+<%= link_to (t 'records.show'), @visit_type %>
+<%= link_to (t 'records.back'), visit_type_path %>

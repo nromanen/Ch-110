@@ -34,7 +34,7 @@ export default function SimpleAlert({ text, handleClose }) {
                         <CloseIcon fontSize="inherit" />
                     </IconButton>
                 }
-                severity="error">{ text }</Alert>
+                severity="error">Visit can't be canceled: { text }</Alert>
         </div>
     );
 }

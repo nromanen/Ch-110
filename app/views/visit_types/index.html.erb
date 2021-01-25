@@ -1,9 +1,9 @@
-<h1>Visit types</h1>
+<h1><%= t 'activerecord.attributes.visit_types.visit_types' %></h1>
 <table class="table">
     <tfoot>
     <tr>
         <td colspan="3">
-            <%= link_to 'New Visit type', new_visit_type_path %>
+            <%= link_to (t 'activerecord.attributes.visit_types.new_visit_type'), new_visit_type_path %>
         </td>
     </tr>
     </tfoot>
@@ -11,23 +11,23 @@
     <% @visit_types.each do |vt| %>
     <tr>
         <td class="description">
-            <h2><%= vt.name %></h2>
+            <h2><%= t "visit_types.#{vt.name}" %></h2>
             <h4>
-              <%= vt.description %>
+              <%= t "visit_types.#{vt.description}" %>
             </h4>
             <h4>
-              <%= "duration: " %><%= vt.length %><%= " minutes" %>
+              <%= t 'activerecord.attributes.visit_types.duration' %>: <%= vt.length %> <%= t 'activerecord.attributes.visit_types.minutes' %>
             </h4>
         </td>
         <td class="actions">
             <ul>
-                <li><%= link_to 'Show', vt %></li>
-                <li><%= link_to 'Edit', visit_type_path(vt) %></li>
+                <li><%= link_to (t 'records.show'), vt %></li>
+                <li><%= link_to (t 'records.edit'), edit_visit_type_path(vt) %></li>
                 <li>
-                    <%= link_to 'Delete',
+                    <%= link_to (t 'records.delete'),
                                 vt,
                                 method: :delete,
-                                data: { confirm: 'Are you sure?' } %>
+                                data: { confirm: (t 'account.are_you_sure') } %>
                 </li>
             </ul>
         </td>

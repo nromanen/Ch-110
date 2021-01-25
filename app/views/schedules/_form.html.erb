@@ -12,41 +12,41 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :user_id %>
+    <%= form.label t 'activerecord.attributes.schedules.doctor' %>
     <%= form.select :user_id, User.where(:role => 'doctor').order(:surname).map{ |user| ["#{user.surname} #{user.name}", user.id]}%>
   </div>
 
   <div class="field">
-    <%= form.label :day %>
-    <%= form.select :day, Schedule.days.keys.to_a.map %>
+    <%= form.label t 'activerecord.attributes.schedules.day' %>
+    <%= form.select :day, Schedule.days.keys.to_a.map{ |day| [( t "days.#{day.downcase}"), day]} %>
   </div>
 
   <div class="field">
-    <%= form.label :start_time %>
+    <%= form.label t 'activerecord.attributes.schedules.start_time' %>
     <%= form.time_select :start_time, minute_step: 30 %>
   </div>
 
   <div class="field">
-    <%= form.label :end_time %>
+    <%= form.label t 'activerecord.attributes.schedules.end_time' %>
     <%= form.time_select :end_time, minute_step: 30 %>
   </div>
 
   <div class="field">
-    <%= form.label :start_date %>
+    <%= form.label t 'activerecord.attributes.schedules.start_date' %>
     <%= form.date_select :start_date %>
   </div>
 
   <div class="field">
-    <%= form.label :end_date %>
+    <%= form.label t 'activerecord.attributes.schedules.end_date' %>
     <%= form.date_select :end_date %>
   </div>
 
   <div class="field">
-    <%= form.label :visit_type_id %>
-    <%= form.select :visit_type_id, VisitType.all.order(:length).map{ |vt| ["#{vt.name} - #{vt.length}", vt.id]}%>
+    <%= form.label t 'activerecord.attributes.schedules.visit_type' %>
+    <%= form.select :visit_type_id, VisitType.all.order(:length).map{ |vt| [ (t "visit_types.#{ vt.name }"), vt.id]}%>
   </div>
 
   <div class="actions">
-    <%= form.submit 'Create Schedule' %>
+    <%= form.submit t 'activerecord.attributes.schedules.create_schedule' %>
   </div>
 <% end %>

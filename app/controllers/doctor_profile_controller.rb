@@ -50,7 +50,7 @@ class DoctorProfileController < ApplicationController
   end
 
   def show_spec
-    
+
     @doctor_spec = DoctorProfile.where(specialization: params[:position])
     @users = []
 
