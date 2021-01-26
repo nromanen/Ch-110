@@ -32,9 +32,6 @@ class DoctorProfileController < ApplicationController
                 }
     end
 
-    @avatars.each do |key, value|
-      puts "#{key}:#{value}"
-    end
     @users = User.where(:role => 2).order(:name)
     @specializations = DoctorProfile.specializations
   end
@@ -60,7 +57,7 @@ class DoctorProfileController < ApplicationController
                  surname: doctor.user.surname,
                  specialization: doctor.specialization,
                  description: doctor.description,
-                 photo_path: doctor.photo_path,
+                 photo_path: rails_blob_path(doctor.avatar),
                  id: doctor.user_id
                 }
     end
@@ -75,7 +72,7 @@ class DoctorProfileController < ApplicationController
 
   def create
     @doctor_profile = DoctorProfile.new(doctor_profile_params)
-
+    @doctor_profile.update(avatar: params[:avatar])
     if @doctor_profile.save
       render json: @doctor_profile, status: :created
     else
@@ -84,8 +81,9 @@ class DoctorProfileController < ApplicationController
   end
 
   def update
+    doctor = DoctorProfile.find(params[:id])
+    doctor.update(avatar: params[:avatar])
     if @doctor_profile.update(doctor_profile_params)
-      @doctor_profile.update(avatar: params[:avatar])
       render json: @doctor_profile
     else
       render json: @doctor_profile.errors.full_messages, status: :unprocessable_entity

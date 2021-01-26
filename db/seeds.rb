@@ -68,12 +68,10 @@ visits = Visit.create!([{patient: patient_1, doctor: doctor_1, created_by: patie
 
 doctor_profiles = DoctorProfile.create([
                                          { user_id: doctor_1.id,
-                                           photo_path: '/assets/fifth.jpeg',
                                            description: 'I am the best doctor ever been in the world!',
                                            specialization: 0
                                          },
                                          { user_id: doctor_2.id,
-                                           photo_path: '/assets/fourth.jpeg',
                                            description: 'Ha ha ha, tell the truth!!!',
                                            specialization: 0
                                          }

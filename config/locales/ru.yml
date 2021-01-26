@@ -45,6 +45,21 @@ ru:
     visit_types: "Типы визитов"
     schedules: "Расписания"
 
+  home:
+    healthbook: "Healthbook"
+    describe_1: "Просматривайте врачей онлайн и записывайтесь к ним."
+    describe_2: "Вход осуществляется через созданную вами учетную запись или с помощью консультанта."
+    describe_3: "It is recommended that you provide reliable information about your chronic ailments and allergies, so that we can get more information to give you first medical aid."
+    rigth_up_first: "Sincerely yours, we make every effort to provide quality medical services."
+    rigth_up_second_p1: "CAN WE HELP YOU?"
+    rigth_up_second_p2: "We will be happy to answer any questions regarding the service of medical services and provide actual information about your health."
+    rigth_up_third_p1: "We are waiting for your messages at "
+    rigth_up_third_p2: " or write your number here and we will call you."
+    left_down_h2: "New!"
+    left_down_h4_1: "We have created a loyalty program that provides -10% on all medical services in our clinic."
+    left_down_h4_2: "Come in and get your card FOR FREE!"
+    left_down_h4_3: "We are waiting for you!"
+
   activerecord:
     attributes:
       users:

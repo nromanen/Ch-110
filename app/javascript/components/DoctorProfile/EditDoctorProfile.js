@@ -35,13 +35,6 @@ const EditProfileForm = ( props ) => {
 
             <img src={url} /> <br />
 
-            <input
-                type="text"
-                name="photo_path"
-                value={ profile.photo_path }
-                onChange={ handleInputChange } >
-            </input><br/>
-
             <label>Specialization: </label><br/>
             <select
                 name='specialization'
