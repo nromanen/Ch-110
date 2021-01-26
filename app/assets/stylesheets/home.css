@@ -1,15 +1,15 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
-// Place all the styles related to the Home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+/*// Place all the styles related to the home controller here.*/
+/*// They will automatically be included in application.css.*/
+/*// You can use Sass (SCSS) here: https://sass-lang.com/*/
+/*// Place all the styles related to the Home controller here.*/
+/*// They will automatically be included in application.css.*/
+/*// You can use Sass (SCSS) here: https://sass-lang.com/*/
 
 .left_up{
 	left : 10%;
 	position: fixed;
-    bottom: 10; 
-    padding: 10%; 
+    bottom: 10;
+    padding: 10%;
     width: 10%;
 
 
@@ -19,7 +19,7 @@
 
   margin-bottom: 0%;
 
- } 
+ }
 
 .left_up a{
 		margin-left: 2%;
@@ -64,10 +64,10 @@
 	left : 60%;
 	position: absolute;
 	margin-right: 20px;
-    
-    padding: 10px; 
+
+    padding: 10px;
     top: 15%;
-    width: 35%;  
+    width: 35%;
 }
 
 .rigth_up .rigth_up_first{
@@ -81,7 +81,7 @@
 
 .rigth_up .rigth_up_first p{
 
-	background: #333; 
+	background: #333;
 }
 
 .rigth_up .rigth_up_second{
@@ -108,12 +108,12 @@
 .rigth_up .rigth_up_third li{
     list-style-type: none;
     margin-bottom: 0px;
-  
+
 }
 
 
 .rigth_up .rigth_up_third .input_tel{
-	
+
   	background-color: white;
   	background-image: url(/assets/tel.png);
   	background-size: 10.5%;
@@ -126,13 +126,13 @@
 }
 
 .rigth_up .rigth_up_third input[type=submit] {
-    padding:5px 15px; 
-    background:#808080; 
+    padding:5px 15px;
+    background:#808080;
     color: #fff;
     border:0 none;
     cursor:pointer;
     -webkit-border-radius: 5px;
-    border-radius: 5px; 
+    border-radius: 5px;
     margin-top: 0px;
     margin-left: 5px;
     height: 32px;
@@ -143,9 +143,9 @@
 
   margin-left: 25px;
   position: left;
-  
+
   left: 0;
-  padding: 10px; 
+  padding: 10px;
   top: 110px;
   width: 56%;
   height: 20px;
