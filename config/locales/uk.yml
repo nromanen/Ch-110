@@ -46,19 +46,19 @@ uk:
     schedules: "Розклади"
 
   home:
-    healthbook: "Healthbook"
-    describe_1: "Take a look at online doctors and record to them."
-    describe_2: "Login is through an account created by you or through a consultant who will be happy to advise you."
-    describe_3: "It is recommended that you provide reliable information about your chronic ailments and allergies, so that we can get more information to give you first medical aid."
-    rigth_up_first: "Sincerely yours, we make every effort to provide quality medical services."
-    rigth_up_second_p1: "CAN WE HELP YOU?"
-    rigth_up_second_p2: "We will be happy to answer any questions regarding the service of medical services and provide actual information about your health."
-    rigth_up_third_p1: "We are waiting for your messages at "
-    rigth_up_third_p2: " or write your number here and we will call you."
-    left_down_h2: "New!"
-    left_down_h4_1: "We have created a loyalty program that provides -10% on all medical services in our clinic."
-    left_down_h4_2: "Come in and get your card FOR FREE!"
-    left_down_h4_3: "We are waiting for you!"
+    #healthbook: "Healthbook"
+    describe_1: "Переглядайте лікарів онлайн і записуйтеся до них."
+    describe_2: "Вхід здійснюється через створений вами обліковий запис або за допомогою консультанта."
+    describe_3: "Рекомендується надати достовірну інформацію про ваші хронічні захворювання і алергії, щоб ми могли надати вам якісну першу медичну допомогу."
+    rigth_up_first: "З повагою до вас, ми докладаємо всіх зусиль для надання якісних медичних послуг."
+    rigth_up_second_p1: "ПОТРІБНА ДОПОМОГА?"
+    rigth_up_second_p2: "Ми з радістю відповімо на будь-які питання з надання медичних послуг і надамо актуальну інформацію про стан вашого здоров'я."
+    rigth_up_third_p1: "Чекаємо ваших повідомлень на "
+    rigth_up_third_p2: " або напишіть тут свій номер і ми вам передзвонимо."
+    left_down_h2: "Новинка!"
+    left_down_h4_1: "Ми створили програму лояльності, яка передбачає -10% на всі медичні послуги в нашій клініці."
+    left_down_h4_2: "Заходьте і отримайте карту БЕЗКОШТОВНО!"
+    left_down_h4_3: "Ми чекаємо вас!"
 
   activerecord:
     attributes:

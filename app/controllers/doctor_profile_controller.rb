@@ -24,16 +24,14 @@ class DoctorProfileController < ApplicationController
     @avatars = []
 
     @doctor_profiles = DoctorProfile.all
-
+    @users = User.where(:role => 2).order(:name)
+    @specializations = DoctorProfile.specializations
     @doctor_profiles.each do |doctor|
       @avatars << {
                   id: doctor.id,
                  avatar: rails_blob_path(doctor.avatar)
                 }
     end
-
-    @users = User.where(:role => 2).order(:name)
-    @specializations = DoctorProfile.specializations
   end
 
 
@@ -72,7 +70,6 @@ class DoctorProfileController < ApplicationController
 
   def create
     @doctor_profile = DoctorProfile.new(doctor_profile_params)
-    @doctor_profile.update(avatar: params[:avatar])
     if @doctor_profile.save
       render json: @doctor_profile, status: :created
     else
@@ -82,8 +79,15 @@ class DoctorProfileController < ApplicationController
 
   def update
     doctor = DoctorProfile.find(params[:id])
-    doctor.update(avatar: params[:avatar])
+    if doctor.avatar.attached? == false
+      doctor.update(avatar: params[:avatar])
+    end
+
     if @doctor_profile.update(doctor_profile_params)
+      if params[:avatar] != nil
+        @doctor_profile.update(avatar: params[:avatar])
+        puts rails_blob_path(@doctor_profile.avatar)
+      end
       render json: @doctor_profile
     else
       render json: @doctor_profile.errors.full_messages, status: :unprocessable_entity
@@ -106,7 +110,7 @@ class DoctorProfileController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def doctor_profile_params
-    params.require(:doctor_profile).permit(:photo_path, :specialization, :description, :user_id, :position, :avatar)
+    params.require(:doctor_profile).permit( :specialization, :description, :user_id, :position, :avatar)
   end
 
 end

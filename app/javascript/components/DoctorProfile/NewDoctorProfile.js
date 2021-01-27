@@ -3,7 +3,6 @@ import TextField from '@material-ui/core/TextField';
 
 import { DirectUpload } from 'activestorage';
 
-
 const NewProfileForm = props => {
     const [profile, setProfile] = useState(props.initialFormState);
     const [formData, setFormData] = useState({
@@ -53,7 +52,7 @@ const NewProfileForm = props => {
                         'Content-Type': 'application/json',
                         'Accept': 'application/json'
                     },
-                    body: JSON.stringify({avatar: blob.signed_id})
+                    body: JSON.stringify({avatar: blob.signed_id, doctor_profile: user})
                 })
                     .then(response => response.json())
                     .then(result => console.log(result))
