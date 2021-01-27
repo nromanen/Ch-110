@@ -363,13 +363,28 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
       "update": "Update %{model}"
     }
   },
+  "home": {
+    "describe_1": "Take a look at online doctors and record to them.",
+    "describe_2": "Login is through an account created by you or through a consultant who will be happy to advise you.",
+    "describe_3": "It is recommended that you provide reliable information about your chronic ailments and allergies, so that we can get more information to give you first medical aid.",
+    "healthbook": "Healthbook",
+    "left_down_h2": "New!",
+    "left_down_h4_1": "We have created a loyalty program that provides -10% on all medical services in our clinic.",
+    "left_down_h4_2": "Come in and get your card FOR FREE!",
+    "left_down_h4_3": "We are waiting for you!",
+    "rigth_up_first": "Sincerely yours, we make every effort to provide quality medical services.",
+    "rigth_up_second_p1": "CAN WE HELP YOU?",
+    "rigth_up_second_p2": "We will be happy to answer any questions regarding the service of medical services and provide actual information about your health.",
+    "rigth_up_third_p1": "We are waiting for your messages at ",
+    "rigth_up_third_p2": " or write your number here and we will call you."
+  },
   "i18n": {
     "plural": {
       "keys": [
         "one",
         "other"
       ],
-      "rule": "#<Proc:0x000000000822e400@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/rails-i18n-6.0.0/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+      "rule": "#<Proc:0x000055b8624335d0@/home/dv/.rvm/gems/ruby-2.6.6/gems/rails-i18n-6.0.0/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
     }
   },
   "manager_bar": {
@@ -442,8 +457,8 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
       }
     },
     "nth": {
-      "ordinalized": "#<Proc:0x000000000a031f60@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:26 (lambda)>",
-      "ordinals": "#<Proc:0x000000000a031f88@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:7 (lambda)>"
+      "ordinalized": "#<Proc:0x000055b861b88a48@/home/dv/.rvm/gems/ruby-2.6.6/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:26 (lambda)>",
+      "ordinals": "#<Proc:0x000055b861b88a70@/home/dv/.rvm/gems/ruby-2.6.6/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:7 (lambda)>"
     },
     "percentage": {
       "format": {
@@ -847,13 +862,28 @@ I18n.translations["ru"] = I18n.extend((I18n.translations["ru"] || {}), {
       "update": "Update %{model}"
     }
   },
+  "home": {
+    "describe_1": "Take a look at online doctors and record to them.",
+    "describe_2": "Login is through an account created by you or through a consultant who will be happy to advise you.",
+    "describe_3": "It is recommended that you provide reliable information about your chronic ailments and allergies, so that we can get more information to give you first medical aid.",
+    "healthbook": "Healthbook",
+    "left_down_h2": "New!",
+    "left_down_h4_1": "We have created a loyalty program that provides -10% on all medical services in our clinic.",
+    "left_down_h4_2": "Come in and get your card FOR FREE!",
+    "left_down_h4_3": "We are waiting for you!",
+    "rigth_up_first": "Sincerely yours, we make every effort to provide quality medical services.",
+    "rigth_up_second_p1": "CAN WE HELP YOU?",
+    "rigth_up_second_p2": "We will be happy to answer any questions regarding the service of medical services and provide actual information about your health.",
+    "rigth_up_third_p1": "We are waiting for your messages at ",
+    "rigth_up_third_p2": " or write your number here and we will call you."
+  },
   "i18n": {
     "plural": {
       "keys": [
         "one",
         "other"
       ],
-      "rule": "#<Proc:0x000000000822e400@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/rails-i18n-6.0.0/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+      "rule": "#<Proc:0x000055b8624335d0@/home/dv/.rvm/gems/ruby-2.6.6/gems/rails-i18n-6.0.0/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
     }
   },
   "manager_bar": {
@@ -926,8 +956,8 @@ I18n.translations["ru"] = I18n.extend((I18n.translations["ru"] || {}), {
       }
     },
     "nth": {
-      "ordinalized": "#<Proc:0x000000000a031f60@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:26 (lambda)>",
-      "ordinals": "#<Proc:0x000000000a031f88@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:7 (lambda)>"
+      "ordinalized": "#<Proc:0x000055b861b88a48@/home/dv/.rvm/gems/ruby-2.6.6/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:26 (lambda)>",
+      "ordinals": "#<Proc:0x000055b861b88a70@/home/dv/.rvm/gems/ruby-2.6.6/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:7 (lambda)>"
     },
     "percentage": {
       "format": {
@@ -1331,13 +1361,28 @@ I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {
       "update": "Update %{model}"
     }
   },
+  "home": {
+    "describe_1": "Take a look at online doctors and record to them.",
+    "describe_2": "Login is through an account created by you or through a consultant who will be happy to advise you.",
+    "describe_3": "It is recommended that you provide reliable information about your chronic ailments and allergies, so that we can get more information to give you first medical aid.",
+    "healthbook": "Healthbook",
+    "left_down_h2": "New!",
+    "left_down_h4_1": "We have created a loyalty program that provides -10% on all medical services in our clinic.",
+    "left_down_h4_2": "Come in and get your card FOR FREE!",
+    "left_down_h4_3": "We are waiting for you!",
+    "rigth_up_first": "Sincerely yours, we make every effort to provide quality medical services.",
+    "rigth_up_second_p1": "CAN WE HELP YOU?",
+    "rigth_up_second_p2": "We will be happy to answer any questions regarding the service of medical services and provide actual information about your health.",
+    "rigth_up_third_p1": "We are waiting for your messages at ",
+    "rigth_up_third_p2": " or write your number here and we will call you."
+  },
   "i18n": {
     "plural": {
       "keys": [
         "one",
         "other"
       ],
-      "rule": "#<Proc:0x000000000822e400@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/rails-i18n-6.0.0/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+      "rule": "#<Proc:0x000055b8624335d0@/home/dv/.rvm/gems/ruby-2.6.6/gems/rails-i18n-6.0.0/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
     }
   },
   "manager_bar": {
@@ -1410,8 +1455,8 @@ I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {
       }
     },
     "nth": {
-      "ordinalized": "#<Proc:0x000000000a031f60@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:26 (lambda)>",
-      "ordinals": "#<Proc:0x000000000a031f88@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:7 (lambda)>"
+      "ordinalized": "#<Proc:0x000055b861b88a48@/home/dv/.rvm/gems/ruby-2.6.6/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:26 (lambda)>",
+      "ordinals": "#<Proc:0x000055b861b88a70@/home/dv/.rvm/gems/ruby-2.6.6/gems/activesupport-6.0.3.4/lib/active_support/locale/en.rb:7 (lambda)>"
     },
     "percentage": {
       "format": {

@@ -5,23 +5,33 @@ class DoctorProfileController < ApplicationController
 
 
   def index
-
+=begin
     if params[:user_id]
       @doctor_profile = DoctorProfile.find_by(user_id: params[:user_id])
+      
+      #avatar = rails_blob_path(@doctor_profile.avatar)
       puts 'hello from users table ============'
       puts params[:user_id]
-      puts @doctor_profile
+      
 
       if @doctor_profile.nil?
         render json: { message: 'no profile' }
       else
-        render json: @doctor_profile
+        render json: { doctor_profile: @doctor_profile }
       end
     end
+=end
+    @avatars = []
 
     @doctor_profiles = DoctorProfile.all
     @users = User.where(:role => 2).order(:name)
     @specializations = DoctorProfile.specializations
+    @doctor_profiles.each do |doctor|
+      @avatars << {
+                  id: doctor.id,
+                 avatar: rails_blob_path(doctor.avatar)
+                }
+    end
   end
 
 
@@ -31,7 +41,7 @@ class DoctorProfileController < ApplicationController
   end
 
   def show
-    render json: @doctor_profiles
+    render json: @doctor_profile
   end
 
   def show_spec
@@ -45,7 +55,7 @@ class DoctorProfileController < ApplicationController
                  surname: doctor.user.surname,
                  specialization: doctor.specialization,
                  description: doctor.description,
-                 photo_path: doctor.photo_path,
+                 photo_path: rails_blob_path(doctor.avatar),
                  id: doctor.user_id
                 }
     end
@@ -60,7 +70,6 @@ class DoctorProfileController < ApplicationController
 
   def create
     @doctor_profile = DoctorProfile.new(doctor_profile_params)
-
     if @doctor_profile.save
       render json: @doctor_profile, status: :created
     else
@@ -69,7 +78,16 @@ class DoctorProfileController < ApplicationController
   end
 
   def update
+    doctor = DoctorProfile.find(params[:id])
+    if doctor.avatar.attached? == false
+      doctor.update(avatar: params[:avatar])
+    end
+
     if @doctor_profile.update(doctor_profile_params)
+      if params[:avatar] != nil
+        @doctor_profile.update(avatar: params[:avatar])
+        puts rails_blob_path(@doctor_profile.avatar)
+      end
       render json: @doctor_profile
     else
       render json: @doctor_profile.errors.full_messages, status: :unprocessable_entity
@@ -92,7 +110,7 @@ class DoctorProfileController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def doctor_profile_params
-    params.require(:doctor_profile).permit(:photo_path, :specialization, :description, :user_id, :position)
+    params.require(:doctor_profile).permit( :specialization, :description, :user_id, :position, :avatar)
   end
 
 end

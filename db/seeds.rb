@@ -68,16 +68,27 @@ visits = Visit.create!([{patient: patient_1, doctor: doctor_1, created_by: patie
 
 doctor_profiles = DoctorProfile.create([
                                          { user_id: doctor_1.id,
-                                           photo_path: '/assets/fifth.jpeg',
                                            description: 'I am the best doctor ever been in the world!',
                                            specialization: 0
                                          },
                                          { user_id: doctor_2.id,
-                                           photo_path: '/assets/fourth.jpeg',
                                            description: 'Ha ha ha, tell the truth!!!',
                                            specialization: 0
                                          }
                                        ])
+
+doctor_profiles[0].avatar.attach(
+    io: File.open('./public/avatars/first.jpeg'),
+    filename: 'first.jpeg',
+    content_type: 'application/jpeg'
+  )
+
+doctor_profiles[1].avatar.attach(
+    io: File.open('./public/avatars/second.png'),
+    filename: 'second.png',
+    content_type: 'application/png'
+  )
+
 patient_profiles = PatientProfile.create([
                                            { user_id: patient_1.id,
                                              weight: 80,
@@ -96,4 +107,3 @@ patient_profiles = PatientProfile.create([
                                              is_insured: true
                                            },
                                          ])
-
