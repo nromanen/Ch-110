@@ -1,9 +1,5 @@
 import React from "react"
-import '../../assets/stylesheets/home.css'
-import I18n from 'i18n-js'
-import '../../javascript/bundles/i18n/en.js'
-import '../../javascript/bundles/i18n/ru.js'
-import '../../javascript/bundles/i18n/uk.js'
+
 
 class Home extends React.Component {
     
