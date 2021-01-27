@@ -103,7 +103,7 @@ export default function VisitsTable({ userVisits, locale }) {
                                 <TableCell align="right">{new Date(visit.start_time).toDateString()}</TableCell>
                                 <TableCell align="right">{new Date(visit.start_time).toLocaleTimeString()}</TableCell>
                                 <TableCell align="right">{visit.visit_duration} minutes</TableCell>
-                                <TableCell align="right"><button onClick={() => deleteVisit(visit.id)}>Cancel visit</button></TableCell>
+                                <TableCell align="right"><button id={ visit.id } onClick={() => deleteVisit(visit.id)}>Cancel visit</button></TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

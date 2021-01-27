@@ -11,7 +11,7 @@ class VisitValidator < ActiveModel::Validator
     time_slot_not_busy
     schedule_present
     time_slot_is_in_schedule
-    time_slot_not_in_past
+    # time_slot_not_in_past
     time_slot_not_out_of_work_time
     visit_type_in_schedule
   end
@@ -24,10 +24,8 @@ class VisitValidator < ActiveModel::Validator
   end
 
   def schedule_present
-    puts "===================================================="
-    puts @start_time
-    @schedule = Schedule.where("start_date <= :current_date AND end_date >= :current_date AND user_id = :user_id AND day = :day",
-                                   {current_date: DateTime.now, day: @start_time.strftime("%u"), user_id: @doctor.id}).order(created_at: :desc)[-1]
+    @schedule = Schedule.where("start_date <= :chosen_date AND end_date >= :chosen_date AND user_id = :user_id AND day = :day",
+                               {chosen_date: @start_time, day: @start_time.strftime("%u"), user_id: @doctor.id}).order(created_at: :desc)[-1]
     unless @schedule
       @errors.add(:base, "The doctor doesn't take patients on this day")
     end
@@ -39,11 +37,11 @@ class VisitValidator < ActiveModel::Validator
     end
   end
 
-  def time_slot_not_in_past
-    if (@start_time - Time.zone.now).to_i <= 0
-      @errors.add(:start_time, "should be not in past")
-    end
-  end
+  # def time_slot_not_in_past
+  #   if (@start_time - Time.zone.now).to_i <= 0
+  #     @errors.add(:start_time, "should be not in past")
+  #   end
+  # end
 
   def time_slot_not_out_of_work_time
     if @schedule

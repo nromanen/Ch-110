@@ -15,30 +15,30 @@ RSpec.feature "Visit Home Page", type: :feature do
   end
 
   scenario 'should display nabar link Home' do
-    expect(page).to have_link('Home', :href => '/')
+    expect(page).to have_link('Home')
   end
 
   scenario 'Click Link: Home ==> Navigate to /' do
-    click_link('Home')
-    expect(page).to have_current_path("/")
+    click_link('Home', href: '/?locale=en')
+    expect(page).to have_current_path("/?locale=en")
   end
 
   scenario 'should display nabar link News' do
-    expect(page).to have_link('News', :href => '#news')
+    expect(page).to have_link('News', :href => '/?locale=en')
   end
 
   scenario 'Click Link: /News ==> Navigate to /#news' do
     click_link('News')
-    expect(page).to have_current_path('/')
+    expect(page).to have_current_path('/?locale=en')
   end
 
   scenario 'should display nabar link Contacts' do
-    expect(page).to have_link('Contacts', :href => '#contact')
+    expect(page).to have_link('Contacts', :href => '/?locale=en')
   end
 
   scenario 'Click Link: /Contacts ==> Navigate to /#contact' do
     click_link('Contacts')
-    expect(page).to have_current_path('/')
+    expect(page).to have_current_path('/?locale=en')
   end
 
   scenario 'should display nabar dropdown Departments' do
@@ -47,6 +47,18 @@ RSpec.feature "Visit Home Page", type: :feature do
 
   scenario 'should display nabar dropdown EN' do
     expect(page).to have_css('div button', :text => 'EN')
+  end
+
+  scenario 'should change a language to ukrainian' do
+    find_button('EN').hover
+    find_link('UK', visible: false).click
+    expect(page).to have_css('div a', :text => 'Головна')
+  end
+
+  scenario 'should change a language to russian' do
+    find_button('EN').hover
+    find_link('RU', visible: false).click
+    expect(page).to have_css('div a', :text => 'Главная')
   end
 
   scenario 'should display description' do
