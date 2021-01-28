@@ -37,11 +37,11 @@ class VisitValidator < ActiveModel::Validator
     end
   end
 
-  # def time_slot_not_in_past
-  #   if (@start_time - Time.zone.now).to_i <= 0
-  #     @errors.add(:start_time, "should be not in past")
-  #   end
-  # end
+  def time_slot_not_in_past
+    if (@start_time - Time.zone.now).to_i <= 0
+      @errors.add(:start_time, "should be not in past")
+    end
+  end
 
   def time_slot_not_out_of_work_time
     if @schedule

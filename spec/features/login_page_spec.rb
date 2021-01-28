@@ -93,7 +93,7 @@ RSpec.feature 'Fill in with valid credentials' do
     expect(page).to have_css('h2', text: 'Visits:')
   end
 
-  scenario 'Can\'t delete visit in past'  do
+  scenario 'Can\'t delete visit in past' do
     click_link('Jimm Klarck')
     click_link('My visits')
     find_button('Cancel visit', id: '4').click
@@ -109,6 +109,10 @@ RSpec.feature 'Fill in with valid credentials' do
     end
     expect(message).to eq('Are you sure?')
     expect(page).to have_content('Your account was successfully deleted.')
+  end
+
+  scenario 'Can\'t login after deletion own account' do
+    expect(page).to have_content('This account has been deleted. Contact administrator.')
   end
 end
 

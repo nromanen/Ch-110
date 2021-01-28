@@ -4,8 +4,7 @@ require_relative 'login_partial'
 
 admin_email = 'admin@admin.com'
 admin_password = 'admin1'
-user_email = 'user1@gmail.com'
-password = '123456'
+
 
 RSpec.feature "Admin log in: ", type: :feature do
   background do

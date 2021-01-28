@@ -10,6 +10,10 @@ RSpec.feature "Visit Home Page", type: :feature do
     expect(page).to have_title('MedManager')
   end
 
+  scenario 'should display description' do
+    expect(page).to have_content('HealthBook')
+  end
+
   scenario 'should display navbar' do
     expect(page).to have_css('header')
   end
@@ -59,11 +63,6 @@ RSpec.feature "Visit Home Page", type: :feature do
     find_button('EN').hover
     find_link('RU', visible: false).click
     expect(page).to have_css('div a', :text => 'Главная')
-  end
-
-  scenario 'should display description' do
-    expect(page).to have_content('HealthBook')
-    expect(page).to have_css('h1 a', text: 'HealthBook')
   end
 
   scenario 'should display \'CAN WE HELP YOU?\'' do
