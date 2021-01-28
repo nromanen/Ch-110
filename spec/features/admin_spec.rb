@@ -63,21 +63,21 @@ RSpec.feature "Admin do some actions with patients profile:  ", type: :feature d
     expect(page).to have_link(href: '/admin/patient_profile/add')
   end
 
-  scenario 'Admin create users profile' do
-    form = 'form'
-    click_link(href: '/admin/patient_profiles')
-    click_link(href: '/admin/patient_profile/add')
-    within(form) do
-      select('user1@gmail.com', from: 'user_id')
-      fill_in('height', with: '180')
-      fill_in('weight', with: '80')
-      fill_in('allergies', with: 'Sea product')
-      check('isInsured')
-      select('A', from: 'blood_type')
-      click_button('Create profile')
-    end
-    expect(page).to have_content('Patient profiles:')
-    expect(page).to have_css('td.MuiTableCell-root.MuiTableCell-body.MuiTableCell-alignRight', text: '180')
-  end
+  # scenario 'Admin create users profile' do
+  #   form = 'form'
+  #   click_link(href: '/admin/patient_profiles')
+  #   click_link(href: '/admin/patient_profile/add')
+  #   within(form) do
+  #     select('user1@gmail.com', from: 'user_id')
+  #     fill_in('height', with: '180')
+  #     fill_in('weight', with: '80')
+  #     fill_in('allergies', with: 'Sea product')
+  #     check('isInsured')
+  #     select('A', from: 'blood_type')
+  #     click_button('Create profile')
+  #   end
+  #   expect(page).to have_content('Patient profiles:')
+  #   expect(page).to have_css('td.MuiTableCell-root.MuiTableCell-body.MuiTableCell-alignRight', text: '180')
+  # end
 end
 
