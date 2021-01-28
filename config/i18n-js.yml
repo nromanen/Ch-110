@@ -27,17 +27,17 @@
 #
 
 #translations:
-- file: 'app/javascript/bundles/i18n/en.js'
-  prefix: "import I18n from 'i18n-js';\n"
-  pretty_print: true
-  only: 'en.*'
+#- file: 'app/javascript/bundles/i18n/en.js'
+#  prefix: "import I18n from 'i18n-js';\n"
+#  pretty_print: true
+#  only: 'en.*'
 
-- file: 'app/javascript/bundles/i18n/ru.js'
-  prefix: "import I18n from 'i18n-js';\n"
-  pretty_print: true
-  only: 'ru.*'
+#- file: 'app/javascript/bundles/i18n/ru.js'
+#  prefix: "import I18n from 'i18n-js';\n"
+#  pretty_print: true
+#  only: 'ru.*'
 
-- file: 'app/javascript/bundles/i18n/uk.js'
-  prefix: "import I18n from 'i18n-js';\n"
-  pretty_print: true
-  only: 'uk.*'
+#- file: 'app/javascript/bundles/i18n/uk.js'
+#  prefix: "import I18n from 'i18n-js';\n"
+#  pretty_print: true
+#  only: 'uk.*'
