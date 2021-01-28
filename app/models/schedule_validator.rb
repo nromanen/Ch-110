@@ -9,11 +9,11 @@ class ScheduleValidator < ActiveModel::Validator
     @end_date = record.end_date
     @day = record.day
 
-    user_is_doctor
-    time_is_valid
-    date_is_valid
-    date_not_in_past
-    date_not_in_schedule
+    user_is_doctor if @doctor
+    time_is_valid if @start_time && @end_time
+    date_is_valid if @start_date && @end_date
+    date_not_in_past if @end_date
+    date_not_in_schedule if @start_date && @doctor
 
   end
 

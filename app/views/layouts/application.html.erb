@@ -25,12 +25,16 @@
     <div class="content">
       <%= yield %>
     </div>
+  <% else %>
+    <div class="container">
+      <%= yield %>
+    </div>
   <% end %>
   <div class="container">
     <%= yield %>
   </div>
   <div class="bottom"> 
     <%= react_component("Bottom") %>
-  </div>  
+  </div>
   </body>
 </html>

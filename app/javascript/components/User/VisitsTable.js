@@ -18,17 +18,19 @@ const useStyles = makeStyles({
     },
 });
 
-export default function VisitsTable({ userVisits, locale }) {
+export default function VisitsTable({ userVisits, currentUser }) {
     console.log(userVisits)
 
     const classes = useStyles();
 
     const [visits, setVisits] = useState([])
+    const [user, setUser] = useState([])
     const [errors, setErrors] = useState([])
     const [openToast, setOpenToast] = useState(false);
 
     useEffect(  () => {
         setVisits(userVisits)
+        setUser(currentUser)
         console.log(userVisits)
     }, [])
 
@@ -74,36 +76,34 @@ export default function VisitsTable({ userVisits, locale }) {
             text={ item }
             handleClose={ setErrors }
         />
-    ))
+    ));
 
     if (visits.length) {
         return (
             <div>
                 { errorMessages }
             <TableContainer component={Paper}>
-                <h2>{locale.visits}:</h2>
+                <h2>{I18n.t("activerecord.attributes.visits.visits")}:</h2>
                 <Table className={classes.table} size="small" aria-label="a dense table">
                     <TableHead>
                         <TableRow>
-                            <TableCell>{locale.patient}</TableCell>
-                            <TableCell align="left">{locale.doctor}</TableCell>
-                            <TableCell align="right">{locale.date}</TableCell>
-                            <TableCell align="right">{locale.time}</TableCell>
-                            <TableCell align="right">{locale.visit_duration}</TableCell>
+                            <TableCell>{I18n.t(`activerecord.attributes.visits.${user.role == 'patient' ? 'doctor' : 'patient' }`)}</TableCell>
+                            <TableCell align="right">{I18n.t("activerecord.attributes.visits.date")}</TableCell>
+                            <TableCell align="right">{I18n.t("activerecord.attributes.visits.time")}</TableCell>
+                            <TableCell align="right">{I18n.t("activerecord.attributes.visit_types.duration")}</TableCell>
                             <TableCell align="right"></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {visits.map((visit) => (
-                            <TableRow key={visit.patient_name}>
+                            <TableRow key={user.role == 'patient' ? visit.doctor_name : visit.patient_name }>
                                 <TableCell component="th" scope="row">
-                                    {visit.patient_name}
+                                    {user.role == 'patient' ? visit.doctor_name : visit.patient_name }
                                 </TableCell>
-                                <TableCell align="left">{visit.doctor_name}</TableCell>
-                                <TableCell align="right">{new Date(visit.start_time).toDateString()}</TableCell>
+                                <TableCell align="right">{new Date(visit.start_time).toLocaleDateString()}</TableCell>
                                 <TableCell align="right">{new Date(visit.start_time).toLocaleTimeString()}</TableCell>
-                                <TableCell align="right">{visit.visit_duration} minutes</TableCell>
-                                <TableCell align="right"><button onClick={() => deleteVisit(visit.id)}>Cancel visit</button></TableCell>
+                                <TableCell align="right">{visit.visit_duration} {I18n.t("activerecord.attributes.visit_types.minutes")}</TableCell>
+                                <TableCell align="right"><button onClick={() => deleteVisit(visit.id)}>{I18n.t("activerecord.attributes.visits.cancel_visit")}</button></TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
@@ -112,14 +112,14 @@ export default function VisitsTable({ userVisits, locale }) {
                 <CustomizedSnackbars
                     handleCloseToast={ handleCloseToast }
                     openToast={ openToast }
-                    message={ 'Visit was successfully canceled' }
+                    message={ I18n.t("activerecord.attributes.visits.was_canceled") }
                 />
             </div>
         );} else {
         return (
             <div>
-                <h2>{locale.visits}:</h2>
-                <h4>{locale.no_visits_message}</h4>
+                <h2>{I18n.t("activerecord.attributes.visits.visits")}:</h2>
+                <h4>{I18n.t("activerecord.attributes.visits.no_visits_message")}</h4>
             </div>
         );
     }

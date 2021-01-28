@@ -36,7 +36,6 @@ ru:
     sign_up: "Регистрация"
     log_in: "Войти"
     log_out: "Выйти"
-    departments: "Отделения"
 
   manager_bar:
     patients: "Пациенты"
@@ -82,6 +81,8 @@ ru:
         new_visit: "Новый визит"
         no_visits_message: "У Вас еще нет визитов"
         create_visit: "Создать визит"
+        cancel_visit: "Отменить визит"
+        was_canceled: "Визит был успешно отменен"
       schedules:
         schedules: "Расписания"
         doctor: "Доктор"
