@@ -26,6 +26,9 @@ class DoctorProfileController < ApplicationController
     @doctor_profiles = DoctorProfile.all
     @users = User.where(:role => 2).order(:name)
     @specializations = DoctorProfile.specializations
+
+    
+    
     @doctor_profiles.each do |doctor|
       @avatars << {
                   id: doctor.id,
