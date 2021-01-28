@@ -27,7 +27,6 @@ const ListOfDoctorProfiles = props => {
     }
 
     const [profiles, setProfiles] = useState([])
-    const [newProfile, setNewProfile] = useState({})
     const [editing, setEditing] = useState(false)
     const [currentProfile, setCurrentProfile] = useState({})
     const [errorsFromController, setErrorsFromController] = useState([])
@@ -53,12 +52,10 @@ const ListOfDoctorProfiles = props => {
             { headers: headers }
         )
             .then(res => {
-                setNewProfile(res.data)
                 console.log(res.data)
                 setProfiles( [...profiles, res.data])
                 setInitialFormState(initialForm)
                 setErrorsFromController([])
-                const new_profile = res.data
             })
 
             .catch( error => {
@@ -141,8 +138,7 @@ const ListOfDoctorProfiles = props => {
                         addProfile={ addProfile }
                         specializations={ specializations }
                         initialFormState={ initialFormState }
-                        newProfile={newProfile}
-                        new_profile={new_profile}/>
+                        />
                 )}
             </div>
             <div>

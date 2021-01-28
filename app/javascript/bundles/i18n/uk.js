@@ -380,6 +380,21 @@ I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {
       "update": "Зберегти %{model}"
     }
   },
+  "home": {
+    "describe_1": "Переглядайте лікарів онлайн і записуйтеся до них.",
+    "describe_2": "Вхід здійснюється через створений вами обліковий запис або за допомогою консультанта.",
+    "describe_3": "Рекомендується надати достовірну інформацію про ваші хронічні захворювання і алергії, щоб ми могли надати вам якісну першу медичну допомогу.",
+    "healthbook": "Healthbook",
+    "left_down_h2": "Новинка!",
+    "left_down_h4_1": "Ми створили програму лояльності, яка передбачає -10% на всі медичні послуги в нашій клініці.",
+    "left_down_h4_2": "Заходьте і отримайте карту БЕЗКОШТОВНО!",
+    "left_down_h4_3": "Ми чекаємо вас!",
+    "rigth_up_first": "З повагою до вас, ми докладаємо всіх зусиль для надання якісних медичних послуг.",
+    "rigth_up_second_p1": "ПОТРІБНА ДОПОМОГА?",
+    "rigth_up_second_p2": "Ми з радістю відповімо на будь-які питання з надання медичних послуг і надамо актуальну інформацію про ваше здоров'я.",
+    "rigth_up_third_p1": "Чекаємо ваших повідомлень на ",
+    "rigth_up_third_p2": " або напишіть тут свій номер і ми вам передзвонимо."
+  },
   "i18n": {
     "plural": {
       "keys": [
@@ -388,10 +403,10 @@ I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {
         "many",
         "other"
       ],
-      "rule": "#<Proc:0x0000000008240470@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/rails-i18n-6.0.0/lib/rails_i18n/common_pluralizations/east_slavic.rb:16 (lambda)>"
+      "rule": "#<Proc:0x000055b8623fc148@/home/dv/.rvm/gems/ruby-2.6.6/gems/rails-i18n-6.0.0/lib/rails_i18n/common_pluralizations/east_slavic.rb:16 (lambda)>"
     },
     "transliterate": {
-      "rule": "#<Proc:0x0000000008508608@G:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/rails-i18n-6.0.0/lib/rails_i18n/../../rails/transliteration/uk.rb:8 (lambda)>"
+      "rule": "#<Proc:0x000055b862861a58@/home/dv/.rvm/gems/ruby-2.6.6/gems/rails-i18n-6.0.0/lib/rails_i18n/../../rails/transliteration/uk.rb:8 (lambda)>"
     }
   },
   "manager_bar": {
@@ -430,42 +445,44 @@ I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {
       "strip_insignificant_zeros": false
     },
     "human": {
-      // "decimal_units": {
-      //   "format": "%n %u",
-      //   "units": {
-          // "billion": {
-            // "few": "Мільярдів",
-            // "many": "Мільярдів",
-            // "one": "Мільярд",
-            // "other": "Мільярдів"
-          // },
-      //     "million": {
-      //       "few": "Мільйонів",
-      //       "many": "Мільйонів",
-      //       "one": "Мільйон",
-      //       "other": "Мільйонів"
-      //     },
-      //     "quadrillion": {
-      //       "few": "Квадрильйонів",
-      //       "many": "Квадрильйонів",
-      //       "one": "Квадрильйон",
-      //       "other": "Квадрильйонів"
-      //     },
-      //     "thousand": {
-      //       "few": "Тисяч",
-      //       "many": "Тисяч",
-      //       "one": "Тисяча",
-      //       "other": "Тисяч"
-      //     },
-      //     "trillion": {
-      //       "few": "Трильйонів",
-      //       "many": "Трильйонів",
-      //       "one": "Трильйон",
-      //       "other": "Трильйонів"
-      //     },
-      //     "unit": ""
-      //   }
-      // },
+      "decimal_units": {
+        "format": "%n %u",
+        "units": {
+          /*
+          "billion": {
+            "few": "Мільярдів",
+            "many": "Мільярдів",
+            "one": "Мільярд",
+            "other": "Мільярдів"
+          },
+          "million": {
+            "few": "Мільйонів",
+            "many": "Мільйонів",
+            "one": "Мільйон",
+            "other": "Мільйонів"
+          },
+          "quadrillion": {
+            "few": "Квадрильйонів",
+            "many": "Квадрильйонів",
+            "one": "Квадрильйон",
+            "other": "Квадрильйонів"
+          },
+          "thousand": {
+            "few": "Тисяч",
+            "many": "Тисяч",
+            "one": "Тисяча",
+            "other": "Тисяч"
+          },
+          "trillion": {
+            "few": "Трильйонів",
+            "many": "Трильйонів",
+            "one": "Трильйон",
+            "other": "Трильйонів"
+          },
+          */
+          "unit": ""
+        }
+      },
       "format": {
         "delimiter": "",
         "precision": 1,

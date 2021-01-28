@@ -3,10 +3,8 @@ import TextField from '@material-ui/core/TextField';
 
 import { DirectUpload } from 'activestorage';
 
-
 const NewProfileForm = props => {
     const [profile, setProfile] = useState(props.initialFormState);
-    //const [avatar, setAvatar] = useState(props.initialFormState);
     const [formData, setFormData] = useState({
         image: undefined
         });
@@ -18,7 +16,6 @@ const NewProfileForm = props => {
     const handleInputChange = event => {
         if (event.target.name === 'image'){
             setFormData(prev =>({
-                ...prev,
                 image: event.target.files[0]
                 }));
         } else {
@@ -27,31 +24,19 @@ const NewProfileForm = props => {
         }
     };
 
-    
-
-    const onChangeImage = event => {
-        console.log(event.target.files[0]);
-        const {files} = event.target
-        console.log('12345')
-        setFormData(prev =>({
-                ...prev,
-                image: files[0]
-                }));
-        const photo = event.target.files[0]
-        uploadFile(photo, profile)
-        console.log('12345')
-
-    }
-
     const handleSubmit = event => {
             event.preventDefault()
-            let  doc_profile = props.addProfile(profile);
-            setProfile(props.initialFormState)
-            console.log(profile)     
-            console.log(props.new_profile)     
-
-            uploadFile(formData.image, profile)
-            console.log('submiting form...')     
+            setProfile(props.initialFormState)     
+            fetch('http://localhost:3000/doctor_profile', {
+                method: 'POST',
+                headers:{
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(profile)
+            })
+            .then(response => response.json())
+            .then(data => uploadFile(formData.image, data))  
         }
 
     const uploadFile = (file, user) => {
@@ -60,18 +45,18 @@ const NewProfileForm = props => {
             if (error){
                 console.log(error)
             } else {
-                fetch(`http://localhost:3000/doctor_profile/${props.newProfile.id}`, {
+                console.log(file)
+                fetch(`http://localhost:3000/doctor_profile/${user.id}`, {
                     method: 'PUT',
                     headers:{
                         'Content-Type': 'application/json',
                         'Accept': 'application/json'
                     },
-                    body: JSON.stringify({image: blob.signed_id})
+                    body: JSON.stringify({avatar: blob.signed_id, doctor_profile: user})
                 })
                     .then(response => response.json())
                     .then(result => console.log(result))
             }
-                //console.log('there is no error')
         })
     }
     
@@ -100,15 +85,7 @@ const NewProfileForm = props => {
                 type="file"
                 name="image"
                 onChange={ handleInputChange } >
-            </input><br/>
-
-            
-            <input
-                name="photo_path"
-                value={ profile.photo_path }
-                onChange={ handleInputChange }>
-            </input><br/>
-            
+            </input><br/><br/>
             
             <label>Specialization: </label><br/>
             <select

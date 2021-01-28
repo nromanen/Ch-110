@@ -5,34 +5,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-//.left_up{
-//    left : 10%;
-//    position: fixed;
-//    bottom: 10;
-//    padding: 10%;
-//    width: 10%;
-//}
-//
+
 .left_up h1{
 
-    margin-bottom: 0%;
+  margin-bottom: 0%;
 
-}
+ }
 
 .left_up a{
     margin-left: 2%;
-    text-decoration: none;
-    display: inline-block;
-    padding: 5px 10px;
-    letter-spacing: 1px;
-    top: 2%;
-    margin-bottom: 0px;
-    font-weight: 700;
-    font-size: 40px;
-    font-family: 'Fredoka One', cursive;
-    transition: .3s ease-in-out;
-    color: #00CC00;
-    transform: scaleX(1.1);
+      text-decoration: none;
+      display: inline-block;
+      padding: 5px 10px;
+      letter-spacing: 1px;
+      top: 2%;
+      margin-bottom: 0px;
+      font-weight: 700;
+      font-size: 40px;
+      font-family: 'Fredoka One', cursive;
+      transition: .3s ease-in-out;
+      color: #00CC00;
+      transform: scaleX(1.1);
 }
 
 .left_up .describe{
@@ -45,23 +38,23 @@
     font-weight: 600;
     max-width: 60%;
 
-}
+  }
 
 
 .line{
-    background: #f17e00;
-    height: 5px;
-    margin-left: 25px;
-    border: 1px solid #f17e00;
-    max-width: 56.5%;
-    margin-top: 0px;
-    margin-bottom: 0px;
+  background: #f17e00;
+  height: 5px;
+  margin-left: 25px;
+  border: 1px solid #f17e00;
+  max-width: 56.5%;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .rigth_up{
-    left : 60%;
-    position: absolute;
-    margin-right: 20px;
+  left : 60%;
+  position: absolute;
+  margin-right: 20px;
 
     padding: 10px;
     top: 15%;
@@ -69,38 +62,38 @@
 }
 
 .rigth_up .rigth_up_first{
-    font-family: Arial;
-    text-align: center;
-    padding-left: 12%;
-    font-size: 24px;
-    color: #fff;
-    font-weight: 600;
+  font-family: Arial;
+  text-align: center;
+  padding-left: 12%;
+  font-size: 24px;
+  color: #fff;
+  font-weight: 600;
 }
 
 .rigth_up .rigth_up_first p{
 
-    background: #333;
+  background: #333;
 }
 
 .rigth_up .rigth_up_second{
-    font-family: Arial;
-    font-size: 23px;
-    font-weight: 600;
+  font-family: Arial;
+  font-size: 23px;
+  font-weight: 600;
 }
 
 .rigth_up .rigth_up_second .p1{
-    text-align: center;
-    font-size: 25px;
+  text-align: center;
+  font-size: 25px;
 }
 
 .rigth_up .rigth_up_second .img{
-    float: left;
+  float: left;
     margin: 7px 10px 7px 7px;
 }
 
 
 .rigth_up .rigth_up_third p{
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .rigth_up .rigth_up_third li{
@@ -139,37 +132,37 @@
 
 .left_down{
 
-    margin-left: 25px;
-    position: left;
+  margin-left: 25px;
+  position: left;
 
-    left: 0;
-    padding: 10px;
-    top: 110px;
-    width: 56%;
-    height: 20px;
+  left: 0;
+  padding: 10px;
+  top: 110px;
+  width: 56%;
+  height: 20px;
 }
 
 .left_down .img_discount{
-    top: 20px;
-    float: left;
-    margin: 7px 10px 7px 7px;
+  top: 20px;
+  float: left;
+  margin: 7px 10px 7px 7px;
 }
 
 .left_down p{
-    margin-bottom: 0px;
-    margin-top: 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
 
 }
 
 .left_down h2{
-    margin-top: 0px;
-    margin-bottom: 0px;
-    font: bold 36px Arial;
-    color: #f17e00;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font: bold 36px Arial;
+  color: #f17e00;
 }
 
 .left_down h4{
-    margin-top: 10px;
-    font: bold 24px Arial;
-    color: #4682B4;
+  margin-top: 10px;
+  font: bold 24px Arial;
+  color: #4682B4;
 }
