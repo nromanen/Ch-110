@@ -67,7 +67,6 @@ en:
     sign_up: "Sign Up"
     log_in: "Log In"
     log_out: "Log Out"
-    departments: "Departments"
 
   manager_bar:
     patients: "Patients"
@@ -113,6 +112,8 @@ en:
         new_visit: "New visit"
         no_visits_message: "You don't have visits right now"
         create_visit: "Create visit"
+        cancel_visit: "Cancel visit"
+        was_canceled: "Visit was successfully canceled"
       schedules:
         schedules: "Schedules"
         doctor: "Doctor"

@@ -58,6 +58,7 @@ I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {
         "visit_types": "Типи візитів"
       },
       "visits": {
+        "cancel_visit": "Відмінити візит",
         "create_visit": "Створити візит",
         "date": "Дата",
         "doctor": "Лікар",
@@ -66,7 +67,8 @@ I18n.translations["uk"] = I18n.extend((I18n.translations["uk"] || {}), {
         "patient": "Пацієнт",
         "time": "Час",
         "visit_type": "Тип візиту",
-        "visits": "Візити"
+        "visits": "Візити",
+        "was_canceled": "Візит був успішно відмінений"
       }
     },
     "errors": {

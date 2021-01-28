@@ -54,6 +54,7 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
         "visit_types": "Visit types"
       },
       "visits": {
+        "cancel_visit": "Cancel visit",
         "create_visit": "Create visit",
         "date": "Date",
         "doctor": "Doctor",
@@ -62,7 +63,8 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
         "patient": "Patient",
         "time": "Time",
         "visit_type": "Visit type",
-        "visits": "Visits"
+        "visits": "Visits",
+        "was_canceled": "Visit was successfully canceled"
       }
     },
     "errors": {

@@ -6,7 +6,7 @@ class Visit < ApplicationRecord
   belongs_to :created_by, class_name: 'User'
   belongs_to :visit_type
 
-  validates :start_time, presence: true
+  validates :patient, :doctor, :start_time, :visit_type, presence: true
 
   #minimal interval to cancel the visit - 1 hour
   CANCEL_TIME = 3600
