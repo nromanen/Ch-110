@@ -14,7 +14,7 @@ function SideBar() {
                 <Link style={ navStyle } to='/admin/users'>
                     <li>Users</li>
                 </Link>
-                <Link style={ navStyle } to='/admin/doctor_profiles'>
+                <Link style={ navStyle } to='/doctor_profile'>
                     <li>Doctors profile</li>
                 </Link>
                 <Link style={ navStyle } to='/admin/patient_profiles'>

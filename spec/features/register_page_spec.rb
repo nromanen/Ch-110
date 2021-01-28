@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Register page content", type: :feature do
 
-  form = 'form#new_user'
+  form = 'form'
 
   background do
     visit '/users/sign_up?locale=en'

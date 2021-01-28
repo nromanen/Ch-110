@@ -35,6 +35,14 @@
             <span class="psw"><%= link_to "#{ 'Manager Dashboard' }", manager_path %></span>
           </div>
       <% end %>
+      <% if @user && @user.role == 'admin' %>
+        <div>
+          <a href="/admin/index">Dashboard</a>
+        </div>
+        <div>
+          <a href="/patient_profile">Patient profile</a>
+        </div>
+      <% end %>
     </div>
   </div>
 </section>
