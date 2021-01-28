@@ -218,16 +218,15 @@ const Appointment = ({ user, location, doctorId }) => {
                     <div className="schedule">
                         <div className="wrapper-container">
                             { errorMessages }
-                            { !weekend && <BasicTable
+                            { !weekend? <BasicTable
                                 appointments={ appointments }
                                 limit={ limit }
                                 handleButtonTableClick={ handleButtonTableClick }
                                 selectedDate={ selectedDate }
                                 doctorId={ doctorId }
                                 setErrors={ setErrors }
-
-                            />
-                            }
+                            />:
+                            <h1 style={{color: "#eb6357", textAlign: "center"}}>The doctor is not working this day</h1>}
                         </div>
                     </div>
                 </div>

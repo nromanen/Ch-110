@@ -6,7 +6,7 @@ password = '123456'
 
 RSpec.feature "Login page content", type: :feature do
 
-  form = 'form#new_user'
+  form = 'form'
 
   background do
     visit '/users/sign_in?locale=en'
@@ -67,10 +67,10 @@ RSpec.feature 'Login Page: Invalid Credentials Display Alert to User' do
 end
 
 RSpec.feature 'Fill in with valid credentials' do
-
+  future_disabled_user = 'user2@gmail.com'
   background do
     visit '/users/sign_in?locale=en'
-    login(user_email, password)
+    login(future_disabled_user, password)
   end
 
   scenario 'Good credentials: display notice: Signed in successfully.' do
@@ -80,6 +80,39 @@ RSpec.feature 'Fill in with valid credentials' do
 
   scenario 'Good credentials: display link Log out.' do
     expect(page).to have_link('Log Out', href: '/users/sign_out?locale=en')
+  end
+
+  scenario 'Can visit own cabinet' do
+    click_link('Jimm Klarck')
+    expect(page).to have_css('p', text: '380971225344')
+  end
+
+  scenario 'Can visit own cabinet' do
+    click_link('Jimm Klarck')
+    click_link('My visits')
+    expect(page).to have_css('h2', text: 'Visits:')
+  end
+
+  scenario 'Can\'t delete visit in past' do
+    click_link('Jimm Klarck')
+    click_link('My visits')
+    find_button('Cancel visit', id: '4').click
+    expect(page).to have_content('Visit can\'t be canceled: Less 60 than minutes left to an appointment.')
+  end
+
+  scenario 'Can delete own account' do
+    click_link('Jimm Klarck')
+    click_link('Edit account')
+
+    message = accept_confirm do
+      click_link('I want to delete my account', href: '/users?locale=en')
+    end
+    expect(message).to eq('Are you sure?')
+    expect(page).to have_content('Your account was successfully deleted.')
+  end
+
+  scenario 'Can\'t login after deletion own account' do
+    expect(page).to have_content('This account has been deleted. Contact administrator.')
   end
 end
 

@@ -103,7 +103,7 @@ export default function VisitsTable({ userVisits, currentUser }) {
                                 <TableCell align="right">{new Date(visit.start_time).toLocaleDateString()}</TableCell>
                                 <TableCell align="right">{new Date(visit.start_time).toLocaleTimeString()}</TableCell>
                                 <TableCell align="right">{visit.visit_duration} {I18n.t("activerecord.attributes.visit_types.minutes")}</TableCell>
-                                <TableCell align="right"><button onClick={() => deleteVisit(visit.id)}>{I18n.t("activerecord.attributes.visits.cancel_visit")}</button></TableCell>
+                                <TableCell align="right"><button id={ visit.id } onClick={() => deleteVisit(visit.id)}>{I18n.t("activerecord.attributes.visits.cancel_visit")}</button></TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
