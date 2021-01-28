@@ -36,7 +36,6 @@ uk:
     sign_up: "Реєстрація"
     log_in: "Увійти"
     log_out: "Вийти"
-    departments: "Відділення"
 
   manager_bar:
     patients: "Пацієнти"
@@ -67,6 +66,8 @@ uk:
         new_visit: "Новий візит"
         no_visits_message: "У Вас ще немає візитів"
         create_visit: "Створити візит"
+        cancel_visit: "Відмінити візит"
+        was_canceled: "Візит був успішно відмінений"
       schedules:
         schedules: "Розклади"
         doctor: "Лікар"

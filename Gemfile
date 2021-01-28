@@ -20,7 +20,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'ffaker'
+  gem 'faker'
   gem 'rubocop', '~> 0.89', require: false
   gem 'rubocop-performance', '~> 1.7', require: false
   gem 'rubocop-rails', '~> 2.7', require: false

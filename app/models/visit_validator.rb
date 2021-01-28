@@ -1,19 +1,22 @@
 class VisitValidator < ActiveModel::Validator
 
   def validate(record)
-    @patient = User.find_by_id(record.patient_id)
-    @doctor = User.find_by_id(record.doctor_id)
-    @start_time = record.start_time
-    @visit_type = VisitType.find_by_id(record.visit_type_id)
-    @record_time = DateTime.new(2000, 1, 1, @start_time.strftime("%H").to_i, @start_time.strftime("%M").to_i)
-    @errors = record.errors
-
-    time_slot_not_busy
-    schedule_present
-    time_slot_is_in_schedule
-    time_slot_not_in_past
-    time_slot_not_out_of_work_time
-    visit_type_in_schedule
+    if record.patient_id && record.doctor_id && record.start_time && record.visit_type_id
+      @patient = User.find_by_id(record.patient_id)
+      @doctor = User.find_by_id(record.doctor_id)
+      @start_time = record.start_time
+      @visit_type = VisitType.find_by_id(record.visit_type_id)
+      @record_time = DateTime.new(2000, 1, 1, @start_time.strftime("%H").to_i, @start_time.strftime("%M").to_i)
+      @errors = record.errors
+    
+    
+      time_slot_not_busy
+      schedule_present
+      time_slot_is_in_schedule
+      # time_slot_not_in_past
+      time_slot_not_out_of_work_time
+      visit_type_in_schedule
+    end
   end
 
   def time_slot_not_busy
@@ -24,10 +27,8 @@ class VisitValidator < ActiveModel::Validator
   end
 
   def schedule_present
-    puts "===================================================="
-    puts @start_time
-    @schedule = Schedule.where("start_date <= :current_date AND end_date >= :current_date AND user_id = :user_id AND day = :day",
-                                   {current_date: DateTime.now, day: @start_time.strftime("%u"), user_id: @doctor.id}).order(created_at: :desc)[-1]
+    @schedule = Schedule.where("start_date <= :chosen_date AND end_date >= :chosen_date AND user_id = :user_id AND day = :day",
+                                   {chosen_date: @start_time, day: @start_time.strftime("%u"), user_id: @doctor.id}).order(created_at: :desc).last
     unless @schedule
       @errors.add(:base, "The doctor doesn't take patients on this day")
     end

@@ -53,18 +53,18 @@ schedules = Schedule.create([{user: doctor_1, day: 'Monday', start_time: '2000-0
                              {user: doctor_2, day: 'Friday', start_time: '2000-01-01 14:00:00',
                               end_time: '2000-01-01 18:00:00', visit_type: visit_type_2, start_date: '2021-01-01', end_date: '2021-01-31'}])
 
-visits = Visit.create!([{patient: patient_1, doctor: doctor_1, created_by: patient_1,
-                        start_time: '2021-01-08 10:00:00', visit_type: visit_type_1},
-                       {patient: patient_1, doctor: doctor_1, created_by: patient_1,
-                        start_time: '2021-01-13 11:00:00', visit_type: visit_type_1},
-                       {patient: patient_1, doctor: doctor_1, created_by: patient_1,
-                        start_time: '2021-01-19 15:00:00', visit_type: visit_type_1},
-                       {patient: patient_2, doctor: doctor_2, created_by: patient_2,
-                        start_time: '2021-01-12 12:00:00', visit_type: visit_type_2},
-                       {patient: patient_2, doctor: doctor_2, created_by: patient_2,
-                        start_time: '2021-01-15 17:00:00', visit_type: visit_type_2},
-                       {patient: patient_2, doctor: doctor_2, created_by: patient_2,
-                        start_time: '2021-01-18 16:00:00', visit_type: visit_type_2}])
+visits = Visit.create!([{patient: patient_1, doctor: doctor_1, created_by: patient_1, patient_name: "#{patient_1.name} #{patient_1.surname}",
+                        start_time: '2021-01-08 10:00:00', visit_type: visit_type_1, doctor_name: "#{doctor_1.name} #{doctor_1.surname}"},
+                       {patient: patient_1, doctor: doctor_1, created_by: patient_1, patient_name: "#{patient_1.name} #{patient_1.surname}",
+                        start_time: '2021-01-13 11:00:00', visit_type: visit_type_1, doctor_name: "#{doctor_1.name} #{doctor_1.surname}"},
+                       {patient: patient_1, doctor: doctor_1, created_by: patient_1, patient_name: "#{patient_1.name} #{patient_1.surname}",
+                        start_time: '2021-01-19 15:00:00', visit_type: visit_type_1, doctor_name: "#{doctor_1.name} #{doctor_1.surname}"},
+                       {patient: patient_2, doctor: doctor_2, created_by: patient_2, patient_name: "#{patient_2.name} #{patient_2.surname}",
+                        start_time: '2021-01-12 12:00:00', visit_type: visit_type_2, doctor_name: "#{doctor_2.name} #{doctor_2.surname}"},
+                       {patient: patient_2, doctor: doctor_2, created_by: patient_2, patient_name: "#{patient_2.name} #{patient_2.surname}",
+                        start_time: '2021-01-15 17:00:00', visit_type: visit_type_2, doctor_name: "#{doctor_2.name} #{doctor_2.surname}"},
+                       {patient: patient_2, doctor: doctor_2, created_by: patient_2, patient_name: "#{patient_2.name} #{patient_2.surname}",
+                        start_time: '2021-01-18 16:00:00', visit_type: visit_type_2, doctor_name: "#{doctor_2.name} #{doctor_2.surname}"}])
 
 doctor_profiles = DoctorProfile.create([
                                          { user_id: doctor_1.id,
